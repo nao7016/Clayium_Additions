@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.nao7016.ClayiumAdditions;
 
 import java.io.File;
 

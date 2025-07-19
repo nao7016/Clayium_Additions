@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.nao7016.ClayiumAdditions;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,13 +10,19 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
-@Mod(modid = MyMod.MODID, version = Tags.VERSION, name = "MyMod", acceptedMinecraftVersions = "[1.7.10]")
-public class MyMod {
+@Mod(
+    modid = ClayiumAdditionsModMain.MODID,
+    version = Tags.VERSION,
+    name = "Clayium Additions",
+    acceptedMinecraftVersions = "[1.7.10]")
+public class ClayiumAdditionsModMain {
 
-    public static final String MODID = "mymodid";
+    public static final String MODID = "clayiumadditions";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
-    @SidedProxy(clientSide = "com.myname.mymodid.ClientProxy", serverSide = "com.myname.mymodid.CommonProxy")
+    @SidedProxy(
+        clientSide = "com.nao7016.ClayiumAdditions.ClientProxy",
+        serverSide = "com.nao7016.ClayiumAdditions.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler
@@ -30,6 +36,7 @@ public class MyMod {
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
+        LOG.info("Clayium Additions has loaded!");
     }
 
     @Mod.EventHandler
