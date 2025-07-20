@@ -2,16 +2,21 @@ package com.nao7016.ClayiumAdditions.common;
 
 import net.minecraft.item.Item;
 
-import com.nao7016.ClayiumAdditions.item.itemClayEnergy0;
+import com.nao7016.ClayiumAdditions.item.itemClayEnergy;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemClayiumAdditions {
 
-    public static Item clayEnergy0;
+    public static Item clayEnergy;
 
     public static void registerItems() {
-        clayEnergy0 = new itemClayEnergy0();
-        GameRegistry.registerItem(clayEnergy0, "clay_energy_0");
+        clayEnergy = register(new itemClayEnergy(), "clay_energy");
+
+    }
+
+    private static Item register(Item item, String name) {
+        GameRegistry.registerItem(item, name);
+        return item;
     }
 }

@@ -1,6 +1,7 @@
 package com.nao7016.ClayiumAdditions.common;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
 public class CreativeTabsClayiumAdditions extends CreativeTabs {
@@ -13,6 +14,6 @@ public class CreativeTabsClayiumAdditions extends CreativeTabs {
 
     @Override
     public Item getTabIconItem() {
-        return ItemClayiumAdditions.clayEnergy0;
+        return Item.getItemFromBlock(Blocks.clay);
     }
 }

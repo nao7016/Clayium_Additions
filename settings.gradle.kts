@@ -10,6 +10,10 @@ pluginManagement {
                 includeGroupByRegex("com\\.gtnewhorizons\\..+")
             }
         }
+        maven {
+            name = "Curse Maven"
+            url = uri("https://cursemaven.com")
+        }
         gradlePluginPortal()
         mavenCentral()
         mavenLocal()

@@ -35,5 +35,5 @@
  */
 dependencies {
     runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.7.4-GTNH:dev")
-    implementation files("libs/clayium-0.4.6.36.hotfix2.jar")
+    devOnlyNonPublishable("curse.maven:clayium-243111:2353582")
 }

@@ -1,3 +1,11 @@
-item.clay_energy_0.name=小さいエネルギー粘土
+item.clay_energy.4.name=小さいエネルギー粘土
+item.clay_energy.5.name=小さい圧縮エネルギー粘土
+item.clay_energy.6.name=小さい2重圧縮エネルギー粘土
+item.clay_energy.7.name=小さい3重圧縮エネルギー粘土
+item.clay_energy.8.name=小さい4重圧縮エネルギー粘土
+item.clay_energy.9.name=小さい5重圧縮エネルギー粘土
+item.clay_energy.10.name=小さい6重圧縮エネルギー粘土
+item.clay_energy.11.name=小さい7重圧縮エネルギー粘土
+item.clay_energy.12.name=小さい8重圧縮エネルギー粘土
 
 itemGroup.clayiumAdditionsTabs=Clayium Additions

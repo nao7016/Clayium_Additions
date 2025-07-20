@@ -1,3 +1,11 @@
-item.clay_energy_0.name=Splited Energetic Clay
+item.clay_energy.4.name=Splited Energetic Clay
+item.clay_energy.5.name=Splited Compressed Energetic Clay
+item.clay_energy.6.name=Splited Double Compressed Energetic Clay
+item.clay_energy.7.name=Splited Triple Compressed Energetic Clay
+item.clay_energy.8.name=Splited Quadruple Compressed Energetic Clay
+item.clay_energy.9.name=Splited Quintuple Compressed Energetic Clay
+item.clay_energy.10.name=Splited Sextuple Energetic Clay
+item.clay_energy.11.name=Splited Septuple Energetic Clay
+item.clay_energy.12.name=Splited Octuple Energetic Clay
 
 itemGroup.clayiumAdditionsTabs=Clayium Additions
