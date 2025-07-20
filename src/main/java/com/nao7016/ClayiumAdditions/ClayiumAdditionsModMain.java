@@ -3,6 +3,8 @@ package com.nao7016.ClayiumAdditions;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.nao7016.ClayiumAdditions.common.CommonProxy;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -21,8 +23,8 @@ public class ClayiumAdditionsModMain {
     public static final Logger LOG = LogManager.getLogger(MODID);
 
     @SidedProxy(
-        clientSide = "com.nao7016.ClayiumAdditions.ClientProxy",
-        serverSide = "com.nao7016.ClayiumAdditions.CommonProxy")
+        clientSide = "com.nao7016.ClayiumAdditions.client.ClientProxy",
+        serverSide = "com.nao7016.ClayiumAdditions.common.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler

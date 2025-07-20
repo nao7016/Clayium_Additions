@@ -1,4 +1,4 @@
-package com.nao7016.ClayiumAdditions;
+package com.nao7016.ClayiumAdditions.common;
 
 import java.io.File;
 

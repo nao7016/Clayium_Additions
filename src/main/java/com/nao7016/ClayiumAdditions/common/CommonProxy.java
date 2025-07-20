@@ -1,4 +1,7 @@
-package com.nao7016.ClayiumAdditions;
+package com.nao7016.ClayiumAdditions.common;
+
+import com.nao7016.ClayiumAdditions.ClayiumAdditionsModMain;
+import com.nao7016.ClayiumAdditions.Tags;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -14,14 +17,22 @@ public class CommonProxy {
 
         ClayiumAdditionsModMain.LOG.info(Config.greeting);
         ClayiumAdditionsModMain.LOG.info("I am MyMod at version " + Tags.VERSION);
+
+        ItemClayiumAdditions.registerItems();
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
-    public void init(FMLInitializationEvent event) {}
+    public void init(FMLInitializationEvent event) {
+
+    }
 
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
-    public void postInit(FMLPostInitializationEvent event) {}
+    public void postInit(FMLPostInitializationEvent event) {
+
+    }
 
     // register server commands in this event handler (Remove if not needed)
-    public void serverStarting(FMLServerStartingEvent event) {}
+    public void serverStarting(FMLServerStartingEvent event) {
+
+    }
 }

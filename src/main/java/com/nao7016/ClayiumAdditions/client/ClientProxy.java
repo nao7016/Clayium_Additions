@@ -1,4 +1,6 @@
-package com.nao7016.ClayiumAdditions;
+package com.nao7016.ClayiumAdditions.client;
+
+import com.nao7016.ClayiumAdditions.common.CommonProxy;
 
 public class ClientProxy extends CommonProxy {
 
