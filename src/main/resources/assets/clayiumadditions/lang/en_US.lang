@@ -7,5 +7,7 @@ item.clay_energy.9.name=Splited Quintuple Compressed Energetic Clay
 item.clay_energy.10.name=Splited Sextuple Energetic Clay
 item.clay_energy.11.name=Splited Septuple Energetic Clay
 item.clay_energy.12.name=Splited Octuple Energetic Clay
+item.clay_energy.tooltip.line1=Oh, over-compressed?
+item.clay_energy.tooltip.line2=OK, JUST 1 decompression.
 
 itemGroup.clayiumAdditionsTabs=Clayium Additions

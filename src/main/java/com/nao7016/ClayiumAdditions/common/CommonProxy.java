@@ -2,6 +2,7 @@ package com.nao7016.ClayiumAdditions.common;
 
 import com.nao7016.ClayiumAdditions.ClayiumAdditionsModMain;
 import com.nao7016.ClayiumAdditions.Tags;
+import com.nao7016.ClayiumAdditions.recipe.CARecipes;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -28,7 +29,7 @@ public class CommonProxy {
 
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
     public void postInit(FMLPostInitializationEvent event) {
-
+        CARecipes.register();
     }
 
     // register server commands in this event handler (Remove if not needed)

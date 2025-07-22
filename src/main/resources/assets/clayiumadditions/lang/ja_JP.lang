@@ -7,5 +7,7 @@ item.clay_energy.9.name=小さい5重圧縮エネルギー粘土
 item.clay_energy.10.name=小さい6重圧縮エネルギー粘土
 item.clay_energy.11.name=小さい7重圧縮エネルギー粘土
 item.clay_energy.12.name=小さい8重圧縮エネルギー粘土
+item.clay_energy.tooltip.line1=圧縮しすぎた？
+item.clay_energy.tooltip.line2=分かった、じゃあ1回だけね？
 
 itemGroup.clayiumAdditionsTabs=Clayium Additions
