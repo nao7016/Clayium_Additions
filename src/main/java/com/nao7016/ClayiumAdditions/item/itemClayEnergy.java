@@ -1,23 +1,23 @@
 package com.nao7016.ClayiumAdditions.item;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
-import mods.clayium.item.ItemDamaged;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 
 import com.nao7016.ClayiumAdditions.common.CreativeTabsClayiumAdditions;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.clayium.item.IClayEnergy;
+import mods.clayium.item.ItemDamaged;
 import mods.clayium.util.UtilLocale;
-import net.minecraft.util.IIcon;
 
 public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
 
@@ -74,15 +74,14 @@ public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
     @Override
     public void registerIcons(IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon("clayiumaddition:clay_energy");
-        for (int tier =4; tier <= 12; tier++) {
+        for (int tier = 4; tier <= 12; tier++) {
             iconMap.put(tier, iconRegister.registerIcon("clayiumaddition:clay_energy_" + tier));
         }
     }
+
     @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIconFromDamage(int meta) {
-        return iconMap.containsKey(meta)
-            ? iconMap.get(meta)
-            :this.itemIcon;
+        return iconMap.containsKey(meta) ? iconMap.get(meta) : this.itemIcon;
     }
 }

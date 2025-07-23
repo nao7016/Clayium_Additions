@@ -1,5 +1,7 @@
 package com.nao7016.ClayiumAdditions.recipe;
 
+import static mods.clayium.util.crafting.CRecipes.*;
+
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -8,8 +10,6 @@ import com.nao7016.ClayiumAdditions.common.ItemClayiumAdditions;
 import mods.clayium.block.CBlocks;
 import mods.clayium.core.ClayiumCore;
 import mods.clayium.util.crafting.CRecipes;
-
-import static mods.clayium.util.crafting.CRecipes.*;
 
 public class CARecipes {
 
@@ -31,16 +31,15 @@ public class CARecipes {
 
     private static void registerTransformer() {
         CRecipes.registerStackChainRecipes(
-            CRecipes.recipeTransformer, ii(
+            CRecipes.recipeTransformer,
+            ii(
                 i(Items.chicken, 2, 0),
                 i(Items.fish, 1, 0),
                 i(Items.fish, 1, 1),
                 i(Items.fish, 1, 2),
-                i(Items.fish, 1, 3)
-            ),
-            new int[] {2, 1, 1, 1, 1},
-            new int[] {0, 9, 9, 9, 9},
-            200
-        );
+                i(Items.fish, 1, 3)),
+            new int[] { 2, 1, 1, 1, 1 },
+            new int[] { 0, 9, 9, 9, 9 },
+            200);
     }
 }
