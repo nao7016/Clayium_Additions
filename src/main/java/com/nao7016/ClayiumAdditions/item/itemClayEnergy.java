@@ -25,7 +25,7 @@ import mods.clayium.util.UtilLocale;
 public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
 
     private static final Logger log = LogManager.getLogger(itemClayEnergy.class);
-    @SideOnly(Side.CLIENT)
+
     private final Map<Integer, IIcon> iconMap = new HashMap<>();
 
     public itemClayEnergy() {
