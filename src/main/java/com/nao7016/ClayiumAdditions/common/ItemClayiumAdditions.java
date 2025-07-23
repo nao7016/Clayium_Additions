@@ -10,13 +10,12 @@ public class ItemClayiumAdditions {
 
     public static Item clayEnergy;
 
-    public static void registerItems() {
-        clayEnergy = register(new itemClayEnergy(), "clay_energy");
-
-    }
-
     private static Item register(Item item, String name) {
         GameRegistry.registerItem(item, name);
         return item;
+    }
+
+    public static void registerItems() {
+        clayEnergy = register(new itemClayEnergy(), "clay_energy");
     }
 }
