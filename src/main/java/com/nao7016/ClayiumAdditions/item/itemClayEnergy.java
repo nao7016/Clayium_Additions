@@ -11,6 +11,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.nao7016.ClayiumAdditions.common.CreativeTabsClayiumAdditions;
 
 import cpw.mods.fml.relauncher.Side;
@@ -18,8 +21,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import mods.clayium.item.IClayEnergy;
 import mods.clayium.item.ItemDamaged;
 import mods.clayium.util.UtilLocale;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
 
@@ -81,7 +82,7 @@ public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
 
         for (int tier = 4; tier <= 12; tier++) {
             String iconPath = "clayiumadditions:clay_energy_" + tier;
-            IIcon icon =iconRegister.registerIcon(iconPath);
+            IIcon icon = iconRegister.registerIcon(iconPath);
             iconMap.put(tier, icon);
             log.info("[DEBUG] Registered icon for tier {}: {}", tier, iconPath);
         }
@@ -90,11 +91,11 @@ public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
     @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIconFromDamage(int meta) {
-        if(iconMap.containsKey(meta)) {
-            //log.info("[DEBUG] Returning icon for meta {}", meta);
+        if (iconMap.containsKey(meta)) {
+            // log.info("[DEBUG] Returning icon for meta {}", meta);
             return iconMap.containsKey(meta) ? iconMap.get(meta) : this.itemIcon;
         } else {
-            //log.info("[WARN] Missing icon for meta {}, using default.", meta);
+            // log.info("[WARN] Missing icon for meta {}, using default.", meta);
             return this.itemIcon;
         }
     }
