@@ -18,9 +18,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 import mods.clayium.item.IClayEnergy;
 import mods.clayium.item.ItemDamaged;
 import mods.clayium.util.UtilLocale;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
 
+    private static final Logger log = LogManager.getLogger(itemClayEnergy.class);
     @SideOnly(Side.CLIENT)
     private final Map<Integer, IIcon> iconMap = new HashMap<>();
 
@@ -73,15 +76,26 @@ public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister iconRegister) {
-        this.itemIcon = iconRegister.registerIcon("clayiumaddition:clay_energy");
+        this.itemIcon = iconRegister.registerIcon("clayiumadditions:clay_energy");
+        log.info("[DEBUG] Registered default icon: clayiumadditions:clay_energy");
+
         for (int tier = 4; tier <= 12; tier++) {
-            iconMap.put(tier, iconRegister.registerIcon("clayiumaddition:clay_energy_" + tier));
+            String iconPath = "clayiumadditions:clay_energy_" + tier;
+            IIcon icon =iconRegister.registerIcon(iconPath);
+            iconMap.put(tier, icon);
+            log.info("[DEBUG] Registered icon for tier {}: {}", tier, iconPath);
         }
     }
 
     @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIconFromDamage(int meta) {
-        return iconMap.containsKey(meta) ? iconMap.get(meta) : this.itemIcon;
+        if(iconMap.containsKey(meta)) {
+            //log.info("[DEBUG] Returning icon for meta {}", meta);
+            return iconMap.containsKey(meta) ? iconMap.get(meta) : this.itemIcon;
+        } else {
+            //log.info("[WARN] Missing icon for meta {}, using default.", meta);
+            return this.itemIcon;
+        }
     }
 }

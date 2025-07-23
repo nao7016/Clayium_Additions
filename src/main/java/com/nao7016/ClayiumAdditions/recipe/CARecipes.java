@@ -2,6 +2,7 @@ package com.nao7016.ClayiumAdditions.recipe;
 
 import static mods.clayium.util.crafting.CRecipes.*;
 
+import mods.clayium.item.CMaterials;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -38,8 +39,15 @@ public class CARecipes {
                 i(Items.fish, 1, 1),
                 i(Items.fish, 1, 2),
                 i(Items.fish, 1, 3)),
-            new int[] { 2, 1, 1, 1, 1 },
-            new int[] { 0, 9, 9, 9, 9 },
+            new int[]{2, 1, 1, 1, 1},
+            new int[]{0, 9, 9, 9, 9},
             200);
+        CRecipes.recipeTransformer.addRecipe(
+            CMaterials.get(CMaterials.CALCIUM_CHLORIDE, CMaterials.DUST),
+            7,
+            CMaterials.get(CMaterials.IMPURE_CALCIUM, CMaterials.DUST),
+            200000,
+            200
+        );
     }
 }
