@@ -16,12 +16,23 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
     modid = ClayiumAdditionsModMain.MODID,
     version = Tags.VERSION,
     name = "Clayium Additions",
+    dependencies = ClayiumAdditionsModMain.dependencies,
     acceptedMinecraftVersions = "[1.7.10]")
 public class ClayiumAdditionsModMain {
 
     public static final String MODID = "clayiumadditions";
     public static final Logger LOG = LogManager.getLogger(MODID);
-
+    public static final String dependencies = "required-after:Forge@"
+        + net.minecraftforge.common.ForgeVersion.majorVersion
+        + '.' // majorVersion
+        + net.minecraftforge.common.ForgeVersion.minorVersion
+        + '.' // minorVersion
+        + net.minecraftforge.common.ForgeVersion.revisionVersion
+        + '.' // revisionVersion
+        + net.minecraftforge.common.ForgeVersion.buildVersion
+        + ",);" // buildVersion
+        + "required-after:clayium@[0.4.6.36.hotfix2,)" // clayium
+    ;
     @SidedProxy(
         clientSide = "com.nao7016.ClayiumAdditions.client.ClientProxy",
         serverSide = "com.nao7016.ClayiumAdditions.common.CommonProxy")
