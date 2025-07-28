@@ -35,6 +35,12 @@ public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
     }
 
     @Override
+    public Item setUnlocalizedName(String name) {
+        super.setUnlocalizedName(name);
+        return this;
+    }
+
+    @Override
     public String getUnlocalizedName(ItemStack stack) {
         int meta = stack.getItemDamage();
         return super.getUnlocalizedName() + "." + meta;
