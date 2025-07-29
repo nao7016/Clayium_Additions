@@ -22,6 +22,7 @@ public class CommonProxy {
         ClayiumAdditionsModMain.LOG.info("I am MyMod at version " + Tags.VERSION);
 
         ItemClayiumAdditions.registerItems();
+        BlockClayiumAdditions.registerBlocks();
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)

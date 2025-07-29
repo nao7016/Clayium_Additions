@@ -10,4 +10,15 @@ item.clay_energy.12.name=小さい8重圧縮エネルギー粘土
 item.clay_energy.tooltip.line1=圧縮しすぎた？
 item.clay_energy.tooltip.line2=分かった、じゃあ1回だけね？
 
+tile.blockAutoSimpleWaterWheel.name=簡易自動粘土水車
+tile.blockAutoBasicWaterWheel.name=基本自動粘土水車
+tile.blockAutoAdvancedWaterWheel.name=発展自動粘土水車
+tooltip.AutoWaterWheel.info=隣接する Tier %d 機械にエネルギーを送る
+tooltip.AutoWaterWheel.line1=__DETAIL__
+tooltip.AutoWaterWheel.line2=周囲 3x3x3 にある水流の数により
+tooltip.AutoWaterWheel.line3=発生するエネルギーの強度が決まる
+tooltip.AutoWaterWheel.line4=耐久度が 500 まで下がると
+tooltip.AutoWaterWheel.line5=自動で耐久度が 1000 に回復する
+
+
 itemGroup.clayiumAdditionsTabs=Clayium Additions
