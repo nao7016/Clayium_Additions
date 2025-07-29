@@ -34,11 +34,16 @@
  * For more details, see https://docs.gradle.org/8.0.1/userguide/java_library_plugin.html#sec:java_library_configurations_graph
  */
 dependencies {
-    devOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.7.4-GTNH:dev")
-    devOnlyNonPublishable("curse.maven:clayium-243111:2353582")
+    implementation("com.github.GTNewHorizons:NotEnoughItems:2.7.4-GTNH:dev")
+    implementation("curse.maven:clayium-243111:2353582")
+
+    //devOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.7.4-GTNH:dev")
+    //devOnlyNonPublishable("curse.maven:clayium-243111:2353582")
     devOnlyNonPublishable("curse.maven:cofh-core-69162:2388750")
-    runtimeOnlyNonPublishable("curse.maven:waila-73488:2230518")
-    runtimeOnlyNonPublishable("curse.maven:wawla-224712:2298772")
+    //runtimeOnlyNonPublishable("curse.maven:waila-73488:2230518")
+    //runtimeOnlyNonPublishable("curse.maven:wawla-224712:2298772")
+
     runtimeOnlyNonPublishable("curse.maven:inventory-tweaks-223094:2210792")
+
     //implementation files("libs/clayium-0.4.6.36.hotfix2.jar")
 }
