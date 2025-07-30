@@ -13,12 +13,12 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 
 @Mod(
-    modid = ClayiumAdditionsModMain.MODID,
+    modid = CAModMain.MODID,
     version = Tags.VERSION,
     name = "Clayium Additions",
-    dependencies = ClayiumAdditionsModMain.dependencies,
+    dependencies = CAModMain.dependencies,
     acceptedMinecraftVersions = "[1.7.10]")
-public class ClayiumAdditionsModMain {
+public class CAModMain {
 
     public static final String MODID = "clayiumadditions";
     public static final Logger LOG = LogManager.getLogger(MODID);

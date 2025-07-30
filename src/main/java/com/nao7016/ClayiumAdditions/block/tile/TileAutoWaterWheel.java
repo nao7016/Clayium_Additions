@@ -16,19 +16,12 @@ public class TileAutoWaterWheel extends TileWaterWheel {
 
     @Override
     public void func_145845_h() {
-        super.func_145845_h();
         if (!this.worldObj.isRemote && this.progressEfficiency < 500) {
             this.progressEfficiency = 1000;
             this.setSyncFlag(); // クライアントと同期
         }
         if (!this.worldObj.isRemote && random.nextInt(40) < this.countSurroundingWater()) {
-            if ((int) ((double) this.progressEfficiency
-                * Math.pow(Math.max((double) this.baseTier, (double) 1.0F), 1.5F)) >= 20000) {
-                this.progress += 20000;
-            } else {
-                this.progress = (int) ((double) this.progress + (double) this.progressEfficiency
-                    * Math.pow(Math.max((double) this.baseTier, (double) 1.0F), 1.5F));
-            }
+            this.progress += this.progressEfficiency * 4;
             this.setSyncFlag();
             if (this.progress >= 100000) {
                 this.progress -= this.progress;

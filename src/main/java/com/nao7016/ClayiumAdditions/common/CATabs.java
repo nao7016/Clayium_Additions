@@ -4,11 +4,11 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
-public class CreativeTabsClayiumAdditions extends CreativeTabs {
+public class CATabs extends CreativeTabs {
 
-    public static final CreativeTabs tabs_creative_additions = new CreativeTabsClayiumAdditions();
+    public static final CreativeTabs tabs_creative_additions = new CATabs();
 
-    private CreativeTabsClayiumAdditions() {
+    private CATabs() {
         super("clayiumAdditionsTabs");
     }
 

@@ -6,7 +6,7 @@ import com.nao7016.ClayiumAdditions.item.itemClayEnergy;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class ItemClayiumAdditions {
+public class CAItems {
 
     public static Item clayEnergy;
 

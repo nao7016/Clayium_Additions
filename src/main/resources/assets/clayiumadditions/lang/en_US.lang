@@ -17,8 +17,8 @@ tooltip.AutoWaterWheel.info=Supplies energy to adjacent tier %d machines.
 tooltip.AutoWaterWheel.line1=__DETAIL__
 tooltip.AutoWaterWheel.line2=The number of water flow in the area of 3x3x3
 tooltip.AutoWaterWheel.line3=determines the strength of energy.
-tooltip.AutoWaterWheel.line4=1
-tooltip.AutoWaterWheel.line5=2
+tooltip.AutoWaterWheel.line4=When Durability is below 500,
+tooltip.AutoWaterWheel.line5=auto fix Durability to 1000.
 
 
 

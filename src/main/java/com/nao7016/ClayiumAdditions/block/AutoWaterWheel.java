@@ -48,14 +48,4 @@ public class AutoWaterWheel extends ClayNoRecipeMachines {
         tooltip.addAll(super.getTooltip(itemStack));
         return tooltip;
     }
-    /*
-     * @SideOnly(Side.CLIENT)
-     * public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean advanced) {
-     * int tier = getTier(stack) - 1;
-     * list.add("このブロックは Tier " + tier + " まで使用できます");
-     * // langファイルで定義したテキストも追加
-     * list.addAll(UtilLocale.localizeTooltip("tile.tooltip.AutoWaterWheel"));
-     * super.addInformation(stack, player, list, advanced);
-     * }
-     */
 }

@@ -14,7 +14,7 @@ import net.minecraft.util.IIcon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.nao7016.ClayiumAdditions.common.CreativeTabsClayiumAdditions;
+import com.nao7016.ClayiumAdditions.common.CATabs;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -31,7 +31,7 @@ public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
     public itemClayEnergy() {
         setUnlocalizedName("clay_energy");
         setHasSubtypes(true);
-        setCreativeTab(CreativeTabsClayiumAdditions.tabs_creative_additions);
+        setCreativeTab(CATabs.tabs_creative_additions);
     }
 
     @Override

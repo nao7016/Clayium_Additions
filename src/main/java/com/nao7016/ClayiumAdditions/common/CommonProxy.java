@@ -1,6 +1,6 @@
 package com.nao7016.ClayiumAdditions.common;
 
-import com.nao7016.ClayiumAdditions.ClayiumAdditionsModMain;
+import com.nao7016.ClayiumAdditions.CAModMain;
 import com.nao7016.ClayiumAdditions.Tags;
 import com.nao7016.ClayiumAdditions.plugin.nei.NEIPluginClayiumAdditions;
 import com.nao7016.ClayiumAdditions.recipe.CARecipes;
@@ -18,11 +18,11 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
 
-        ClayiumAdditionsModMain.LOG.info(Config.greeting);
-        ClayiumAdditionsModMain.LOG.info("I am MyMod at version " + Tags.VERSION);
+        CAModMain.LOG.info(Config.greeting);
+        CAModMain.LOG.info("I am MyMod at version " + Tags.VERSION);
 
-        ItemClayiumAdditions.registerItems();
-        BlockClayiumAdditions.registerBlocks();
+        CAItems.registerItems();
+        CABlocks.registerBlocks();
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)

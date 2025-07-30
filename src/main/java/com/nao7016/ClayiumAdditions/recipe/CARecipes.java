@@ -5,7 +5,8 @@ import static mods.clayium.util.crafting.CRecipes.*;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-import com.nao7016.ClayiumAdditions.common.ItemClayiumAdditions;
+import com.nao7016.ClayiumAdditions.common.CABlocks;
+import com.nao7016.ClayiumAdditions.common.CAItems;
 
 import mods.clayium.block.CBlocks;
 import mods.clayium.core.ClayiumCore;
@@ -17,6 +18,7 @@ public class CARecipes {
     public static void register() {
         registerCESpritted();
         registerTransformer();
+        registerAssembler();
     }
 
     private static void registerCESpritted() {
@@ -24,7 +26,7 @@ public class CARecipes {
             CRecipes.recipeCuttingMachine.addRecipe(
                 new ItemStack(CBlocks.blockCompressedClay, 1, tier),
                 4,
-                new ItemStack(ItemClayiumAdditions.clayEnergy, 9, tier),
+                new ItemStack(CAItems.clayEnergy, 9, tier),
                 10L,
                 (long) ClayiumCore.divideByProgressionRateI(10));
         }
@@ -48,5 +50,29 @@ public class CARecipes {
             CMaterials.get(CMaterials.IMPURE_CALCIUM, CMaterials.DUST),
             200000,
             200);
+    }
+
+    private static void registerAssembler() {
+        CRecipes.recipeAssembler.addRecipe(
+            ii(i(CBlocks.blockDenseClayWaterWheel), CMaterials.get(CMaterials.IND_CLAY, CMaterials.LARGE_PLATE)),
+            0,
+            3,
+            ii(i(CABlocks.blockAutoSimpleWaterWheel)),
+            40L,
+            120L);
+        CRecipes.recipeAssembler.addRecipe(
+            ii(i(CABlocks.blockAutoSimpleWaterWheel), CMaterials.get(CMaterials.ADVIND_CLAY, CMaterials.LARGE_PLATE)),
+            0,
+            4,
+            ii(i(CABlocks.blockAutoBasicWaterWheel)),
+            200L,
+            120L);
+        CRecipes.recipeAssembler.addRecipe(
+            ii(i(CABlocks.blockAutoBasicWaterWheel), CMaterials.get(CMaterials.IMPURE_SILICON, CMaterials.LARGE_PLATE)),
+            0,
+            4,
+            ii(i(CABlocks.blockAutoAdvancedWaterWheel)),
+            1000L,
+            120L);
     }
 }

@@ -12,9 +12,9 @@ import com.nao7016.ClayiumAdditions.block.tile.TileAutoWaterWheel;
 import cpw.mods.fml.common.registry.GameRegistry;
 import mods.clayium.block.itemblock.ItemBlockTiered;
 
-public class BlockClayiumAdditions {
+public class CABlocks {
 
-    public static CreativeTabs CATabs = CreativeTabsClayiumAdditions.tabs_creative_additions;
+    public static CreativeTabs CATabs = com.nao7016.ClayiumAdditions.common.CATabs.tabs_creative_additions;
 
     public static Block blockAutoSimpleWaterWheel;
     public static Block blockAutoBasicWaterWheel;
