@@ -1,5 +1,7 @@
 package com.nao7016.ClayiumAdditions.common;
 
+import net.minecraft.init.Items;
+
 import com.nao7016.ClayiumAdditions.CAModMain;
 import com.nao7016.ClayiumAdditions.Tags;
 import com.nao7016.ClayiumAdditions.plugin.nei.NEIPluginClayiumAdditions;
@@ -10,8 +12,10 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import mods.clayium.core.ClayiumCore;
+import mods.clayium.gui.CreativeTab;
 
-public class CommonProxy {
+public abstract class CommonProxy {
 
     // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
     // GameRegistry." (Remove if not needed)
@@ -35,6 +39,10 @@ public class CommonProxy {
         CARecipes.register();
         if (Loader.isModLoaded("NotEnoughItems")) {
             NEIPluginClayiumAdditions.registerNEI();
+        }
+
+        if (!ClayiumCore.cfgEnableFluidCapsule && ClayiumCore.creativeTabClayiumCapsule != null) {
+            ((CreativeTab) ClayiumCore.creativeTabClayiumCapsule).setTabIconItem(Items.bucket);
         }
     }
 

@@ -84,13 +84,13 @@ public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
     @Override
     public void registerIcons(IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon("clayiumadditions:clay_energy");
-        log.info("[DEBUG] Registered default icon: clayiumadditions:clay_energy");
+        // log.info("[DEBUG] Registered default icon: clayiumadditions:clay_energy");
 
         for (int tier = 4; tier <= 12; tier++) {
             String iconPath = "clayiumadditions:clay_energy_" + tier;
             IIcon icon = iconRegister.registerIcon(iconPath);
             iconMap.put(tier, icon);
-            log.info("[DEBUG] Registered icon for tier {}: {}", tier, iconPath);
+            // log.info("[DEBUG] Registered icon for tier {}: {}", tier, iconPath);
         }
     }
 
