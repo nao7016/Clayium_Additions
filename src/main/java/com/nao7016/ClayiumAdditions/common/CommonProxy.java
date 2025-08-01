@@ -15,7 +15,7 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import mods.clayium.core.ClayiumCore;
 import mods.clayium.gui.CreativeTab;
 
-public abstract class CommonProxy {
+public class CommonProxy {
 
     // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
     // GameRegistry." (Remove if not needed)
