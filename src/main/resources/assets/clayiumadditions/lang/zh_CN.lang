@@ -1,0 +1,23 @@
+item.clay_energy.4.name=充能粘土粒
+item.clay_energy.5.name=压缩充能粘土粒
+item.clay_energy.6.name=双重压缩充能粘土粒
+item.clay_energy.7.name=三重压缩充能粘土粒
+item.clay_energy.8.name=四重压缩充能粘土粒
+item.clay_energy.9.name=五重压缩充能粘土粒
+item.clay_energy.10.name=六重压缩充能粘土粒
+item.clay_energy.11.name=七重压缩充能粘土粒
+item.clay_energy.12.name=八重压缩充能粘土粒
+item.clay_energy.tooltip.line1=哦，压缩过度了？
+item.clay_energy.tooltip.line2=好吧，只需解压1次。
+
+tile.blockAutoSimpleWaterWheel.name=简易自动粘土水车
+tile.blockAutoBasicWaterWheel.name=基础自动粘土水车
+tile.blockAutoAdvancedWaterWheel.name=高级自动粘土水车
+tooltip.AutoWaterWheel.info=为相邻的第 %d 等级机器提供能量。
+tooltip.AutoWaterWheel.line1=详细信息
+tooltip.AutoWaterWheel.line2=3x3x3区域内的水流数量
+tooltip.AutoWaterWheel.line3=决定了能量强度。
+tooltip.AutoWaterWheel.line4=当耐久度低于500时，
+tooltip.AutoWaterWheel.line5=自动修复耐久度至1000。
+
+itemGroup.clayiumAdditionsTabs=粘土工业附加
