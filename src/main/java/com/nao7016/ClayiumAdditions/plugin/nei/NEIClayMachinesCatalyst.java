@@ -64,6 +64,9 @@ public class NEIClayMachinesCatalyst {
         registerCatalysts("CAInjector", CBlocks.blocksCAInjector);
         registerCatalysts("CAReactor", CBlocks.blocksCAReactorCore);
 
+        // tier 13
+        registerCatalysts("ECDecomposer", CBlocks.blockEnergeticClayDecomposer);
+
         // registerCatalysts("", CBlocks.blocks);
 
     }
