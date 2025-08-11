@@ -1,9 +1,9 @@
 package com.nao7016.ClayiumAdditions.common;
 
-import com.nao7016.ClayiumAdditions.item.itemClayBowl;
-import com.nao7016.ClayiumAdditions.item.itemClayBowlEmpty;
 import net.minecraft.item.Item;
 
+import com.nao7016.ClayiumAdditions.item.itemClayBowl;
+import com.nao7016.ClayiumAdditions.item.itemClayBowlEmpty;
 import com.nao7016.ClayiumAdditions.item.itemClayEnergy;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -20,10 +20,10 @@ public class CAItems {
     }
 
     public static void registerItems() {
-        if(Config.cfgSplittedEnergeticClayEnabled) {
+        if (Config.cfgSplittedEnergeticClayEnabled) {
             clayEnergy = register(new itemClayEnergy(), "clay_energy");
         }
-        if(Config.cfgModeSky) {
+        if (Config.cfgModeSky) {
             clayBowlEmpty = register(new itemClayBowlEmpty(), "clay_bowl_empty");
             clayBowl = register(new itemClayBowl(), "clay_bowl");
         }

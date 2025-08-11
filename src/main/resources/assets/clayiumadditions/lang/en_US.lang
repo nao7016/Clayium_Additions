@@ -9,6 +9,11 @@ item.clay_energy.11.name=Splitted Septuple Energetic Clay
 item.clay_energy.12.name=Splitted Octuple Energetic Clay
 item.clay_energy.tooltip.line1=Oh, over-compressed?
 item.clay_energy.tooltip.line2=OK, JUST 1 decompression.
+item.clay_bowl_empty.name=Empty Clay Bowl
+item.clay_bowl_empty.tooltip.line1=Try to right-click on the wet farmland!
+item.clay_bowl.name=Clay Bowl
+item.clay_bowl.tooltip.line1=A bowl filled with clay.
+item.clay_bowl.tooltip.line2=Get the clay by crafting!
 
 tile.blockAutoSimpleWaterWheel.name=Simple Auto Clay Water Wheel
 tile.blockAutoBasicWaterWheel.name=Basic Auto Clay Water Wheel

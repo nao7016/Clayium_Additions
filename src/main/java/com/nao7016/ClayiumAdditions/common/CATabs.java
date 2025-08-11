@@ -1,9 +1,10 @@
 package com.nao7016.ClayiumAdditions.common;
 
-import mods.clayium.item.CMaterials;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
+import mods.clayium.item.CMaterials;
 
 public class CATabs extends CreativeTabs {
 

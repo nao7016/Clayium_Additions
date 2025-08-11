@@ -9,6 +9,11 @@ item.clay_energy.11.name=小さい7重圧縮エネルギー粘土
 item.clay_energy.12.name=小さい8重圧縮エネルギー粘土
 item.clay_energy.tooltip.line1=圧縮しすぎた？
 item.clay_energy.tooltip.line2=分かった、じゃあ1回だけね？
+item.clay_bowl_empty.name=空の粘土用ボウル
+item.clay_bowl_empty.tooltip.line1=湿った耕地に右クリックしてみよう
+item.clay_bowl.name=粘土入りボウル
+item.clay_bowl.tooltip.line1=粘土がたっぷり詰まったボウル
+item.clay_bowl.tooltip.line2=クラフトで粘土を取り出そう
 
 tile.blockAutoSimpleWaterWheel.name=簡易自動粘土水車
 tile.blockAutoBasicWaterWheel.name=基本自動粘土水車
