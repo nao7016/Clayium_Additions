@@ -2,6 +2,10 @@ package com.nao7016.ClayiumAdditions.recipe;
 
 import static mods.clayium.util.crafting.CRecipes.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -12,6 +16,7 @@ import com.nao7016.ClayiumAdditions.common.Config;
 import cpw.mods.fml.common.registry.GameRegistry;
 import mods.clayium.block.CBlocks;
 import mods.clayium.core.ClayiumCore;
+import mods.clayium.item.CMaterial;
 import mods.clayium.item.CMaterials;
 import mods.clayium.util.crafting.CRecipes;
 
@@ -22,6 +27,7 @@ public class CARecipes {
         registerTransformer();
         registerAssembler();
         registerCrafting();
+        registerCAInjector();
     }
 
     private static void registerCrafting() {
@@ -84,31 +90,78 @@ public class CARecipes {
 
     private static void registerAssembler() {
         if (Config.cfgAutoWaterWheelEnabled) {
-            CRecipes.recipeAssembler.addRecipe(
-                ii(i(CBlocks.blockDenseClayWaterWheel), CMaterials.get(CMaterials.IND_CLAY, CMaterials.LARGE_PLATE)),
-                0,
-                3,
-                ii(i(CABlocks.blockAutoSimpleWaterWheel)),
-                40L,
-                120L);
-            CRecipes.recipeAssembler.addRecipe(
-                ii(
-                    i(CABlocks.blockAutoSimpleWaterWheel),
-                    CMaterials.get(CMaterials.ADVIND_CLAY, CMaterials.LARGE_PLATE)),
-                0,
-                4,
-                ii(i(CABlocks.blockAutoBasicWaterWheel)),
-                200L,
-                120L);
-            CRecipes.recipeAssembler.addRecipe(
-                ii(
-                    i(CABlocks.blockAutoBasicWaterWheel),
-                    CMaterials.get(CMaterials.IMPURE_SILICON, CMaterials.LARGE_PLATE)),
-                0,
-                4,
-                ii(i(CABlocks.blockAutoAdvancedWaterWheel)),
-                1000L,
-                120L);
+            for (int i = 2; i <= 4; i++) {
+                CRecipes.recipeAssembler.addRecipe(
+                    ii(i(CABlocks.blocksWaterWheel[i]), CMaterials.get(getTier(i + 1), CMaterials.LARGE_PLATE)),
+                    0,
+                    i + 1,
+                    ii(i(CABlocks.blocksWaterWheel[i + 1])),
+                    40L * (long) Math.pow(5.0F, (i - 2)),
+                    120L);
+            }
         }
+    }
+
+    private static void registerCAInjector() {
+        CRecipes.recipeCAInjector.addRecipe(
+            ii(i(CBlocks.blockElementalMillingMachine), CMaterials.get(CMaterials.ANTIMATTER, CMaterials.GEM, 1)),
+            0,
+            3,
+            ii(i(CBlocks.blocksMillingMachine[3])),
+            e(3.0F, 3),
+            4000L);
+        Block[][] arrayblocklist = new Block[][] { CBlocks.blocksMultitrackBuffer };
+        ArrayList<Block[]> blockslist = new ArrayList(Arrays.asList(arrayblocklist));
+        if (Config.cfgAutoWaterWheelEnabled) {
+            blockslist.add(CABlocks.blocksWaterWheel);
+        }
+
+        for (Block[] blocks : blockslist) {
+            int j = -1;
+            int n = 0;
+
+            for (int i = 0; i < blocks.length; ++i) {
+                n = (int) ((double) n + Math.pow(1.3F, i));
+                if (n >= 64) {
+                    n = 64;
+                }
+
+                if (blocks[i] != null) {
+                    if (j != -1) {
+                        CRecipes.recipeCAInjector.addRecipe(
+                            ii(i(blocks[j]), CMaterials.get(CMaterials.ANTIMATTER, CMaterials.GEM, n)),
+                            0,
+                            i,
+                            ii(i(blocks[i])),
+                            e(3.0F, i + 1),
+                            4000L);
+                    }
+
+                    j = i;
+                    n = 0;
+                }
+            }
+        }
+    }
+
+    public static CMaterial getTier(int tier) {
+        if (tier == 1) return CMaterials.CLAY;
+        if (tier == 2) return CMaterials.DENSE_CLAY;
+        if (tier == 3) return CMaterials.IND_CLAY;
+        if (tier == 4) return CMaterials.ADVIND_CLAY;
+        if (tier == 5) return CMaterials.IMPURE_SILICON;
+        if (ClayiumCore.cfgHardcoreAluminium) {
+            if (tier == 6) return CMaterials.IMPURE_ALUMINIUM;
+        } else {
+            if (tier == 6) return CMaterials.ALUMINIUM;
+        }
+        if (tier == 7) return CMaterials.CLAY_STEEL;
+        if (tier == 8) return CMaterials.CLAYIUM;
+        if (tier == 9) return CMaterials.ULTIMATE_ALLOY;
+        if (tier == 10) return CMaterials.ANTIMATTER;
+        if (tier == 11) return CMaterials.PURE_ANTIMATTER;
+        if (tier == 12) return CMaterials.OCTUPLE_CLAY;
+        if (tier == 13) return CMaterials.OCTUPLE_PURE_ANTIMATTER;
+        return null;
     }
 }

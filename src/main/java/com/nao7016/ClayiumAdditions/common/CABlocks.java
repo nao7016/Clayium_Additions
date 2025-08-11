@@ -10,6 +10,7 @@ import com.nao7016.ClayiumAdditions.block.AutoWaterWheel;
 import com.nao7016.ClayiumAdditions.block.tile.TileAutoWaterWheel;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import mods.clayium.block.CBlocks;
 import mods.clayium.block.itemblock.ItemBlockTiered;
 
 public class CABlocks {
@@ -19,6 +20,7 @@ public class CABlocks {
     public static Block blockAutoSimpleWaterWheel;
     public static Block blockAutoBasicWaterWheel;
     public static Block blockAutoAdvancedWaterWheel;
+    public static Block[] blocksWaterWheel = new Block[16];
 
     public static void registerBlocks() {
         if (Config.cfgAutoWaterWheelEnabled) {
@@ -41,6 +43,11 @@ public class CABlocks {
                 ItemBlockTiered.class,
                 "blockAutoAdvancedWaterWheel");
             registerTileEntity(TileAutoWaterWheel.class, "AutoWaterWheel");
+
+            blocksWaterWheel[2] = CBlocks.blockDenseClayWaterWheel;
+            blocksWaterWheel[3] = blockAutoSimpleWaterWheel;
+            blocksWaterWheel[4] = blockAutoBasicWaterWheel;
+            blocksWaterWheel[5] = blockAutoAdvancedWaterWheel;
         }
     }
 
