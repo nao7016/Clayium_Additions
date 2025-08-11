@@ -24,19 +24,19 @@ public class CommonProxy {
 
         CAModMain.LOG.info(Config.greeting);
         CAModMain.LOG.info("I am MyMod at version " + Tags.VERSION);
-
-        CAItems.registerItems();
-        CABlocks.registerBlocks();
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
+        CAItems.registerItems();
+        CABlocks.registerBlocks();
 
     }
 
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
     public void postInit(FMLPostInitializationEvent event) {
         CARecipes.register();
+
         if (Loader.isModLoaded("NotEnoughItems")) {
             NEIPluginClayiumAdditions.registerNEI();
         }

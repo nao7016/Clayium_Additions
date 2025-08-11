@@ -31,6 +31,20 @@ public class CARecipes {
         GameRegistry.addShapelessRecipe(
             CMaterials.get(CMaterials.CLAY, CMaterials.BALL, 4),
             CMaterials.get(CMaterials.CLAY, CMaterials.BLOCK));
+        GameRegistry.addRecipe(
+            CMaterials.get(CMaterials.CLAY, CMaterials.BLOCK, 8),
+            "CC",
+            "CC",
+            'C',CMaterials.get(CMaterials.CLAY, CMaterials.LARGE_BALL));
+
+        if (Config.cfgModeSky) {
+            GameRegistry.addShapelessRecipe(
+                i(CAItems.clayBowlEmpty, 2),
+                Items.bowl);
+            GameRegistry.addShapelessRecipe(
+               CMaterials.get(CMaterials.CLAY, CMaterials.LARGE_BALL, 1),
+               CAItems.clayBowl);
+        }
     }
 
     private static void registerCESpritted() {

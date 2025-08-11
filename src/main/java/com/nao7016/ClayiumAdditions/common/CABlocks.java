@@ -14,32 +14,34 @@ import mods.clayium.block.itemblock.ItemBlockTiered;
 
 public class CABlocks {
 
-    public static CreativeTabs CATabs = com.nao7016.ClayiumAdditions.common.CATabs.tabs_creative_additions;
+    public static CreativeTabs CATabs = com.nao7016.ClayiumAdditions.common.CATabs.ca_tabs;
 
     public static Block blockAutoSimpleWaterWheel;
     public static Block blockAutoBasicWaterWheel;
     public static Block blockAutoAdvancedWaterWheel;
 
     public static void registerBlocks() {
-        blockAutoSimpleWaterWheel = register(
-            new AutoWaterWheel("Auto Simple Water Wheel", "clayiumadditions:autowaterwheel", 3)
-                .setBlockName("blockAutoSimpleWaterWheel")
-                .setCreativeTab(CATabs),
-            ItemBlockTiered.class,
-            "blockAutoSimpleWaterWheel");
-        blockAutoBasicWaterWheel = register(
-            new AutoWaterWheel("Auto Basic Water Wheel", "clayiumadditions:autowaterwheel", 4)
-                .setBlockName("blockAutoBasicWaterWheel")
-                .setCreativeTab(CATabs),
-            ItemBlockTiered.class,
-            "blockAutoBasicWaterWheel");
-        blockAutoAdvancedWaterWheel = register(
-            new AutoWaterWheel("Auto Advanced Water Wheel", "clayiumadditions:autowaterwheel", 5)
-                .setBlockName("blockAutoAdvancedWaterWheel")
-                .setCreativeTab(CATabs),
-            ItemBlockTiered.class,
-            "blockAutoAdvancedWaterWheel");
-        registerTileEntity(TileAutoWaterWheel.class, "AutoWaterWheel");
+        if (Config.cfgAutoWaterWheelEnabled) {
+            blockAutoSimpleWaterWheel = register(
+                new AutoWaterWheel("Auto Simple Water Wheel", "clayiumadditions:autowaterwheel", 3)
+                    .setBlockName("blockAutoSimpleWaterWheel")
+                    .setCreativeTab(CATabs),
+                ItemBlockTiered.class,
+                "blockAutoSimpleWaterWheel");
+            blockAutoBasicWaterWheel = register(
+                new AutoWaterWheel("Auto Basic Water Wheel", "clayiumadditions:autowaterwheel", 4)
+                    .setBlockName("blockAutoBasicWaterWheel")
+                    .setCreativeTab(CATabs),
+                ItemBlockTiered.class,
+                "blockAutoBasicWaterWheel");
+            blockAutoAdvancedWaterWheel = register(
+                new AutoWaterWheel("Auto Advanced Water Wheel", "clayiumadditions:autowaterwheel", 5)
+                    .setBlockName("blockAutoAdvancedWaterWheel")
+                    .setCreativeTab(CATabs),
+                ItemBlockTiered.class,
+                "blockAutoAdvancedWaterWheel");
+            registerTileEntity(TileAutoWaterWheel.class, "AutoWaterWheel");
+        }
     }
 
     private static Block register(Block block, Class<? extends ItemBlock> extendclass, String name) {

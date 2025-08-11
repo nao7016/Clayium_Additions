@@ -21,6 +21,7 @@ public class NEIClayMachinesCatalyst {
         registerCatalysts("PipeDrawingMachine", CBlocks.blocksPipeDrawingMachine);
         registerCatalysts("CuttingMachine", CBlocks.blocksCuttingMachine);
         registerCatalysts("Lathe", CBlocks.blocksLathe);
+        registerCatalysts("MillingMachine", CBlocks.blockElementalMillingMachine);
         registerCatalysts("MillingMachine", CBlocks.blocksMillingMachine);
         registerCatalysts("CobblestoneGenerator", CBlocks.blocksCobblestoneGenerator);
 

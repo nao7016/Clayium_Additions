@@ -1,19 +1,26 @@
 package com.nao7016.ClayiumAdditions.common;
 
+import mods.clayium.item.CMaterials;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class CATabs extends CreativeTabs {
 
-    public static final CreativeTabs tabs_creative_additions = new CATabs();
+    public static final CreativeTabs ca_tabs = new CATabs();
 
     private CATabs() {
         super("clayiumAdditionsTabs");
     }
 
     @Override
+    public ItemStack getIconItemStack() {
+        return CMaterials.get(CMaterials.CLAY, CMaterials.WATER_WHEEL);
+    }
+
+    @Override
     public Item getTabIconItem() {
-        return Item.getItemFromBlock(Blocks.clay);
+        // return Item.getItemFromBlock(Blocks.clay);
+        return CMaterials.itemClayParts;
     }
 }

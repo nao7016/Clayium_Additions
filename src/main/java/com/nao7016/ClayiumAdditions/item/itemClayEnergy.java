@@ -26,7 +26,7 @@ public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
     public itemClayEnergy() {
         setUnlocalizedName("clay_energy");
         setHasSubtypes(true);
-        setCreativeTab(CATabs.tabs_creative_additions);
+        setCreativeTab(CATabs.ca_tabs);
     }
 
     @Override
