@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import mods.clayium.item.ItemTiered;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,15 +20,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 import mods.clayium.item.ItemDamaged;
 import mods.clayium.util.UtilLocale;
 
-public class itemClayBowl extends ItemDamaged {
+public class itemClayBowl extends ItemTiered {
 
     private final Map<Integer, IIcon> iconMap = new HashMap<>();
 
     public itemClayBowl() {
         setUnlocalizedName("clay_bowl");
         setContainerItem(CAItems.clayBowlEmpty);
-        setHasSubtypes(true);
         setCreativeTab(CATabs.ca_tabs);
+        setBaseTier(0);
     }
 
     @Override
@@ -39,16 +40,6 @@ public class itemClayBowl extends ItemDamaged {
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         return super.getUnlocalizedName();
-    }
-
-    @Override
-    public void getSubItems(Item item, CreativeTabs tabs, List list) {
-        list.add(new ItemStack(item, 1, 0));
-    }
-
-    @Override
-    public int getTier(ItemStack itemStack) {
-        return itemStack.getItemDamage();
     }
 
     @SideOnly(Side.CLIENT)
@@ -67,16 +58,15 @@ public class itemClayBowl extends ItemDamaged {
     @Override
     public void registerIcons(IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon("clayiumadditions:clay_bowl");
-        iconMap.put(0, iconRegister.registerIcon("clayiumadditions:clay_bowl_0"));
     }
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IIcon getIconFromDamage(int meta) {
-        if (iconMap.containsKey(meta)) {
-            return iconMap.containsKey(meta) ? iconMap.get(meta) : this.itemIcon;
-        } else {
-            return this.itemIcon;
-        }
-    }
+//    @SideOnly(Side.CLIENT)
+//    @Override
+//    public IIcon getIconFromDamage(int meta) {
+//        if (iconMap.containsKey(meta)) {
+//            return iconMap.containsKey(meta) ? iconMap.get(meta) : this.itemIcon;
+//        } else {
+//            return this.itemIcon;
+//        }
+//    }
 }

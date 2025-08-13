@@ -49,11 +49,6 @@ public class CAModMain {
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
-        /*
-         * if(Config.cfgModeSky) {
-         * MinecraftForge.EVENT_BUS.register(new ClayBowlEventHandler());
-         * }
-         */
         LOG.info("Clayium Additions has loaded!");
     }
 

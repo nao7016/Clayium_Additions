@@ -43,14 +43,13 @@ public class itemClayBowlEmpty extends Item {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean advanced) {
-        super.addInformation(stack, player, list, advanced);
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean flag) {
+        super.addInformation(stack, player, list, flag);
 
-        String baseKey = getUnlocalizedName(stack);
-        if (baseKey.contains(".")) {
-            baseKey = baseKey.substring(0, baseKey.lastIndexOf('.'));
+        List alist = UtilLocale.localizeTooltip(this.getUnlocalizedName(stack) + ".tooltip");
+        if (alist != null) {
+            list.addAll(alist);
         }
-        list.addAll(UtilLocale.localizeTooltip(baseKey + ".tooltip"));
     }
 
     @Override
