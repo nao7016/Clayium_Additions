@@ -9,6 +9,13 @@ item.clay_energy.11.name=七重压缩充能粘土粒
 item.clay_energy.12.name=八重压缩充能粘土粒
 item.clay_energy.tooltip.line1=哦，压缩过度了？
 item.clay_energy.tooltip.line2=好吧，只需解压1次
+item.clay_bowl_empty.name=空粘土碗
+item.clay_bowl_empty.tooltip.line1=尝试在湿润耕地上右键点击！
+item.clay_bowl.name=粘土碗
+item.clay_bowl.tooltip.line1=装满粘土的碗。
+item.clay_bowl.tooltip.line2=通过合成获取粘土！
+item.raw_clay_ore.1.name=粗工业粘土
+item.raw_clay_ore.2.name=粗高级工业粘土
 
 tile.blockAutoSimpleWaterWheel.name=简易自动粘土水车
 tile.blockAutoBasicWaterWheel.name=基础自动粘土水车
@@ -19,5 +26,11 @@ tooltip.AutoWaterWheel.line2=3x3x3区域内的水流数量
 tooltip.AutoWaterWheel.line3=决定了能量强度
 tooltip.AutoWaterWheel.line4=当耐久度低于500时，
 tooltip.AutoWaterWheel.line5=自动修复耐久度至1000
+tile.blockDeepslateClayOre.0.name=深层粘土矿石
+tile.blockDeepslateClayOre.1.name=深层密集粘土矿石
+tile.blockDeepslateClayOre.2.name=深层高密度粘土矿石
+tile.blockRawClayOre.1.name=粗工业粘土块
+tile.blockRawClayOre.2.name=粗高级工业粘土块
+
 
 itemGroup.clayiumAdditionsTabs=粘土工业附加
