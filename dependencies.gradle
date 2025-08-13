@@ -47,5 +47,5 @@ dependencies {
 
     //implementation files("libs/clayium-0.4.6.36.hotfix2.jar")
 
-    devOnlyNonPublishable("ganymedes01.etfuturum:Et-Futurum-Requiem:2.6.2.1-GTNH-pre:dev")
+    compileOnly("ganymedes01.etfuturum:Et-Futurum-Requiem:2.6.2.9-GTNH:dev")
 }
