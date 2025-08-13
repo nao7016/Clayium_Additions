@@ -12,6 +12,7 @@ public class Config {
     public static boolean cfgFishesTransform;
     public static boolean cfgCalciumChlorideTransform;
     public static boolean cfgModeSky;
+    public static boolean cfgEtFuturum;
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
@@ -40,6 +41,8 @@ public class Config {
             "mode",
             false,
             "If true, added recipes for skyblock. This mode is mainly for modpacks.");
+        cfgEtFuturum = configuration
+            .getBoolean("Et Futurum Requiem", "integration", true, "Added Deepslate Ores and Raw Ores.");
 
         if (configuration.hasChanged()) {
             configuration.save();

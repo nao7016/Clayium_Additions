@@ -5,12 +5,17 @@ import static cpw.mods.fml.common.registry.GameRegistry.registerTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 import com.nao7016.ClayiumAdditions.block.AutoWaterWheel;
+import com.nao7016.ClayiumAdditions.block.DeepslateClayOre;
 import com.nao7016.ClayiumAdditions.block.tile.TileAutoWaterWheel;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import mods.clayium.block.CBlocks;
+import mods.clayium.block.itemblock.ItemBlockDamaged;
 import mods.clayium.block.itemblock.ItemBlockTiered;
 
 public class CABlocks {
@@ -21,6 +26,7 @@ public class CABlocks {
     public static Block blockAutoBasicWaterWheel;
     public static Block blockAutoAdvancedWaterWheel;
     public static Block[] blocksWaterWheel = new Block[16];
+    public static Block blockDeepslateClayOre;
 
     public static void registerBlocks() {
         if (Config.cfgAutoWaterWheelEnabled) {
@@ -48,6 +54,33 @@ public class CABlocks {
             blocksWaterWheel[3] = blockAutoSimpleWaterWheel;
             blocksWaterWheel[4] = blockAutoBasicWaterWheel;
             blocksWaterWheel[5] = blockAutoAdvancedWaterWheel;
+        }
+
+        if (Config.cfgEtFuturum) {
+            if (Loader.isModLoaded("etfuturum")) {
+                blockDeepslateClayOre = register(
+                    (new DeepslateClayOre()).setBlockName("blockDeepslateClayOre")
+                        .setCreativeTab(CATabs),
+                    ItemBlockDamaged.class,
+                    "blockDeepslateClayOre");
+                OreDictionary.registerOre("oreClay", new ItemStack(blockDeepslateClayOre, 1, 0));
+                OreDictionary.registerOre("oreDenseClay", new ItemStack(blockDeepslateClayOre, 1, 1));
+                OreDictionary.registerOre("oreLargeDenseClay", new ItemStack(blockDeepslateClayOre, 1, 2));
+                OreDictionary.registerOre("oreDeepslateClay", new ItemStack(blockDeepslateClayOre, 1, 0));
+                OreDictionary.registerOre("oreDeepslateDenseClay", new ItemStack(blockDeepslateClayOre, 1, 1));
+                OreDictionary.registerOre("oreDeepslateLargeDenseClay", new ItemStack(blockDeepslateClayOre, 1, 2));
+                try {
+                    Class<?> registryClass = Class.forName("ganymedes01.etfuturum.api.DeepslateOreRegistry");
+                    registryClass.getMethod("addOreByOreDict", String.class, Block.class, int.class)
+                        .invoke(null, "oreClay", blockDeepslateClayOre, 0);
+                    registryClass.getMethod("addOreByOreDict", String.class, Block.class, int.class)
+                        .invoke(null, "oreDenseClay", blockDeepslateClayOre, 1);
+                    registryClass.getMethod("addOreByOreDict", String.class, Block.class, int.class)
+                        .invoke(null, "oreLargeDenseClay", blockDeepslateClayOre, 2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 

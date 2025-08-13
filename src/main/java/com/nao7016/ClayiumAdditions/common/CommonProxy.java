@@ -1,9 +1,11 @@
 package com.nao7016.ClayiumAdditions.common;
 
 import net.minecraft.init.Items;
+import net.minecraftforge.common.MinecraftForge;
 
 import com.nao7016.ClayiumAdditions.CAModMain;
 import com.nao7016.ClayiumAdditions.Tags;
+import com.nao7016.ClayiumAdditions.network.EtOreIntegration;
 import com.nao7016.ClayiumAdditions.plugin.nei.NEIPluginClayiumAdditions;
 import com.nao7016.ClayiumAdditions.recipe.CARecipes;
 
@@ -43,6 +45,10 @@ public class CommonProxy {
 
         if (!ClayiumCore.cfgEnableFluidCapsule && ClayiumCore.creativeTabClayiumCapsule != null) {
             ((CreativeTab) ClayiumCore.creativeTabClayiumCapsule).setTabIconItem(Items.bucket);
+        }
+
+        if (Loader.isModLoaded("etfuturum")) {
+            MinecraftForge.EVENT_BUS.register(new EtOreIntegration());
         }
     }
 

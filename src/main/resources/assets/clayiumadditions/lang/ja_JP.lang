@@ -14,6 +14,8 @@ item.clay_bowl_empty.tooltip.line1=湿った耕地に右クリックしてみよ
 item.clay_bowl.name=粘土入りボウル
 item.clay_bowl.tooltip.line1=粘土がたっぷり詰まったボウル
 item.clay_bowl.tooltip.line2=クラフトで粘土を取り出そう
+item.raw_clay_ore.1.name=工業用粘土の原石
+item.raw_clay_ore.2.name=発展工業用粘土の原石
 
 tile.blockAutoSimpleWaterWheel.name=簡易自動粘土水車
 tile.blockAutoBasicWaterWheel.name=基本自動粘土水車
@@ -24,6 +26,8 @@ tooltip.AutoWaterWheel.line2=周囲 3x3x3 にある水流の数により
 tooltip.AutoWaterWheel.line3=発生するエネルギーの強度が決まる
 tooltip.AutoWaterWheel.line4=耐久度が 500 まで下がると
 tooltip.AutoWaterWheel.line5=自動で耐久度が 1000 に回復する
-
+tile.blockDeepslateClayOre.0.name=深層粘土鉱石
+tile.blockDeepslateClayOre.1.name=深層高密度粘土鉱石
+tile.blockDeepslateClayOre.2.name=深層高密度粘土鉱石大
 
 itemGroup.clayiumAdditionsTabs=Clayium Additions

@@ -14,6 +14,8 @@ item.clay_bowl_empty.tooltip.line1=Try to right-click on the wet farmland!
 item.clay_bowl.name=Clay Bowl
 item.clay_bowl.tooltip.line1=A bowl filled with clay.
 item.clay_bowl.tooltip.line2=Get the clay by crafting!
+item.raw_clay_ore.1.name=Raw Industrial Clay Ore
+item.raw_clay_ore.2.name=Raw Advanced Industrial Clay Ore
 
 tile.blockAutoSimpleWaterWheel.name=Simple Auto Clay Water Wheel
 tile.blockAutoBasicWaterWheel.name=Basic Auto Clay Water Wheel
@@ -24,7 +26,9 @@ tooltip.AutoWaterWheel.line2=The number of water flow in the area of 3x3x3
 tooltip.AutoWaterWheel.line3=determines the strength of energy.
 tooltip.AutoWaterWheel.line4=When Durability is below 500,
 tooltip.AutoWaterWheel.line5=auto fix Durability to 1000.
-
+tile.blockDeepslateClayOre.0.name=Deepslate Clay Ore
+tile.blockDeepslateClayOre.1.name=Deepslate Dense Clay Ore
+tile.blockDeepslateClayOre.2.name=Deepslate Large Dense Clay Ore
 
 
 itemGroup.clayiumAdditionsTabs=Clayium Additions
