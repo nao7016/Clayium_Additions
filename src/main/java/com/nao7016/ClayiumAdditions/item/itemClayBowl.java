@@ -4,9 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import mods.clayium.item.ItemTiered;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,7 +15,7 @@ import com.nao7016.ClayiumAdditions.common.CATabs;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import mods.clayium.item.ItemDamaged;
+import mods.clayium.item.ItemTiered;
 import mods.clayium.util.UtilLocale;
 
 public class itemClayBowl extends ItemTiered {
@@ -60,13 +58,13 @@ public class itemClayBowl extends ItemTiered {
         this.itemIcon = iconRegister.registerIcon("clayiumadditions:clay_bowl");
     }
 
-//    @SideOnly(Side.CLIENT)
-//    @Override
-//    public IIcon getIconFromDamage(int meta) {
-//        if (iconMap.containsKey(meta)) {
-//            return iconMap.containsKey(meta) ? iconMap.get(meta) : this.itemIcon;
-//        } else {
-//            return this.itemIcon;
-//        }
-//    }
+    // @SideOnly(Side.CLIENT)
+    // @Override
+    // public IIcon getIconFromDamage(int meta) {
+    // if (iconMap.containsKey(meta)) {
+    // return iconMap.containsKey(meta) ? iconMap.get(meta) : this.itemIcon;
+    // } else {
+    // return this.itemIcon;
+    // }
+    // }
 }
