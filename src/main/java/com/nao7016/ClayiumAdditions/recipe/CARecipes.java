@@ -5,8 +5,11 @@ import static mods.clayium.util.crafting.CRecipes.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import cpw.mods.fml.common.Loader;
+import mods.clayium.item.CItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import com.nao7016.ClayiumAdditions.common.CABlocks;
@@ -24,6 +27,7 @@ public class CARecipes {
 
     public static void register() {
         registerCESpritted();
+        registerGrinder();
         registerTransformer();
         registerAssembler();
         registerCrafting();
@@ -49,18 +53,39 @@ public class CARecipes {
             GameRegistry
                 .addShapelessRecipe(CMaterials.get(CMaterials.CLAY, CMaterials.LARGE_BALL, 1), CAItems.clayBowl);
         }
+        if (Config.cfgEtFuturum && Loader.isModLoaded("etfuturum"))  {
+            GameRegistry.addRecipe(i(CABlocks.blockRawClayOre,1, 1), "OOO", "OOO", "OOO", 'O', i(CAItems.rawClayOre, 1, 1));
+            GameRegistry.addRecipe(i(CABlocks.blockRawClayOre,1, 2), "OOO", "OOO", "OOO", 'O', i(CAItems.rawClayOre, 1, 2));
+            GameRegistry.addShapelessRecipe(i(CAItems.rawClayOre, 9, 1), i(CABlocks.blockRawClayOre, 1, 1));
+            GameRegistry.addShapelessRecipe(i(CAItems.rawClayOre, 9, 2), i(CABlocks.blockRawClayOre, 1, 2));
+        }
     }
 
     private static void registerCESpritted() {
         if (Config.cfgSplittedEnergeticClayEnabled) {
             for (int tier = 4; tier <= 12; tier++) {
                 CRecipes.recipeCuttingMachine.addRecipe(
-                    new ItemStack(CBlocks.blockCompressedClay, 1, tier),
+                    i(CBlocks.blockCompressedClay, 1, tier),
                     4,
-                    new ItemStack(CAItems.clayEnergy, 9, tier),
+                    i(CAItems.clayEnergy, 9, tier),
                     10L,
                     ClayiumCore.divideByProgressionRateI(10));
             }
+        }
+    }
+
+    private static void registerGrinder() {
+        if (Config.cfgEtFuturum && Loader.isModLoaded("etfuturum")) {
+            CRecipes.recipeGrinder.addRecipe(
+                i(CABlocks.blockRawClayOre, 1, 1),
+                CItems.itemCompressedClayShard.get("2", ClayiumCore.multiplyProgressionRateStackSize(27)),
+                9L,
+                (long)ClayiumCore.divideByProgressionRateI(6));
+            CRecipes.recipeGrinder.addRecipe(
+                i(CABlocks.blockRawClayOre, 1, 2),
+                CItems.itemCompressedClayShard.get("3", ClayiumCore.multiplyProgressionRateStackSize(45)),
+                9L,
+                (long)ClayiumCore.divideByProgressionRateI(9));
         }
     }
 

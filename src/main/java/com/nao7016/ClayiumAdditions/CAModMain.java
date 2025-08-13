@@ -31,7 +31,8 @@ public class CAModMain {
         + '.' // revisionVersion
         + net.minecraftforge.common.ForgeVersion.buildVersion
         + ",);" // buildVersion
-        + "required-after:clayium@[0.4.6.36.hotfix2,)" // clayium
+        + "required-after:clayium@[0.4.6.36.hotfix2,);" // clayium
+        + "after:etfuturum@[2.6.2,)" // Et Futurum Requiem
     ;
     @SidedProxy(
         clientSide = "com.nao7016.ClayiumAdditions.client.ClientProxy",

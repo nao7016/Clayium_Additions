@@ -29,5 +29,7 @@ tooltip.AutoWaterWheel.line5=自動で耐久度が 1000 に回復する
 tile.blockDeepslateClayOre.0.name=深層粘土鉱石
 tile.blockDeepslateClayOre.1.name=深層高密度粘土鉱石
 tile.blockDeepslateClayOre.2.name=深層高密度粘土鉱石大
+tile.blockRawClayOre.1.name=工業用粘土の原石ブロック
+tile.blockRawClayOre.2.name=発展工業用粘土の原石ブロック
 
 itemGroup.clayiumAdditionsTabs=Clayium Additions

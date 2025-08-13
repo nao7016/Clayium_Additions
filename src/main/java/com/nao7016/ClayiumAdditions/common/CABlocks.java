@@ -2,6 +2,7 @@ package com.nao7016.ClayiumAdditions.common;
 
 import static cpw.mods.fml.common.registry.GameRegistry.registerTileEntity;
 
+import com.nao7016.ClayiumAdditions.block.RawClayOreBlock;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
@@ -28,6 +29,7 @@ public class CABlocks {
     public static Block blockAutoAdvancedWaterWheel;
     public static Block[] blocksWaterWheel = new Block[16];
     public static Block blockDeepslateClayOre;
+    public static Block blockRawClayOre;
 
     public static void registerBlocks() {
         if (Config.cfgAutoWaterWheelEnabled) {
@@ -73,6 +75,11 @@ public class CABlocks {
                 DeepslateOreRegistry.addOreByOreDict("oreClay", blockDeepslateClayOre, 0);
                 DeepslateOreRegistry.addOreByOreDict("oreDenseClay", blockDeepslateClayOre, 1);
                 DeepslateOreRegistry.addOreByOreDict("oreLargeDenseClay", blockDeepslateClayOre, 2);
+
+                blockRawClayOre = register(new RawClayOreBlock().setBlockName("blockRawClayOre")
+                        .setCreativeTab(CATabs),
+                    ItemBlockTiered.class,
+                    "blockRawClayOre");
             }
         }
     }

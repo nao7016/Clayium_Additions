@@ -29,6 +29,8 @@ tooltip.AutoWaterWheel.line5=auto fix Durability to 1000.
 tile.blockDeepslateClayOre.0.name=Deepslate Clay Ore
 tile.blockDeepslateClayOre.1.name=Deepslate Dense Clay Ore
 tile.blockDeepslateClayOre.2.name=Deepslate Large Dense Clay Ore
+tile.blockRawClayOre.1.name=Raw Industrial Clay Ore Block
+tile.blockRawClayOre.2.name=Raw Advanced Industrial Clay Ore Block
 
 
 itemGroup.clayiumAdditionsTabs=Clayium Additions
