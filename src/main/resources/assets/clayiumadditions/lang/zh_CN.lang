@@ -29,6 +29,8 @@ tooltip.AutoWaterWheel.line5=自动修复耐久度至1000
 tile.blockDeepslateClayOre.0.name=深层粘土矿石
 tile.blockDeepslateClayOre.1.name=深层密集粘土矿石
 tile.blockDeepslateClayOre.2.name=深层高密度粘土矿石
+tile.blockRawClayOre.1.name=粗工业粘土块
+tile.blockRawClayOre.2.name=粗高级工业粘土块
 
 
 itemGroup.clayiumAdditionsTabs=粘土工业附加
