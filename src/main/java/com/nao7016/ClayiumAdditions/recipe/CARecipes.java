@@ -5,20 +5,18 @@ import static mods.clayium.util.crafting.CRecipes.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import cpw.mods.fml.common.Loader;
-import mods.clayium.item.CItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 import com.nao7016.ClayiumAdditions.common.CABlocks;
 import com.nao7016.ClayiumAdditions.common.CAItems;
 import com.nao7016.ClayiumAdditions.common.Config;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import mods.clayium.block.CBlocks;
 import mods.clayium.core.ClayiumCore;
+import mods.clayium.item.CItems;
 import mods.clayium.item.CMaterial;
 import mods.clayium.item.CMaterials;
 import mods.clayium.util.crafting.CRecipes;
@@ -53,9 +51,11 @@ public class CARecipes {
             GameRegistry
                 .addShapelessRecipe(CMaterials.get(CMaterials.CLAY, CMaterials.LARGE_BALL, 1), CAItems.clayBowl);
         }
-        if (Config.cfgEtFuturum && Loader.isModLoaded("etfuturum"))  {
-            GameRegistry.addRecipe(i(CABlocks.blockRawClayOre,1, 1), "OOO", "OOO", "OOO", 'O', i(CAItems.rawClayOre, 1, 1));
-            GameRegistry.addRecipe(i(CABlocks.blockRawClayOre,1, 2), "OOO", "OOO", "OOO", 'O', i(CAItems.rawClayOre, 1, 2));
+        if (Config.cfgEtFuturum && Loader.isModLoaded("etfuturum")) {
+            GameRegistry
+                .addRecipe(i(CABlocks.blockRawClayOre, 1, 1), "OOO", "OOO", "OOO", 'O', i(CAItems.rawClayOre, 1, 1));
+            GameRegistry
+                .addRecipe(i(CABlocks.blockRawClayOre, 1, 2), "OOO", "OOO", "OOO", 'O', i(CAItems.rawClayOre, 1, 2));
             GameRegistry.addShapelessRecipe(i(CAItems.rawClayOre, 9, 1), i(CABlocks.blockRawClayOre, 1, 1));
             GameRegistry.addShapelessRecipe(i(CAItems.rawClayOre, 9, 2), i(CABlocks.blockRawClayOre, 1, 2));
         }
@@ -80,12 +80,12 @@ public class CARecipes {
                 i(CABlocks.blockRawClayOre, 1, 1),
                 CItems.itemCompressedClayShard.get("2", ClayiumCore.multiplyProgressionRateStackSize(27)),
                 9L,
-                (long)ClayiumCore.divideByProgressionRateI(6));
+                (long) ClayiumCore.divideByProgressionRateI(6));
             CRecipes.recipeGrinder.addRecipe(
                 i(CABlocks.blockRawClayOre, 1, 2),
                 CItems.itemCompressedClayShard.get("3", ClayiumCore.multiplyProgressionRateStackSize(45)),
                 9L,
-                (long)ClayiumCore.divideByProgressionRateI(9));
+                (long) ClayiumCore.divideByProgressionRateI(9));
         }
     }
 

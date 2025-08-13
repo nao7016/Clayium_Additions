@@ -2,7 +2,6 @@ package com.nao7016.ClayiumAdditions.common;
 
 import static cpw.mods.fml.common.registry.GameRegistry.registerTileEntity;
 
-import com.nao7016.ClayiumAdditions.block.RawClayOreBlock;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
@@ -11,6 +10,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.nao7016.ClayiumAdditions.block.AutoWaterWheel;
 import com.nao7016.ClayiumAdditions.block.DeepslateClayOre;
+import com.nao7016.ClayiumAdditions.block.RawClayOreBlock;
 import com.nao7016.ClayiumAdditions.block.tile.TileAutoWaterWheel;
 
 import cpw.mods.fml.common.Loader;
@@ -76,7 +76,8 @@ public class CABlocks {
                 DeepslateOreRegistry.addOreByOreDict("oreDenseClay", blockDeepslateClayOre, 1);
                 DeepslateOreRegistry.addOreByOreDict("oreLargeDenseClay", blockDeepslateClayOre, 2);
 
-                blockRawClayOre = register(new RawClayOreBlock().setBlockName("blockRawClayOre")
+                blockRawClayOre = register(
+                    new RawClayOreBlock().setBlockName("blockRawClayOre")
                         .setCreativeTab(CATabs),
                     ItemBlockTiered.class,
                     "blockRawClayOre");
