@@ -11,6 +11,7 @@ import com.nao7016.ClayiumAdditions.item.itemRawClayOre;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
+import ganymedes01.etfuturum.api.RawOreRegistry;
 
 public class CAItems {
 
@@ -38,15 +39,8 @@ public class CAItems {
                 register(rawClayOre, "raw_clay_ore");
                 OreDictionary.registerOre("oreDenseClay", getMeta(rawClayOre, 1));
                 OreDictionary.registerOre("oreLargeDenseClay", getMeta(rawClayOre, 2));
-                try {
-                    Class<?> registryClass = Class.forName("ganymedes01.etfuturum.api.RawOreRegistry");
-                    registryClass.getMethod("addOre", String.class, Item.class, int.class)
-                        .invoke(null, "oreDenseClay", rawClayOre, 1);
-                    registryClass.getMethod("addOre", String.class, Item.class, int.class)
-                        .invoke(null, "oreLargeDenseClay", rawClayOre, 2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                RawOreRegistry.addOre("oreDenseClay", rawClayOre, 1);
+                RawOreRegistry.addOre("oreLargeDenseClay", rawClayOre, 2);
             }
         }
     }

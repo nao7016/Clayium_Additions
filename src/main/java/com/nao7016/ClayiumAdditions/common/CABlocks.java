@@ -14,6 +14,7 @@ import com.nao7016.ClayiumAdditions.block.tile.TileAutoWaterWheel;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
+import ganymedes01.etfuturum.api.DeepslateOreRegistry;
 import mods.clayium.block.CBlocks;
 import mods.clayium.block.itemblock.ItemBlockDamaged;
 import mods.clayium.block.itemblock.ItemBlockTiered;
@@ -69,17 +70,9 @@ public class CABlocks {
                 OreDictionary.registerOre("oreDeepslateClay", new ItemStack(blockDeepslateClayOre, 1, 0));
                 OreDictionary.registerOre("oreDeepslateDenseClay", new ItemStack(blockDeepslateClayOre, 1, 1));
                 OreDictionary.registerOre("oreDeepslateLargeDenseClay", new ItemStack(blockDeepslateClayOre, 1, 2));
-                try {
-                    Class<?> registryClass = Class.forName("ganymedes01.etfuturum.api.DeepslateOreRegistry");
-                    registryClass.getMethod("addOreByOreDict", String.class, Block.class, int.class)
-                        .invoke(null, "oreClay", blockDeepslateClayOre, 0);
-                    registryClass.getMethod("addOreByOreDict", String.class, Block.class, int.class)
-                        .invoke(null, "oreDenseClay", blockDeepslateClayOre, 1);
-                    registryClass.getMethod("addOreByOreDict", String.class, Block.class, int.class)
-                        .invoke(null, "oreLargeDenseClay", blockDeepslateClayOre, 2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                DeepslateOreRegistry.addOreByOreDict("oreClay", blockDeepslateClayOre, 0);
+                DeepslateOreRegistry.addOreByOreDict("oreDenseClay", blockDeepslateClayOre, 1);
+                DeepslateOreRegistry.addOreByOreDict("oreLargeDenseClay", blockDeepslateClayOre, 2);
             }
         }
     }
