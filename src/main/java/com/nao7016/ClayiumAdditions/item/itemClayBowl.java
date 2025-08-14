@@ -1,14 +1,11 @@
 package com.nao7016.ClayiumAdditions.item;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 import com.nao7016.ClayiumAdditions.common.CAItems;
 import com.nao7016.ClayiumAdditions.common.CATabs;
@@ -19,8 +16,6 @@ import mods.clayium.item.ItemTiered;
 import mods.clayium.util.UtilLocale;
 
 public class itemClayBowl extends ItemTiered {
-
-    private final Map<Integer, IIcon> iconMap = new HashMap<>();
 
     public itemClayBowl() {
         setUnlocalizedName("clay_bowl");
@@ -57,14 +52,4 @@ public class itemClayBowl extends ItemTiered {
     public void registerIcons(IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon("clayiumadditions:clay_bowl");
     }
-
-    // @SideOnly(Side.CLIENT)
-    // @Override
-    // public IIcon getIconFromDamage(int meta) {
-    // if (iconMap.containsKey(meta)) {
-    // return iconMap.containsKey(meta) ? iconMap.get(meta) : this.itemIcon;
-    // } else {
-    // return this.itemIcon;
-    // }
-    // }
 }
