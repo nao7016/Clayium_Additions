@@ -43,7 +43,7 @@ dependencies {
 
     devOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.7.4-GTNH:dev")
     compileOnly("com.github.GTNewHorizons:NotEnoughItems:2.7.4-GTNH:dev")
-    devOnlyNonPublishable("ganymedes01.etfuturum:Et-Futurum-Requiem:2.6.2.9-GTNH:dev")
+    //devOnlyNonPublishable("ganymedes01.etfuturum:Et-Futurum-Requiem:2.6.2.9-GTNH:dev")
     compileOnly("ganymedes01.etfuturum:Et-Futurum-Requiem:2.6.2.9-GTNH:dev")
 
     runtimeOnlyNonPublishable("curse.maven:inventory-tweaks-223094:2210792")
