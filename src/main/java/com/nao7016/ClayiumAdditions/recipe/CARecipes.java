@@ -112,17 +112,17 @@ public class CARecipes {
                 i(CABlocks.blockRawClayOre, 1, 1),
                 CItems.itemCompressedClayShard.get("2", ClayiumCore.multiplyProgressionRateStackSize(27)),
                 9L,
-                (long) ClayiumCore.divideByProgressionRateI(6));
+                ClayiumCore.divideByProgressionRateI(6));
             CRecipes.recipeGrinder.addRecipe(
                 i(CABlocks.blockRawClayOre, 1, 2),
                 CItems.itemCompressedClayShard.get("3", ClayiumCore.multiplyProgressionRateStackSize(45)),
                 9L,
-                (long) ClayiumCore.divideByProgressionRateI(9));
+                ClayiumCore.divideByProgressionRateI(9));
         }
     }
 
     private static void registerTransformer() {
-        if (Config.cfgFishesTransform) {
+        if (Config.cfgTransform) {
             CRecipes.registerStackChainRecipes(
                 CRecipes.recipeTransformer,
                 ii(
@@ -134,14 +134,12 @@ public class CARecipes {
                 new int[] { 2, 1, 1, 1, 1 },
                 new int[] { 0, 9, 9, 9, 9 },
                 200);
-        }
-        if (Config.cfgCalciumChlorideTransform) {
             CRecipes.recipeTransformer.addRecipe(
                 CMaterials.get(CMaterials.CALCIUM_CHLORIDE, CMaterials.DUST),
                 7,
                 CMaterials.get(CMaterials.IMPURE_CALCIUM, CMaterials.DUST),
                 200000,
-                200);
+                200L);
         }
     }
 
@@ -167,13 +165,13 @@ public class CARecipes {
             ii(i(CBlocks.blocksMillingMachine[3])),
             e(3.0F, 3),
             4000L);
-        Block[][] arrayblocklist = new Block[][] { CBlocks.blocksMultitrackBuffer };
-        ArrayList<Block[]> blockslist = new ArrayList(Arrays.asList(arrayblocklist));
+        Block[][] arrayBlocklist = new Block[][] { CBlocks.blocksMultitrackBuffer };
+        ArrayList<Block[]> blocksList = new ArrayList(Arrays.asList(arrayBlocklist));
         if (Config.cfgAutoWaterWheelEnabled) {
-            blockslist.add(CABlocks.blocksWaterWheel);
+            blocksList.add(CABlocks.blocksWaterWheel);
         }
 
-        for (Block[] blocks : blockslist) {
+        for (Block[] blocks : blocksList) {
             int j = -1;
             int n = 0;
 

@@ -8,8 +8,7 @@ public class Config {
 
     public static boolean cfgSplittedEnergeticClayEnabled;
     public static boolean cfgAutoWaterWheelEnabled;
-    public static boolean cfgFishesTransform;
-    public static boolean cfgCalciumChlorideTransform;
+    public static boolean cfgTransform;
     public static boolean cfgMiningHammer;
     public static boolean cfgModeSky;
     public static boolean cfgEtFuturum;
@@ -24,16 +23,11 @@ public class Config {
             "If true, Splitted Energetic Clay will be enabled.");
         cfgAutoWaterWheelEnabled = configuration
             .getBoolean("EnableAutoWaterWheel", "item", true, "If true, Auto Water Wheel will be enabled.");
-        cfgFishesTransform = configuration.getBoolean(
-            "EnableTransformerFishRecipe",
+        cfgTransform = configuration.getBoolean(
+            "EnableAdditionalTransformerRecipe",
             "recipe",
             true,
-            "If true, you can craft fish with Transformer by chicken.");
-        cfgCalciumChlorideTransform = configuration.getBoolean(
-            "EnableTransformerCalciumChlorideRecipe",
-            "recipe",
-            true,
-            "If true, Calcium Chloride can be transformed into Impure Calcium.");
+            "If true, additional Transformer recipes will be available.");
         cfgMiningHammer = configuration
             .getBoolean("EnableMiningHammer", "item", true, "If true, Clay Mining Hammer will be enabled.");
         cfgModeSky = configuration.getBoolean(

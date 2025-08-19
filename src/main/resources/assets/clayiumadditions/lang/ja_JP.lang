@@ -1,4 +1,4 @@
-#"__DETAIL__" is keyword for Clayium Tooltip. Do not Change the line if "__DETAIL__" is exist.
+#"__DETAIL__" is keyword for Clayium Tooltip function. Do not Change the line if "__DETAIL__" is exist.
 #If "__DETAIL__" is already translated, please revert it back.
 #If you want to translate "__DETAIL__", please use "tooltip.HoldShiftForDetails=".
 #en_US and ja_JP are already available "__DETAIL__" translation, not necessary to add the key.
