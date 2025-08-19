@@ -1,3 +1,8 @@
+#"__DETAIL__" is keyword for Clayium Tooltip. Do not Change the line if "__DETAIL__" is exist.
+#If "__DETAIL__" is already translated, please revert it back.
+#If you want to translate "__DETAIL__", please use "tooltip.HoldShiftForDetails=".
+#en_US and ja_JP are already available "__DETAIL__" translation, not necessary to add the key.
+
 item.clay_energy.4.name=Splitted Energetic Clay
 item.clay_energy.5.name=Splitted Compressed Energetic Clay
 item.clay_energy.6.name=Splitted Double Compressed Energetic Clay
@@ -16,6 +21,13 @@ item.clay_bowl.tooltip.line1=A bowl filled with clay.
 item.clay_bowl.tooltip.line2=Get the clay by crafting!
 item.raw_clay_ore.1.name=Raw Industrial Clay Ore
 item.raw_clay_ore.2.name=Raw Advanced Industrial Clay Ore
+item.clay_hammer.name=Clay Hammer
+item.clay_hammer.tooltip.line1=Can crush cobblestone to gravel, gravel to sand.
+item.clay_mining_hammer.name=Clay Mining Hammer
+item.clay_mining_hammer.tooltip.line1=Can mine Clay Ores as Silk Touch.
+item.clay_mining_hammer.tooltip.line2=__DETAIL__
+item.clay_mining_hammer.tooltip.line3=Apply for：Clay Ore, Dense Clay Ore, Large Dense Clay Ore
+item.clay_mining_hammer.tooltip.line4=(3 Deepslate Clay Ores)
 
 tile.blockAutoSimpleWaterWheel.name=Simple Auto Clay Water Wheel
 tile.blockAutoBasicWaterWheel.name=Basic Auto Clay Water Wheel
