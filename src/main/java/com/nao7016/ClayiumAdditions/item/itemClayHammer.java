@@ -22,11 +22,11 @@ import mods.clayium.util.UtilLocale;
 public class itemClayHammer extends ItemPickaxe {
 
     protected float efficiencyOnClayBlocks = 40.0F;
-    private float efficiencyOnClayOre = 40.0F;
+    private float efficiencyOnClayOre = 15.0F;
 
     public itemClayHammer() {
-        super(ToolMaterial.IRON);
-        this.setMaxDamage(600);
+        super(ToolMaterial.STONE);
+        this.setMaxDamage(300);
         this.setCreativeTab(CATabs.ca_tabs);
         this.setUnlocalizedName("clay_hammer");
         this.setTextureName("clayiumadditions:clay_hammer");
