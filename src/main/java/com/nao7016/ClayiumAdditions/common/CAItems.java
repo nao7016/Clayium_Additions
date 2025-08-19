@@ -4,7 +4,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-import com.nao7016.ClayiumAdditions.item.*;
+import com.nao7016.ClayiumAdditions.item.itemClayBowl;
+import com.nao7016.ClayiumAdditions.item.itemClayBowlEmpty;
+import com.nao7016.ClayiumAdditions.item.itemClayEnergy;
+import com.nao7016.ClayiumAdditions.item.itemClayHammer;
+import com.nao7016.ClayiumAdditions.item.itemClayMiningHammer;
+import com.nao7016.ClayiumAdditions.item.itemRawClayOre;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
