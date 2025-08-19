@@ -47,14 +47,12 @@ public class EtOreIntegration {
         int meta = event.metadata;
         ItemStack heldItem = event.entityPlayer.getHeldItem();
 
-        float hardness = 1.5F;
-
         if (heldItem != null && block == CABlocks.blockDeepslateClayOre) {
             if (heldItem.getItem() == CItems.itemClayShovel) {
-                float efficiencyOnClayOre = 12.0F / hardness;
+                float efficiencyOnClayOre = 12.0F;
                 event.newSpeed = efficiencyOnClayOre;
             } else if (heldItem.getItem() == CItems.itemClayPickaxe) {
-                float efficiencyOnClayOre = 32.0F / hardness;
+                float efficiencyOnClayOre = 32.0F;
                 if (block.getHarvestLevel(meta) <= heldItem.getItem()
                     .getHarvestLevel(heldItem, block.getHarvestTool(meta))) {
                     event.newSpeed = efficiencyOnClayOre;

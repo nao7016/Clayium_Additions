@@ -8,7 +8,7 @@ import codechicken.nei.recipe.CatalystInfo;
 import codechicken.nei.recipe.RecipeCatalysts;
 import mods.clayium.block.CBlocks;
 
-public class NEIClayMachinesCatalyst {
+public class NEIClayiumCatalyst {
 
     public static void registerMachineCatalysts() {
         // tier 0
@@ -74,22 +74,21 @@ public class NEIClayMachinesCatalyst {
 
     public static void registerCatalysts(String handlerId, Block[] blocks) {
         for (Block block : blocks) {
-            if (block != null) {
-                Item item = Item.getItemFromBlock(block);
-                if (item != null) {
-                    RecipeCatalysts.addRecipeCatalyst(handlerId, new CatalystInfo(new ItemStack(item), 0));
-                }
-            }
+            registerCatalysts(handlerId, block);
         }
     }
 
     public static void registerCatalysts(String handlerId, Block block) {
         if (block != null) {
             Item item = Item.getItemFromBlock(block);
-            if (item != null) {
-                RecipeCatalysts.addRecipeCatalyst(handlerId, new CatalystInfo(new ItemStack(item), 0));
-            }
+            registerCatalysts(handlerId, item);
         }
 
+    }
+
+    public static void registerCatalysts(String handlerId, Item item) {
+        if (item != null) {
+            RecipeCatalysts.addRecipeCatalyst(handlerId, new CatalystInfo(new ItemStack(item), 0));
+        }
     }
 }
