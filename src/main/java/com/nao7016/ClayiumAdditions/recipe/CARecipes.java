@@ -52,7 +52,29 @@ public class CARecipes {
             GameRegistry.addShapelessRecipe(i(CAItems.clayBowlEmpty, 2), Items.bowl);
             GameRegistry
                 .addShapelessRecipe(CMaterials.get(CMaterials.CLAY, CMaterials.LARGE_BALL, 1), CAItems.clayBowl);
+            GameRegistry.addRecipe(
+                i(CAItems.clayHammer),
+                "CCC",
+                " S ",
+                " S ",
+                'C',
+                CMaterials.get(CMaterials.CLAY, CMaterials.CYLINDER),
+                'S',
+                CMaterials.get(CMaterials.CLAY, CMaterials.STICK));
         }
+
+        if (Config.cfgMiningHammer) {
+            GameRegistry.addRecipe(
+                i(CAItems.clayMiningHammer),
+                "CCC",
+                " S ",
+                " S ",
+                'C',
+                CMaterials.get(CMaterials.DENSE_CLAY, CMaterials.CYLINDER),
+                'S',
+                CMaterials.get(CMaterials.DENSE_CLAY, CMaterials.STICK));
+        }
+
         if (Config.cfgEtFuturum && Loader.isModLoaded("etfuturum")) {
             GameRegistry
                 .addRecipe(i(CABlocks.blockRawClayOre, 1, 1), "OOO", "OOO", "OOO", 'O', i(CAItems.rawClayOre, 1, 1));
