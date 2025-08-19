@@ -7,6 +7,8 @@ import net.minecraftforge.oredict.OreDictionary;
 import com.nao7016.ClayiumAdditions.item.itemClayBowl;
 import com.nao7016.ClayiumAdditions.item.itemClayBowlEmpty;
 import com.nao7016.ClayiumAdditions.item.itemClayEnergy;
+import com.nao7016.ClayiumAdditions.item.itemClayHammer;
+import com.nao7016.ClayiumAdditions.item.itemClayMiningHammer;
 import com.nao7016.ClayiumAdditions.item.itemRawClayOre;
 
 import cpw.mods.fml.common.Loader;
@@ -19,6 +21,8 @@ public class CAItems {
     public static Item clayBowlEmpty;
     public static Item clayBowl;
     public static Item rawClayOre;
+    public static Item clayHammer;
+    public static Item clayMiningHammer;
 
     private static Item register(Item item, String name) {
         GameRegistry.registerItem(item, name);
@@ -32,6 +36,7 @@ public class CAItems {
         if (Config.cfgModeSky) {
             clayBowlEmpty = register(new itemClayBowlEmpty(), "clay_bowl_empty");
             clayBowl = register(new itemClayBowl(), "clay_bowl");
+            clayHammer = register(new itemClayHammer(), "clay_hammer");
         }
         if (Config.cfgEtFuturum) {
             if (Loader.isModLoaded("etfuturum")) {
@@ -42,6 +47,9 @@ public class CAItems {
                 RawOreRegistry.addOre("oreDenseClay", rawClayOre, 1);
                 RawOreRegistry.addOre("oreLargeDenseClay", rawClayOre, 2);
             }
+        }
+        if (Config.cfgMiningHammer) {
+            clayMiningHammer = register(new itemClayMiningHammer(), "clay_mining_hammer");
         }
     }
 

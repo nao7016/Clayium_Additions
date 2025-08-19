@@ -1,3 +1,8 @@
+#"__DETAIL__" is keyword for Clayium Tooltip function. Do not change the line if "__DETAIL__" is exist.
+#If "__DETAIL__" is already translated, please revert it back.
+#If you want to translate "__DETAIL__", please use "tooltip.HoldShiftForDetails=".
+#en_US and ja_JP are already available "__DETAIL__" translation, not necessary to add the key.
+
 item.clay_energy.4.name=充能粘土粒
 item.clay_energy.5.name=压缩充能粘土粒
 item.clay_energy.6.name=双重压缩充能粘土粒

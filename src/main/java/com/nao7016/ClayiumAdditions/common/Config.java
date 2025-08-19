@@ -6,18 +6,16 @@ import net.minecraftforge.common.config.Configuration;
 
 public class Config {
 
-    public static String greeting = "Hello World";
     public static boolean cfgSplittedEnergeticClayEnabled;
     public static boolean cfgAutoWaterWheelEnabled;
     public static boolean cfgFishesTransform;
     public static boolean cfgCalciumChlorideTransform;
+    public static boolean cfgMiningHammer;
     public static boolean cfgModeSky;
     public static boolean cfgEtFuturum;
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
-
-        greeting = configuration.getString("greeting", Configuration.CATEGORY_GENERAL, greeting, "How shall I greet?");
 
         cfgSplittedEnergeticClayEnabled = configuration.getBoolean(
             "EnableSplittedEnergeticClay",
@@ -36,6 +34,8 @@ public class Config {
             "recipe",
             true,
             "If true, Calcium Chloride can be transformed into Impure Calcium.");
+        cfgMiningHammer = configuration
+            .getBoolean("EnableMiningHammer", "item", true, "If true, Clay Mining Hammer will be enabled.");
         cfgModeSky = configuration.getBoolean(
             "SkyMode",
             "mode",

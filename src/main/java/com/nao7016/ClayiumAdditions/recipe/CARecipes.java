@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 
 import com.nao7016.ClayiumAdditions.common.CABlocks;
@@ -24,11 +25,12 @@ import mods.clayium.util.crafting.CRecipes;
 public class CARecipes {
 
     public static void register() {
+        registerCrafting();
+        registerHammer();
         registerCESpritted();
         registerGrinder();
         registerTransformer();
         registerAssembler();
-        registerCrafting();
         registerCAInjector();
     }
 
@@ -50,7 +52,29 @@ public class CARecipes {
             GameRegistry.addShapelessRecipe(i(CAItems.clayBowlEmpty, 2), Items.bowl);
             GameRegistry
                 .addShapelessRecipe(CMaterials.get(CMaterials.CLAY, CMaterials.LARGE_BALL, 1), CAItems.clayBowl);
+            GameRegistry.addRecipe(
+                i(CAItems.clayHammer),
+                "CCC",
+                " S ",
+                " S ",
+                'C',
+                CMaterials.get(CMaterials.CLAY, CMaterials.CYLINDER),
+                'S',
+                CMaterials.get(CMaterials.CLAY, CMaterials.STICK));
         }
+
+        if (Config.cfgMiningHammer) {
+            GameRegistry.addRecipe(
+                i(CAItems.clayMiningHammer),
+                "CCC",
+                " S ",
+                " S ",
+                'C',
+                CMaterials.get(CMaterials.DENSE_CLAY, CMaterials.CYLINDER),
+                'S',
+                CMaterials.get(CMaterials.DENSE_CLAY, CMaterials.STICK));
+        }
+
         if (Config.cfgEtFuturum && Loader.isModLoaded("etfuturum")) {
             GameRegistry
                 .addRecipe(i(CABlocks.blockRawClayOre, 1, 1), "OOO", "OOO", "OOO", 'O', i(CAItems.rawClayOre, 1, 1));
@@ -58,6 +82,14 @@ public class CARecipes {
                 .addRecipe(i(CABlocks.blockRawClayOre, 1, 2), "OOO", "OOO", "OOO", 'O', i(CAItems.rawClayOre, 1, 2));
             GameRegistry.addShapelessRecipe(i(CAItems.rawClayOre, 9, 1), i(CABlocks.blockRawClayOre, 1, 1));
             GameRegistry.addShapelessRecipe(i(CAItems.rawClayOre, 9, 2), i(CABlocks.blockRawClayOre, 1, 2));
+        }
+    }
+
+    private static void registerHammer() {
+        if (Config.cfgModeSky) {
+            CrushRecipes.addRecipe(i(Blocks.cobblestone), i(Blocks.gravel));
+            CrushRecipes.addRecipe(i(Blocks.gravel), i(Blocks.sand));
+            CrushRecipes.addRecipe(i(Blocks.wool), i(Items.string), 3);
         }
     }
 
