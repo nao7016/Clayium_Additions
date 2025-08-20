@@ -1,35 +1,35 @@
 package com.nao7016.ClayiumAdditions.plugin.nei;
 
-import net.minecraft.client.resources.I18n;
+import java.util.Arrays;
+
 import net.minecraft.item.ItemStack;
 
 import com.nao7016.ClayiumAdditions.item.itemClayHammer;
 import com.nao7016.ClayiumAdditions.recipe.CrushRecipes;
 import com.nao7016.ClayiumAdditions.util.CrushList;
 
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
+public class NEICrushHandler extends NEITemplate {
 
-public class NEICrushHandler extends TemplateRecipeHandler {
-
-    public class CachedCrushRecipe extends CachedRecipe {
-
-        public PositionedStack input;
-        public PositionedStack output;
+    public class CachedCrushRecipe extends NEITemplate.BaseCachedRecipe {
 
         public CachedCrushRecipe(CrushList recipe) {
-            this.input = new PositionedStack(recipe.input, 48, 24);
-            this.output = new PositionedStack(recipe.output, 108, 24);
+            super(
+                Arrays.asList(recipe.input),
+                Arrays.asList(recipe.output),
+                new int[][] { { 52, 21 } },
+                new int[][] { { 98, 21 } },
+                "clayiumadditions:textures/guis/hammer_progressbar.png");
         }
+    }
 
-        @Override
-        public PositionedStack getIngredient() {
-            return input;
-        }
-
-        @Override
-        public PositionedStack getResult() {
-            return output;
+    @Override
+    public void loadCraftingRecipes(String outputId, Object... results) {
+        if (outputId.equals(getOverlayIdentifier())) {
+            for (CrushList recipe : CrushRecipes.getAll()) {
+                arecipes.add(new CachedCrushRecipe(recipe));
+            }
+        } else {
+            super.loadCraftingRecipes(outputId, results);
         }
     }
 
@@ -53,19 +53,21 @@ public class NEICrushHandler extends TemplateRecipeHandler {
 
     @Override
     public String getOverlayIdentifier() {
-        return "hammer";
-    }
-
-    @Override
-    public String getRecipeName() {
-        return I18n.format("recipe." + this.getOverlayIdentifier());
+        return "ClayHammer";
     }
 
     @Override
     public String getGuiTexture() {
-        return "minecraft:textures/gui/container/furnace.png"; // temp
+        return "clayiumadditions:textures/guis/nei.png";
     }
 
     @Override
-    public void loadTransferRects() {}
+    public int[] getProgressBarInfo() {
+        return new int[] { 71, 21, 24, 17 }; // x, y, width, height
+    }
+
+    @Override
+    public int getProgressBarDirection() {
+        return 0;
+    }
 }

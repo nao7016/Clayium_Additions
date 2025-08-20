@@ -14,7 +14,7 @@ public class NEIClayiumAdditionsCatalyst {
 
     public static void registerHammerCatalysts() {
         if (Config.cfgModeSky) {
-            registerCatalysts("hammer", CAItems.clayHammer);
+            registerCatalysts("ClayHammer", CAItems.clayHammer);
         }
     }
 

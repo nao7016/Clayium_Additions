@@ -44,5 +44,6 @@ tile.blockDeepslateClayOre.2.name=Deepslate Large Dense Clay Ore
 tile.blockRawClayOre.1.name=Raw Industrial Clay Ore Block
 tile.blockRawClayOre.2.name=Raw Advanced Industrial Clay Ore Block
 
+recipe.ClayHammer=Clay Hammer
 
 itemGroup.clayiumAdditionsTabs=Clayium Additions

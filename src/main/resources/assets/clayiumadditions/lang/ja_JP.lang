@@ -44,4 +44,6 @@ tile.blockDeepslateClayOre.2.name=深層高密度粘土鉱石大
 tile.blockRawClayOre.1.name=工業用粘土の原石ブロック
 tile.blockRawClayOre.2.name=発展工業用粘土の原石ブロック
 
+recipe.ClayHammer=粘土ハンマー
+
 itemGroup.clayiumAdditionsTabs=Clayium Additions
