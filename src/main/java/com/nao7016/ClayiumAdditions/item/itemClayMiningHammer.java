@@ -23,10 +23,10 @@ public class itemClayMiningHammer extends ItemPickaxe {
 
     public itemClayMiningHammer() {
         super(ToolMaterial.IRON);
-        this.setMaxDamage(400);
-        this.setCreativeTab(CATabs.ca_tabs);
-        this.setUnlocalizedName("clay_mining_hammer");
-        this.setTextureName("clayiumadditions:clay_mining_hammer");
+        setMaxDamage(400);
+        setCreativeTab(CATabs.ca_tabs);
+        setUnlocalizedName("clay_mining_hammer");
+        setTextureName("clayiumadditions:clay_mining_hammer");
     }
 
     public float getDigSpeed(ItemStack stack, Block block, int meta) {
