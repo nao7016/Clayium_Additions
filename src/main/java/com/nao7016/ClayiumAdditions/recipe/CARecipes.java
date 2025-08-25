@@ -4,7 +4,9 @@ import static mods.clayium.util.crafting.CRecipes.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import com.nao7016.ClayiumAdditions.recipe.storagebox.AutoCollectRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -21,9 +23,12 @@ import mods.clayium.item.CItems;
 import mods.clayium.item.CMaterial;
 import mods.clayium.item.CMaterials;
 import mods.clayium.util.crafting.CRecipes;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
 
 public class CARecipes {
 
+    public static boolean AutoCollect = true;
     public static void register() {
         registerCrafting();
         registerHammer();
@@ -32,6 +37,7 @@ public class CARecipes {
         registerTransformer();
         registerAssembler();
         registerCAInjector();
+        // registerSB();
     }
 
     private static void registerCrafting() {
@@ -94,7 +100,7 @@ public class CARecipes {
     }
 
     private static void registerCESpritted() {
-        if (Config.cfgSplittedEnergeticClayEnabled) {
+        if (Config.cfgSplittedEnergeticClay) {
             for (int tier = 4; tier <= 12; tier++) {
                 CRecipes.recipeCuttingMachine.addRecipe(
                     i(CBlocks.blockCompressedClay, 1, tier),
@@ -131,8 +137,8 @@ public class CARecipes {
                     i(Items.fish, 1, 1),
                     i(Items.fish, 1, 2),
                     i(Items.fish, 1, 3)),
-                new int[] { 2, 1, 1, 1, 1 },
-                new int[] { 0, 9, 9, 9, 9 },
+                new int[]{2, 1, 1, 1, 1},
+                new int[]{0, 9, 9, 9, 9},
                 200);
             CRecipes.recipeTransformer.addRecipe(
                 CMaterials.get(CMaterials.CALCIUM_CHLORIDE, CMaterials.DUST),
@@ -144,7 +150,7 @@ public class CARecipes {
     }
 
     private static void registerAssembler() {
-        if (Config.cfgAutoWaterWheelEnabled) {
+        if (Config.cfgAutoWaterWheel) {
             for (int i = 2; i <= 4; i++) {
                 CRecipes.recipeAssembler.addRecipe(
                     ii(i(CABlocks.blocksWaterWheel[i]), CMaterials.get(getTier(i + 1), CMaterials.LARGE_PLATE)),
@@ -165,9 +171,9 @@ public class CARecipes {
             ii(i(CBlocks.blocksMillingMachine[3])),
             e(3.0F, 3),
             4000L);
-        Block[][] arrayBlocklist = new Block[][] { CBlocks.blocksMultitrackBuffer };
+        Block[][] arrayBlocklist = new Block[][]{CBlocks.blocksMultitrackBuffer};
         ArrayList<Block[]> blocksList = new ArrayList(Arrays.asList(arrayBlocklist));
-        if (Config.cfgAutoWaterWheelEnabled) {
+        if (Config.cfgAutoWaterWheel) {
             blocksList.add(CABlocks.blocksWaterWheel);
         }
 
@@ -196,6 +202,14 @@ public class CARecipes {
                     n = 0;
                 }
             }
+        }
+    }
+
+    private static void registerSB() {
+        if (AutoCollect) {
+            @SuppressWarnings("rawtypes")
+            List recipe = CraftingManager.getInstance().getRecipeList();
+            recipe.add(new AutoCollectRecipes(new ItemStack(CAItems.storageBox, 1, -1)));
         }
     }
 
