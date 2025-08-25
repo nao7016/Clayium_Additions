@@ -1,7 +1,5 @@
 package com.nao7016.ClayiumAdditions.common;
 
-import com.nao7016.ClayiumAdditions.network.storagebox.EventHooks;
-import com.nao7016.ClayiumAdditions.util.storagebox.ServerScheduler;
 import net.minecraft.init.Items;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -22,22 +20,18 @@ import mods.clayium.core.ClayiumCore;
 import mods.clayium.gui.CreativeTab;
 
 public class CommonProxy {
-    public static boolean AutoCollect = true;
 
     // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
     // GameRegistry." (Remove if not needed)
     public void preInit(FMLPreInitializationEvent event) {
-        CAModMain.LOG.info("Clayium Additions: ver" + Tags.VERSION);
-        CAItems.registerItems();
-        CABlocks.registerBlocks();
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
-
+        CAModMain.LOG.info("Clayium Additions: ver" + Tags.VERSION);
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
-
-        ServerScheduler.register();
+        CAItems.registerItems();
+        CABlocks.registerBlocks();
 
     }
 
@@ -46,9 +40,7 @@ public class CommonProxy {
         CARecipes.register();
         MinecraftForge.EVENT_BUS.register(new HammerEvent());
         MinecraftForge.EVENT_BUS.register(new MiningHammerEvent());
-        if (AutoCollect) {
-            MinecraftForge.EVENT_BUS.register(new EventHooks());
-        }
+
         if (Loader.isModLoaded("NotEnoughItems")) {
             NEIPluginClayiumAdditions.registerNEI();
         }

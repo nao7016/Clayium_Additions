@@ -32,7 +32,7 @@ public class CABlocks {
     public static Block blockRawClayOre;
 
     public static void registerBlocks() {
-        if (Config.cfgAutoWaterWheel) {
+        if (Config.cfgAutoWaterWheelEnabled) {
             blockAutoSimpleWaterWheel = register(
                 new AutoWaterWheel("Auto Simple Water Wheel", "clayiumadditions:autowaterwheel", 3)
                     .setBlockName("blockAutoSimpleWaterWheel")

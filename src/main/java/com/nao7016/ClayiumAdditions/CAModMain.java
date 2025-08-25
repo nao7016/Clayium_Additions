@@ -1,7 +1,5 @@
 package com.nao7016.ClayiumAdditions;
 
-import com.nao7016.ClayiumAdditions.network.storagebox.SBGuiHandler;
-import cpw.mods.fml.common.network.NetworkRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -36,19 +34,10 @@ public class CAModMain {
         + "required-after:clayium@[0.4.6.36.hotfix2,);" // clayium
         + "after:etfuturum@[2.6.2,)" // Et Futurum Requiem
     ;
-
-    public static final String ChannelName = "clayium_additions";
-    public static final int ChannelFlagKey = 0;
-    public static final int ChannelFlagGui = 1;
-
-
     @SidedProxy(
         clientSide = "com.nao7016.ClayiumAdditions.client.ClientProxy",
         serverSide = "com.nao7016.ClayiumAdditions.common.CommonProxy")
     public static CommonProxy proxy;
-
-    @Mod.Instance(CAModMain.MODID)
-    public static CAModMain instance;
 
     @Mod.EventHandler
     // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
@@ -61,7 +50,6 @@ public class CAModMain {
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
-        NetworkRegistry.INSTANCE.registerGuiHandler(this, new SBGuiHandler());
         LOG.info("Clayium Additions has loaded!");
     }
 

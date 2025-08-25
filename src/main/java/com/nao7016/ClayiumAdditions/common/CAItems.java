@@ -21,7 +21,7 @@ public class CAItems {
     public static Item storageBox;
 
     public static void registerItems() {
-        if (Config.cfgSplittedEnergeticClay) {
+        if (Config.cfgSplittedEnergeticClayEnabled) {
             clayEnergy = register(new itemClayEnergy(), "clay_energy");
         }
         if (Config.cfgModeSky) {

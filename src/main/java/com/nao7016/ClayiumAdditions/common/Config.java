@@ -6,55 +6,47 @@ import net.minecraftforge.common.config.Configuration;
 
 public class Config {
 
-    // item
-    public static boolean cfgSplittedEnergeticClay;
-    public static boolean cfgAutoWaterWheel;
-    public static boolean cfgMiningHammer;
+    public static boolean cfgSplittedEnergeticClayEnabled;
+    public static boolean cfgAutoWaterWheelEnabled;
     public static boolean cfgStorageBox;
-    // recipe
     public static boolean cfgTransform;
-    // mode
+    public static boolean cfgMiningHammer;
     public static boolean cfgModeSky;
-    // integration
     public static boolean cfgEtFuturum;
-
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
-        cfgSplittedEnergeticClay = configuration.getBoolean(
+        cfgSplittedEnergeticClayEnabled = configuration.getBoolean(
             "EnableSplittedEnergeticClay",
             "item",
             true,
             "If true, Splitted Energetic Clay will be enabled.");
-        cfgAutoWaterWheel = configuration.getBoolean(
+        cfgAutoWaterWheelEnabled = configuration.getBoolean(
             "EnableAutoWaterWheel",
             "item",
             true,
             "If true, Auto Water Wheel will be enabled.");
-        cfgMiningHammer = configuration.getBoolean(
-            "EnableMiningHammer",
-            "item",
-            true,
-            "If true, Clay Mining Hammer will be enabled.");
         cfgStorageBox = configuration.getBoolean(
             "EnabledStorageBox",
             "item",
             true,
             "If true, Storage Box will be enabled.");
-
         cfgTransform = configuration.getBoolean(
             "EnableAdditionalTransformerRecipe",
             "recipe",
             true,
             "If true, additional Transformer recipes will be available.");
-
+        cfgMiningHammer = configuration.getBoolean(
+            "EnableMiningHammer",
+            "item",
+            true,
+            "If true, Clay Mining Hammer will be enabled.");
         cfgModeSky = configuration.getBoolean(
             "SkyMode",
             "mode",
             false,
             "If true, added recipes for skyblock. This mode is mainly for modpacks.");
-
         cfgEtFuturum = configuration.getBoolean(
             "Et Futurum Requiem",
             "integration",
