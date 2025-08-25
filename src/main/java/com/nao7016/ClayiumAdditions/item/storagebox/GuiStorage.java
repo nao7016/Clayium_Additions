@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiStorage extends GuiContainer {
+
     private final ResourceLocation texture = new ResourceLocation("clayiumadditions:textures/guis/StorageBox.png");
 
     public GuiStorage(InventoryPlayer playerInv, ItemStack storageBox) {
@@ -16,13 +17,13 @@ public class GuiStorage extends GuiContainer {
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-        mc.getTextureManager().bindTexture(texture);
+        mc.getTextureManager()
+            .bindTexture(texture);
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
     }
 
     @Override
-    protected void drawGuiContainerForegroundLayer(int par1, int par2)
-    {
+    protected void drawGuiContainerForegroundLayer(int par1, int par2) {
         fontRendererObj.drawString("Storage", 8, 20, 0x404040);
         fontRendererObj.drawString("Inventory", 8, (ySize - 96) + 2, 0x404040);
     }

@@ -1,21 +1,24 @@
 package com.nao7016.ClayiumAdditions.item.storagebox;
 
-import com.nao7016.ClayiumAdditions.CAModMain;
-import com.nao7016.ClayiumAdditions.common.CATabs;
-import com.nao7016.ClayiumAdditions.util.StorageBoxUtil;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import mods.clayium.util.UtilLocale;
+import java.util.List;
+import java.util.Objects;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
-import java.util.List;
-import java.util.Objects;
+import com.nao7016.ClayiumAdditions.CAModMain;
+import com.nao7016.ClayiumAdditions.common.CATabs;
+import com.nao7016.ClayiumAdditions.util.StorageBoxUtil;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import mods.clayium.util.UtilLocale;
 
 public class itemStorageBox extends Item {
+
     public itemStorageBox() {
         super();
         setUnlocalizedName("storage_box");
@@ -52,7 +55,6 @@ public class itemStorageBox extends Item {
 
         list.addAll(UtilLocale.localizeTooltip(this.getUnlocalizedName(stack) + ".tooltip"));
 
-
         ItemStack sItemStack = getStoredItem(stack);
         if (sItemStack == null) return;
 
@@ -69,34 +71,42 @@ public class itemStorageBox extends Item {
     }
 
     /**
-     *  登録アイテムを取得
+     * 登録アイテムを取得
+     * 
      * @param storageBox 取得したいアイテムが入ったストレージボックス
      * @return ItemStack
      */
     public static ItemStack getStoredItem(ItemStack storageBox) {
-        if (storageBox.hasTagCompound() && storageBox.getTagCompound().hasKey("Item")) {
-            return ItemStack.loadItemStackFromNBT(storageBox.getTagCompound().getCompoundTag("Item"));
+        if (storageBox.hasTagCompound() && storageBox.getTagCompound()
+            .hasKey("Item")) {
+            return ItemStack.loadItemStackFromNBT(
+                storageBox.getTagCompound()
+                    .getCompoundTag("Item"));
         }
         return null;
     }
 
     /**
-     *  登録アイテムの個数を取得
+     * 登録アイテムの個数を取得
+     * 
      * @param storageBox 取得したいアイテムが入ったストレージボックス
      * @return long アイテムの個数
      */
     public static int getStoredCount(ItemStack storageBox) {
-        if (storageBox.hasTagCompound() && storageBox.getTagCompound().hasKey("Count")) {
-            return storageBox.getTagCompound().getInteger("Count");
+        if (storageBox.hasTagCompound() && storageBox.getTagCompound()
+            .hasKey("Count")) {
+            return storageBox.getTagCompound()
+                .getInteger("Count");
         }
         return 0;
     }
 
     /**
      * NBTに登録アイテムと個数をセット
+     * 
      * @param storageBox ストレージボックス
-     * @param item 登録するアイテム
-     * @param count アイテムの個数
+     * @param item       登録するアイテム
+     * @param count      アイテムの個数
      */
     public static void setStoredItem(ItemStack storageBox, ItemStack item, int count) {
         NBTTagCompound nbt = storageBox.getTagCompound();
@@ -115,7 +125,7 @@ public class itemStorageBox extends Item {
     /**
      *
      * @param stack NBT取得元
-     * @param Key 取得キー
+     * @param Key   取得キー
      * @return 取得したデータ
      */
     public static int getItemNBTData(ItemStack stack, String Key) {
@@ -132,7 +142,8 @@ public class itemStorageBox extends Item {
         if (stack == null) return false;
         if (stack.getItem() instanceof itemStorageBox) return false;
         if (stack.hasTagCompound()) return false;
-        if (Objects.requireNonNull(stack.getItem()).isDamageable()) return false;
+        if (Objects.requireNonNull(stack.getItem())
+            .isDamageable()) return false;
         if (stack.isItemEnchanted()) return false;
         return true;
     }

@@ -1,13 +1,16 @@
 package com.nao7016.ClayiumAdditions.util;
 
-import com.nao7016.ClayiumAdditions.item.storagebox.itemStorageBox;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import com.nao7016.ClayiumAdditions.item.storagebox.itemStorageBox;
+
 public class StorageBoxUtil {
+
     /**
      * LC + Stack + itemに分ける
-     * @param stack ストレージボックス
+     * 
+     * @param stack         ストレージボックス
      * @param appendItemNum アイテム数を表示する？
      * @return StringBuilder
      */
@@ -29,7 +32,8 @@ public class StorageBoxUtil {
         // LC数の計算
         if (LC >= 1) {
             isHigherUnit = true;
-            builder.append(LC).append("LC ");
+            builder.append(LC)
+                .append("LC ");
             size -= LC * LCNum;
         }
         int Stack = size / maxStackNum;
@@ -39,7 +43,8 @@ public class StorageBoxUtil {
             if (builder.length() >= 1) {
                 builder.append("+ ");
             }
-            builder.append(Stack).append("stacks ");
+            builder.append(Stack)
+                .append("stacks ");
             size -= Stack * maxStackNum;
         }
         // 残りのアイテム数の計算
@@ -47,10 +52,13 @@ public class StorageBoxUtil {
             if (builder.length() >= 1) {
                 builder.append("+ ");
             }
-            builder.append(size).append("items ");
+            builder.append(size)
+                .append("items ");
         }
         if (isHigherUnit && appendItemNum) {
-            builder.append("( ").append(sItemStack.stackSize).append(" items)");
+            builder.append("( ")
+                .append(sItemStack.stackSize)
+                .append(" items)");
         }
         return builder;
     }

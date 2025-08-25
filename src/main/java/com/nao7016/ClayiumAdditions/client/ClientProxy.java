@@ -1,10 +1,12 @@
 package com.nao7016.ClayiumAdditions.client;
 
+import net.minecraftforge.client.MinecraftForgeClient;
+
 import com.nao7016.ClayiumAdditions.common.CAItems;
 import com.nao7016.ClayiumAdditions.common.CommonProxy;
 import com.nao7016.ClayiumAdditions.item.storagebox.StorageRenderer;
+
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.client.MinecraftForgeClient;
 
 public class ClientProxy extends CommonProxy {
 

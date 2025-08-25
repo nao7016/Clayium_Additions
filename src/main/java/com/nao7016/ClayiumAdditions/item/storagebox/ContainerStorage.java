@@ -8,6 +8,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerStorage extends Container {
+
     private final ItemStack storageBox; // このGUIで操作するストレージボックス
     private final InventoryPlayer playerInv;
 

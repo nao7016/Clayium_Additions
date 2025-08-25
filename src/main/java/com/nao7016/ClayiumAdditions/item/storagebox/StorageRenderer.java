@@ -6,9 +6,11 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
+
 import org.lwjgl.opengl.GL11;
 
 public class StorageRenderer implements IItemRenderer {
+
     private final RenderItem renderItem;
     private final Minecraft mc;
 
@@ -37,9 +39,9 @@ public class StorageRenderer implements IItemRenderer {
         GL11.glTranslatef(0.0F, 0.0F, 32.0F);
         RenderHelper.enableGUIStandardItemLighting();
 
-        FontRenderer fontRenderer = (stored != null && stored.getItem().getFontRenderer(stored) != null)
-                ? stored.getItem().getFontRenderer(stored)
-                : mc.fontRenderer;
+        FontRenderer fontRenderer = (stored != null && stored.getItem()
+            .getFontRenderer(stored) != null) ? stored.getItem()
+                .getFontRenderer(stored) : mc.fontRenderer;
 
         renderItem.renderItemIntoGUI(fontRenderer, mc.getTextureManager(), stored != null ? stored : item, 0, 0);
 

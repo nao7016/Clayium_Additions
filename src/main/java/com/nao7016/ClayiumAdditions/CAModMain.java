@@ -1,11 +1,10 @@
 package com.nao7016.ClayiumAdditions;
 
-import com.nao7016.ClayiumAdditions.item.storagebox.SBGuiHandler;
-import cpw.mods.fml.common.network.NetworkRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.nao7016.ClayiumAdditions.common.CommonProxy;
+import com.nao7016.ClayiumAdditions.item.storagebox.SBGuiHandler;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -13,6 +12,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 
 @Mod(
     modid = CAModMain.MODID,

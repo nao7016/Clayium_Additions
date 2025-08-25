@@ -5,6 +5,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class SlotStorage extends Slot {
+
     private final ContainerStorage container;
 
     public SlotStorage(ContainerStorage container, IInventory inventory, int ID, int x, int y) {
