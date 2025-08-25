@@ -3,10 +3,12 @@ package com.nao7016.ClayiumAdditions.item.storagebox;
 import java.util.List;
 import java.util.Objects;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import com.nao7016.ClayiumAdditions.CAModMain;
@@ -18,6 +20,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import mods.clayium.util.UtilLocale;
 
 public class itemStorageBox extends Item {
+
+    private IIcon defaultIcon;
 
     public itemStorageBox() {
         super();
@@ -35,6 +39,19 @@ public class itemStorageBox extends Item {
             }
         }
         return stack;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister iconRegister) {
+        defaultIcon = iconRegister.registerIcon("clayiumadditions:storage_box");
+        this.itemIcon = defaultIcon;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int damage) {
+        return defaultIcon;
     }
 
     @Override
@@ -72,7 +89,7 @@ public class itemStorageBox extends Item {
 
     /**
      * 登録アイテムを取得
-     * 
+     *
      * @param storageBox 取得したいアイテムが入ったストレージボックス
      * @return ItemStack
      */
@@ -88,7 +105,7 @@ public class itemStorageBox extends Item {
 
     /**
      * 登録アイテムの個数を取得
-     * 
+     *
      * @param storageBox 取得したいアイテムが入ったストレージボックス
      * @return long アイテムの個数
      */
@@ -103,7 +120,7 @@ public class itemStorageBox extends Item {
 
     /**
      * NBTに登録アイテムと個数をセット
-     * 
+     *
      * @param storageBox ストレージボックス
      * @param item       登録するアイテム
      * @param count      アイテムの個数

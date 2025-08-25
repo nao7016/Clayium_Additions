@@ -1,7 +1,6 @@
 package com.nao7016.ClayiumAdditions.item.storagebox;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.ItemStack;
@@ -9,19 +8,14 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-public class StorageRenderer implements IItemRenderer {
+public class StorageRenderer extends RenderItem implements IItemRenderer {
 
-    private final RenderItem renderItem;
-    private final Minecraft mc;
-
-    public StorageRenderer() {
-        this.mc = Minecraft.getMinecraft();
-        this.renderItem = new RenderItem();
-    }
+    public StorageRenderer() {}
 
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-        return type == ItemRenderType.INVENTORY && item.getItem() instanceof itemStorageBox;
+        return type == ItemRenderType.INVENTORY && item.getItem() instanceof itemStorageBox
+            && itemStorageBox.getStoredItem(item) != null;
     }
 
     @Override
@@ -39,11 +33,10 @@ public class StorageRenderer implements IItemRenderer {
         GL11.glTranslatef(0.0F, 0.0F, 32.0F);
         RenderHelper.enableGUIStandardItemLighting();
 
-        FontRenderer fontRenderer = (stored != null && stored.getItem()
-            .getFontRenderer(stored) != null) ? stored.getItem()
-                .getFontRenderer(stored) : mc.fontRenderer;
-
-        renderItem.renderItemIntoGUI(fontRenderer, mc.getTextureManager(), stored != null ? stored : item, 0, 0);
+        if (stored != null) {
+            Minecraft mc = Minecraft.getMinecraft();
+            renderItemIntoGUI(mc.fontRenderer, mc.getTextureManager(), stored, 0, 0);
+        }
 
         RenderHelper.disableStandardItemLighting();
         GL11.glPopMatrix();

@@ -41,15 +41,36 @@ public class ContainerStorage extends Container {
 
     @Override
     public ItemStack transferStackInSlot(EntityPlayer player, int index) {
+        ItemStack itemStack = null;
         Slot slot = this.inventorySlots.get(index);
         if (slot != null && slot.getHasStack()) {
             ItemStack stack = slot.getStack();
-            if (index > 0) { // プレイヤーインベントリ
-                registerItem(stack);
+            itemStack = stack.copy();
+
+            int storageSlotStart = 0;
+            int storageSlotEnd = 1;
+            int playerInvStart = storageSlotEnd;
+            int playerInvEnd = playerInvStart + 36;
+            if (index >= playerInvStart) { // プレイヤーインベントリ
+                // クリックされたのがプレイヤー側なら、ストレージスロットへ移動
+                if (!this.mergeItemStack(stack, storageSlotStart, storageSlotEnd, false)) {
+                    return null; // 移動できなかった場合
+                }
+            } else {
+                // クリックされたのがストレージスロット側なら、プレイヤーインベントリへ戻す
+                if (!this.mergeItemStack(stack, playerInvStart, playerInvEnd, true)) {
+                    return null; // 移動できなかった場合
+                }
+            }
+
+            // スタックが空になったらスロットをクリア
+            if (stack.stackSize == 0) {
                 slot.putStack(null);
+            } else {
+                slot.onSlotChanged();
             }
         }
-        return null;
+        return itemStack;
     }
 
     @Override
