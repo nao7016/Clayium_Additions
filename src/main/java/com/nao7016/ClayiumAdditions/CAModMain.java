@@ -1,5 +1,7 @@
 package com.nao7016.ClayiumAdditions;
 
+import com.nao7016.ClayiumAdditions.item.storagebox.SBGuiHandler;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -39,6 +41,9 @@ public class CAModMain {
         serverSide = "com.nao7016.ClayiumAdditions.common.CommonProxy")
     public static CommonProxy proxy;
 
+    @Mod.Instance
+    public static CAModMain instance;
+
     @Mod.EventHandler
     // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
     // GameRegistry." (Remove if not needed)
@@ -50,6 +55,7 @@ public class CAModMain {
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new SBGuiHandler());
         LOG.info("Clayium Additions has loaded!");
     }
 

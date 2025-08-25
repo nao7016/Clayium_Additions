@@ -28,6 +28,11 @@ item.clay_mining_hammer.tooltip.line1=粘土鉱石類をシルクタッチで回
 item.clay_mining_hammer.tooltip.line2=__DETAIL__
 item.clay_mining_hammer.tooltip.line3=対象：粘土鉱石、高密度粘土鉱石、高密度粘土鉱石大
 item.clay_mining_hammer.tooltip.line4=(深層粘土鉱石 3 種)
+item.storage_box.name=ストレージボックス
+item.storage_box.tooltip.line1=本物のストレージボックス
+item.clay_storage_box.name=粘土ストレージボックス
+item.clay_storage_box.tooltip.line1=おもちゃの粘土箱
+item.clay_storage_box.tooltip.line2=入るアイテム : 粘土玉、(圧縮)粘土ブロック系、粘土鉱石類
 
 tile.blockAutoSimpleWaterWheel.name=簡易自動粘土水車
 tile.blockAutoBasicWaterWheel.name=基本自動粘土水車
