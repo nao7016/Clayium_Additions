@@ -1,4 +1,4 @@
-package com.nao7016.ClayiumAdditions.network;
+package com.nao7016.ClayiumAdditions.plugin;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

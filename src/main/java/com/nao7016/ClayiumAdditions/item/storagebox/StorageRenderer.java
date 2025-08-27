@@ -30,7 +30,6 @@ public class StorageRenderer extends RenderItem implements IItemRenderer {
         ItemStack stored = itemStorageBox.getStoredItemStack(item);
 
         GL11.glPushMatrix();
-        GL11.glTranslatef(0.0F, 0.0F, 32.0F);
         RenderHelper.enableGUIStandardItemLighting();
 
         if (stored != null) {
@@ -38,7 +37,6 @@ public class StorageRenderer extends RenderItem implements IItemRenderer {
             renderItemIntoGUI(mc.fontRenderer, mc.getTextureManager(), stored, 0, 0);
         }
 
-        RenderHelper.disableStandardItemLighting();
         GL11.glPopMatrix();
     }
 }

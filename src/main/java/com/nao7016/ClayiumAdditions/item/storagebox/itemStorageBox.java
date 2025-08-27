@@ -107,10 +107,38 @@ public class itemStorageBox extends Item {
         sItem.addInformation(sItemStack, player, list, flag);
     }
 
+    public static void keyboardEvent(boolean isShift, EntityPlayer player) {
+        ItemStack heldItemStack = player.getHeldItem();
+        if (heldItemStack != null) {
+            Item heldItem = heldItemStack.getItem();
+
+            if (heldItem instanceof itemStorageBox) {
+                if (isShift) {
+                    dropStoredItemStack(heldItemStack, player);
+                } else {
+                    storageItemStack(heldItemStack, player);
+                }
+                return;
+            }
+        }
+
+        if (!isShift) {
+            ItemStack[] itemStacks = player.inventory.mainInventory;
+            for (ItemStack itemStack : itemStacks) {
+                if (itemStack != null && itemStack.getItem() instanceof itemStorageBox) {
+                    Item sItem = getStoredItem(itemStack);
+                    if (sItem != null) {
+                        storageItemStack(itemStack, player);
+                    }
+                }
+            }
+        }
+    }
+
     /**
      * アイテム生成 & ドロップ処理。スタック上限個生成する。
      * NBTが変化する。
-     * 
+     *
      * @param storageBox ItemStack ストレージボックス
      * @param player     EntityPlayer プレイヤー
      */
@@ -121,7 +149,7 @@ public class itemStorageBox extends Item {
     /**
      * アイテム生成 & ドロップ処理。amountで最大数を調整できる。
      * NBTが変化する。
-     * 
+     *
      * @param storageBox ItemStack ストレージボックス
      * @param player     EntityPlayer プレイヤー
      * @param amount     int 最大数
@@ -152,7 +180,7 @@ public class itemStorageBox extends Item {
     /**
      * アイテム収納処理。
      * NBTが変化する。
-     * 
+     *
      * @param storageBox ItemStack ストレージボックス
      * @param player     EntityPlayer プレイヤー
      */
@@ -202,7 +230,7 @@ public class itemStorageBox extends Item {
     public static ItemStack generateStoredItemStack(ItemStack storageBox, int amount) {
         ItemStack result = getStoredItemStack(storageBox, amount);
         if (result == null) return null;
-        removeStoredCount(storageBox, amount);
+        removeStoredItemStack(storageBox, result);
         return result;
     }
 
@@ -294,8 +322,8 @@ public class itemStorageBox extends Item {
      * NBTに登録アイテムと個数をセット
      * NBT ["ItemID": int, "Count": int, "Meta": int]
      *
-     * @param storageBox int ストレージボックス
-     * @param item       int 登録するアイテム
+     * @param storageBox ItemStack ストレージボックス
+     * @param item       ItemStack 登録するアイテム
      * @param count      int アイテムの個数
      */
     public static void setStoredItemToNBT(ItemStack storageBox, ItemStack item, int count) {
@@ -320,6 +348,25 @@ public class itemStorageBox extends Item {
         storageBox.setTagCompound(nbt);
     }
 
+    /**
+     * NBTに登録アイテムと個数をセット
+     * NBT ["ItemID": int, "Count": int, "Meta": int]
+     *
+     * @param storageBox ItemStack ストレージボックス
+     * @param item       ItemStack 登録するアイテム
+     */
+    public static void setStoredItemToNBT(ItemStack storageBox, ItemStack item) {
+        if (item == null) {
+            setItemNBTData(storageBox, "ItemID", 0);
+            setItemNBTData(storageBox, "Count", 0);
+            setItemNBTData(storageBox, "Meta", 0);
+        } else {
+            setItemNBTData(storageBox, "ItemID", Item.getIdFromItem(item.getItem()));
+            setItemNBTData(storageBox, "Count", item.stackSize);
+            setItemNBTData(storageBox, "Meta", item.getItemDamage());
+        }
+    }
+
     // public void dropItem(EntityPlayer player, ItemStack item) {
     // if (FMLClientHandler.instance().getClient().thePlayer ==player) {
     // if (player.inventory.addItemStackToInventory(item)) {
@@ -340,17 +387,24 @@ public class itemStorageBox extends Item {
     }
 
     /**
-     * ストレージボックスのNBTの"Count"を減少させる。0個以下になった場合は0になる。
+     * ストレージボックスの登録アイテムを減少させる。0個以下になった場合は0になる。
      *
      * @param storageBox ItemStack ストレージボックス
-     * @param amount     int 個数
+     * @param remove     ItemStack 減少させるアイテムスタック
      */
-    public static void removeStoredCount(ItemStack storageBox, int amount) {
-        int current = getStoredCount(storageBox);
-        if (amount > current) {
-            setItemNBTData(storageBox, "Count", 0);
-        } else {
-            setItemNBTData(storageBox, "Count", current - amount);
+    public static void removeStoredItemStack(ItemStack storageBox, ItemStack remove) {
+        ItemStack All = getStoredItemStackAll(storageBox);
+        // ItemStackの一致確認
+        if (All != null && All.isItemEqual(remove)) {
+            if (remove.stackSize > All.stackSize) {
+                remove.stackSize -= All.stackSize;
+                All = null;
+            } else {
+                All.stackSize -= remove.stackSize;
+                remove = null;
+            }
+
+            setStoredItemToNBT(storageBox, All);
         }
     }
 

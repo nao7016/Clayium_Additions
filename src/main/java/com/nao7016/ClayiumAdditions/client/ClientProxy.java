@@ -4,6 +4,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 
 import com.nao7016.ClayiumAdditions.common.CAItems;
 import com.nao7016.ClayiumAdditions.common.CommonProxy;
+import com.nao7016.ClayiumAdditions.item.storagebox.StorageKey;
 import com.nao7016.ClayiumAdditions.item.storagebox.StorageRenderer;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -16,5 +17,6 @@ public class ClientProxy extends CommonProxy {
     public void init(FMLInitializationEvent event) {
         super.init(event);
         MinecraftForgeClient.registerItemRenderer(CAItems.storageBox, new StorageRenderer());
+        StorageKey.set();
     }
 }
