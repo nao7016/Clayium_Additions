@@ -83,7 +83,7 @@ public class ContainerStorage extends Container {
             ItemStack input = StorageInventory.getStackInSlot(0);
 
             if (storageBox != null && storageBox.getItem() instanceof itemStorageBox && input != null) {
-                itemStorageBox.setStoredItem(storageBox, input.copy(), input.stackSize);
+                itemStorageBox.setStoredItemToNBT(storageBox, input.copy(), input.stackSize);
                 player.inventory.markDirty();
             }
         }
@@ -91,16 +91,16 @@ public class ContainerStorage extends Container {
 
     /** アイテムを登録 */
     private void registerItem(ItemStack input) {
-        ItemStack stored = itemStorageBox.getStoredItem(storageBox);
+        ItemStack stored = itemStorageBox.getStoredItemStack(storageBox);
         int count = itemStorageBox.getStoredCount(storageBox);
 
         if (stored == null) {
             // 初回登録
-            itemStorageBox.setStoredItem(storageBox, input.copy(), input.stackSize);
+            itemStorageBox.setStoredItemToNBT(storageBox, input.copy(), input.stackSize);
         } else {
             if (ItemStack.areItemStacksEqual(stored, input)) {
                 // 同じアイテム → 加算
-                itemStorageBox.setStoredItem(storageBox, stored, count + input.stackSize);
+                itemStorageBox.setStoredItemToNBT(storageBox, stored, count + input.stackSize);
             }
         }
     }

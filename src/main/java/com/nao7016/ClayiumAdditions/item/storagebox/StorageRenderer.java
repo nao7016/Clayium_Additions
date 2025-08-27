@@ -15,7 +15,7 @@ public class StorageRenderer extends RenderItem implements IItemRenderer {
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
         return type == ItemRenderType.INVENTORY && item.getItem() instanceof itemStorageBox
-            && itemStorageBox.getStoredItem(item) != null;
+            && itemStorageBox.getStoredItemStack(item) != null;
     }
 
     @Override
@@ -27,7 +27,7 @@ public class StorageRenderer extends RenderItem implements IItemRenderer {
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         if (type != ItemRenderType.INVENTORY || !(item.getItem() instanceof itemStorageBox)) return;
 
-        ItemStack stored = itemStorageBox.getStoredItem(item);
+        ItemStack stored = itemStorageBox.getStoredItemStack(item);
 
         GL11.glPushMatrix();
         GL11.glTranslatef(0.0F, 0.0F, 32.0F);
