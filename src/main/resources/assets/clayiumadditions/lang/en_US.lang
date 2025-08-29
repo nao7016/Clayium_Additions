@@ -51,4 +51,6 @@ tile.blockRawClayOre.2.name=Raw Advanced Industrial Clay Ore Block
 
 recipe.ClayHammer=Clay Hammer
 
+key.clayiumadditions.storagebox=Storage / Pull
+
 itemGroup.clayiumAdditionsTabs=Clayium Additions

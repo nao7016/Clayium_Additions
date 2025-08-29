@@ -51,4 +51,6 @@ tile.blockRawClayOre.2.name=発展工業用粘土の原石ブロック
 
 recipe.ClayHammer=粘土ハンマー
 
+key.clayiumadditions.storagebox=収納 / 取り出し
+
 itemGroup.clayiumAdditionsTabs=Clayium Additions

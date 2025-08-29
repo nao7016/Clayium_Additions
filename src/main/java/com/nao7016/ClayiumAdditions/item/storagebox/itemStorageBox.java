@@ -8,6 +8,8 @@ import java.util.Objects;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -208,6 +210,85 @@ public class itemStorageBox extends Item {
         }
     }
 
+    public void dropToChest(ItemStack storageBox, List<Slot> slots, boolean onlyOneStack) {
+        ItemStack sItemStack = getStoredItemStackAll(storageBox);
+        if (sItemStack == null) return;
+
+        int count = sItemStack.stackSize;
+        int removed = 0;
+        IInventory inventory = slots.get(0).inventory;
+
+        for (int i = 0; i < inventory.getSizeInventory(); i++) {
+            Slot slot = i < slots.size() ? slots.get(i) : null;
+            if (slot == null) continue;
+
+            if (!slot.isItemValid(sItemStack)) continue;
+
+            ItemStack target = inventory.getStackInSlot(i);
+            // 空スロットは新規に配置
+            if (target == null) {
+                ItemStack newStack = sItemStack.copy();
+                int moving = Math.min(count, sItemStack.getMaxStackSize());
+
+                newStack.stackSize = moving;
+                inventory.setInventorySlotContents(i, newStack);
+                inventory.markDirty();
+
+                removed += moving;
+                count -= moving;
+                // 既存のスロットに追加
+            } else if (sItemStack.isItemEqual(target) && target.stackSize < target.getMaxStackSize()) {
+                int space = target.getMaxStackSize() - target.stackSize;
+                int moving = Math.min(count, space);
+                target.stackSize += moving;
+                inventory.markDirty();
+
+                removed += moving;
+                count -= moving;
+            }
+
+            if (count <= 0) break;
+            if (onlyOneStack && removed > 0) break;
+        }
+
+        if (removed > 0) {
+            sItemStack.stackSize -= removed;
+            removeStoredItemStack(storageBox, sItemStack);
+        }
+    }
+
+    public void storageFromChest(ItemStack storageBox, List slots, EntityPlayer player) {
+        ItemStack sItemStack = getStoredItemStackAll(storageBox);
+        if (sItemStack == null) return;
+
+        int added = 0;
+        IInventory inventory = null;
+
+        for (int i = 0; i < slots.size(); i++) {
+            Slot slot = (Slot) slots.get(i);
+            if (slot == null) continue;
+
+            inventory = slot.inventory;
+            int slotIndex = slot.getSlotIndex();
+
+            ItemStack containerStack = inventory.getStackInSlot(slotIndex);
+            if (containerStack == null) continue;
+
+            if (!sItemStack.isItemEqual(containerStack)) continue;
+
+            slot.onPickupFromSlot(player, containerStack);
+            added += containerStack.stackSize;
+            inventory.setInventorySlotContents(slotIndex, null);
+        }
+        if (inventory != null) inventory.markDirty();
+
+        if (added > 0) {
+            ItemStack add = sItemStack.copy();
+            add.stackSize = added;
+            addItemStack(storageBox, add);
+        }
+    }
+
     /**
      * 登録アイテムからItemStackを生成する。最大スタック上限個。
      * 生成した分NBTが変化する。
@@ -367,14 +448,6 @@ public class itemStorageBox extends Item {
         }
     }
 
-    // public void dropItem(EntityPlayer player, ItemStack item) {
-    // if (FMLClientHandler.instance().getClient().thePlayer ==player) {
-    // if (player.inventory.addItemStackToInventory(item)) {
-    // player.inventory.markDirty();
-    // }
-    // }
-    // }
-
     /**
      * ストレージボックスのNBTの"Count"を増加させる。
      *
@@ -387,12 +460,37 @@ public class itemStorageBox extends Item {
     }
 
     /**
+     * ストレージボックスの登録アイテムを増加させる。
+     * NBTが変化する。
+     * 
+     * @param storageBox ストレージボックス
+     * @param add        加算するアイテム
+     * @return ItemStackインスタンス
+     */
+    public static void addItemStack(ItemStack storageBox, ItemStack add) {
+        ItemStack All = getStoredItemStackAll(storageBox);
+
+        if (All == null) {
+            setStoredItemToNBT(storageBox, add);
+            add = null;
+        } else {
+            // itemstackの一致確認
+            if (All.isItemEqual(add)) {
+                All.stackSize += add.stackSize;
+                add = null;
+                setStoredItemToNBT(storageBox, All);
+            }
+        }
+    }
+
+    /**
      * ストレージボックスの登録アイテムを減少させる。0個以下になった場合は0になる。
      *
      * @param storageBox ItemStack ストレージボックス
      * @param remove     ItemStack 減少させるアイテムスタック
+     * @return ItemStack 減少させた結果の残り、nullで残りなし
      */
-    public static void removeStoredItemStack(ItemStack storageBox, ItemStack remove) {
+    public static ItemStack removeStoredItemStack(ItemStack storageBox, ItemStack remove) {
         ItemStack All = getStoredItemStackAll(storageBox);
         // ItemStackの一致確認
         if (All != null && All.isItemEqual(remove)) {
@@ -406,6 +504,7 @@ public class itemStorageBox extends Item {
 
             setStoredItemToNBT(storageBox, All);
         }
+        return remove;
     }
 
     /**
