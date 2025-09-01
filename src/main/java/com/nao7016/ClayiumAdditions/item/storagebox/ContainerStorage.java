@@ -5,6 +5,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class ContainerStorage extends Container {
@@ -47,6 +48,8 @@ public class ContainerStorage extends Container {
             ItemStack stack = slot.getStack();
             itemStack = stack.copy();
 
+            if (stack.getItem() instanceof itemStorageBox) return null;
+
             int storageSlotStart = 0;
             int storageSlotEnd = 1;
             int playerInvStart = storageSlotEnd;
@@ -74,34 +77,33 @@ public class ContainerStorage extends Container {
     }
 
     @Override
+    public ItemStack slotClick(int slotId, int mouseButton, int modifier, EntityPlayer player) {
+        Slot slot = slotId >= 0 ? inventorySlots.get(slotId) : null;
+        if (slot != null) {
+            ItemStack stack = slot.getStack();
+            if (stack != null && stack.getItem() instanceof itemStorageBox) return null;
+        }
+        return super.slotClick(slotId, mouseButton, modifier, player);
+    }
+
+    @Override
     public void onContainerClosed(EntityPlayer player) {
         super.onContainerClosed(player);
 
         // GUIを閉じたときにスロット内のアイテムを登録
-        if (!player.worldObj.isRemote) {
+        if (!player.worldObj.isRemote && storageBox != null && storageBox.getItem() instanceof itemStorageBox) {
             ItemStack storageBox = player.getCurrentEquippedItem();
             ItemStack input = StorageInventory.getStackInSlot(0);
 
-            if (storageBox != null && storageBox.getItem() instanceof itemStorageBox && input != null) {
-                itemStorageBox.setStoredItemToNBT(storageBox, input.copy(), input.stackSize);
-                player.inventory.markDirty();
-            }
-        }
-    }
+            itemStorageBox.setStoredItemToNBT(storageBox, input);
 
-    /** アイテムを登録 */
-    private void registerItem(ItemStack input) {
-        ItemStack stored = itemStorageBox.getStoredItemStack(storageBox);
-        int count = itemStorageBox.getStoredCount(storageBox);
+            player.inventory.markDirty();
 
-        if (stored == null) {
-            // 初回登録
-            itemStorageBox.setStoredItemToNBT(storageBox, input.copy(), input.stackSize);
-        } else {
-            if (ItemStack.areItemStacksEqual(stored, input)) {
-                // 同じアイテム → 加算
-                itemStorageBox.setStoredItemToNBT(storageBox, stored, count + input.stackSize);
-            }
+            ItemStack stored = storageBox.copy();
+            Item storedItem = itemStorageBox.getStoredItem(stored);
+            System.out.println("[StorageBox] GUI closed. Stored Item: "
+                + (storedItem != null ? storedItem : "Empty")
+                + ", Count: " + itemStorageBox.getStoredCount(stored));
         }
     }
 

@@ -47,4 +47,5 @@ dependencies {
     compileOnly("ganymedes01.etfuturum:Et-Futurum-Requiem:2.6.2.9-GTNH:dev")
 
     runtimeOnlyNonPublishable("curse.maven:inventory-tweaks-223094:2210792")
+    runtimeOnlyNonPublishable("curse.maven:nbtreader-227127:2224950")
 }

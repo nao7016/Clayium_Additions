@@ -1,16 +1,21 @@
 package com.nao7016.ClayiumAdditions.item.storagebox;
 
+import static com.nao7016.ClayiumAdditions.util.StorageBoxUtil.findPrivateValue;
 import static com.nao7016.ClayiumAdditions.util.StorageBoxUtil.setItemNBTData;
 
 import java.util.List;
 import java.util.Objects;
 
+import cpw.mods.fml.common.registry.GameData;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IIcon;
@@ -40,27 +45,69 @@ public class itemStorageBox extends Item {
         setHasSubtypes(true);
     }
 
+
     @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        // アイテムを登録していない時GUIを開く
-        if (!world.isRemote) {
-            if (getStoredItemStack(stack) == null) {
-                player.openGui(CAModMain.instance, SBGuiHandler.StorageBoxGui, world, 0, 0, 0);
+    public boolean onItemUse(ItemStack storageBox, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+        Item sItem = getStoredItem(storageBox);
+        if (sItem == null) return super.onItemUse(storageBox, player, world, x, y, z, side, hitX, hitY, hitZ);
+
+        ItemStack sItemStack = generateStoredItemStack(storageBox);
+        if (sItemStack == null || sItemStack.getItem() == null) {
+            return super.onItemUse(storageBox, player, world, x, y, z, side, hitX, hitY, hitZ);
+        }
+
+        boolean use = true;
+
+        if (sItem instanceof ItemBlock) {
+            ItemBlock block = (ItemBlock) sItem;
+            if (world.isRemote) {
+                use = block.func_150936_a(world, x, y, z, side, player, sItemStack);
             } else {
-                ItemStack storedItemStack = Objects.requireNonNull(getStoredItemStack(stack));
-                log.info(
-                    "Item: {}, Size: {}, Damage: {}",
-                    storedItemStack.getItem(),
-                    storedItemStack.stackSize,
-                    storedItemStack.getItemDamage());
-                log.info(
-                    "NBT Item: {}, Count: {}, Meta: {}",
-                    getStoredItem(stack),
-                    getStoredCount(stack),
-                    getItemNBTData(storedItemStack, "Meta"));
+                use = canPlaceItemBlockOnSide(world, x, y, z, side, player, sItem, sItemStack);
             }
         }
-        return stack;
+
+        if (use) {
+            use = sItem.onItemUse(sItemStack, player, world, x, y, z, side, hitX, hitY, hitZ);
+        }
+
+        addItemStack(storageBox, sItemStack);
+        return use;
+    }
+
+    @Override
+    public ItemStack onItemRightClick(ItemStack storageBox, World world, EntityPlayer player) {
+        Item sItem = getStoredItem(storageBox);
+        ItemStack sItemStack = generateStoredItemStack(storageBox);
+
+        if (sItem == null || sItemStack == null) {// アイテムを登録していない時GUIを開く
+            player.openGui(CAModMain.instance, SBGuiHandler.StorageBoxGui, world, 0, 0, 0);
+        } else {
+            ItemStack tempStack = sItem.onItemRightClick(sItemStack, world, player);
+            if (tempStack == null) tempStack = sItemStack;
+            if (sItemStack.isItemEqual(tempStack)) {
+                // 通常のアイテムなど
+                ItemStack using = null;
+                if (world.isRemote) {
+                    using = player.getItemInUse();
+                } else {
+                    final List<Object> l = findPrivateValue(EntityPlayer.class, player, ItemStack.class);
+                    if (l.size() == 1) using = (ItemStack) l.get(0);
+                }
+
+                if (using != null && using.getItem() == sItemStack.getItem()) {
+                    int itemInUseCount = sItem.getMaxItemUseDuration(sItemStack);
+                    if (world.isRemote) itemInUseCount = player.getItemInUseCount();
+                    player.setItemInUse(storageBox, itemInUseCount);
+                }
+            } else {
+                //バケツなど、副産物がある系の操作
+                sItemStack.stackSize -= tempStack.stackSize;
+                dropItem(player, tempStack);
+            }
+            addItemStack(storageBox, sItemStack);
+        }
+        return storageBox;
     }
 
     @Override
@@ -135,6 +182,26 @@ public class itemStorageBox extends Item {
                 }
             }
         }
+    }
+
+    public static boolean canPlaceItemBlockOnSide(World world, int x, int y, int z, int side, EntityPlayer player, Item sItem, ItemStack sItemStack) {
+        if (!(sItem instanceof ItemBlock)) return false;
+
+        Block block = world.getBlock(x, y, z);
+
+        if (block == Blocks.snow) side = 1;
+        else if (block != Blocks.vine && block != Blocks.tallgrass && block != Blocks.deadbush && !block.isReplaceable(world, x, y, z)) {
+            switch (side) {
+                case 0 -> y--;
+                case 1 -> y++;
+                case 2 -> z--;
+                case 3 -> z++;
+                case 4 -> x--;
+                case 5 -> x++;
+            }
+        }
+
+        return world.canPlaceEntityOnSide(Block.getBlockFromItem(sItem), x, y, z, false, side, player, sItemStack);
     }
 
     /**
@@ -290,6 +357,23 @@ public class itemStorageBox extends Item {
     }
 
     /**
+     * 副産物をプレイヤーに還す
+     * @param player EntityPlayer プレイヤー
+     * @param itemStack ItemStack 渡すアイテム(副産物)
+     */
+    public static void dropItem(EntityPlayer player, ItemStack itemStack) {
+        if (itemStack == null || itemStack.stackSize == 0) return;
+
+        if (player.inventory.addItemStackToInventory(itemStack)) {
+            player.inventory.markDirty();
+        } else {
+            player.dropPlayerItemWithRandomChoice(itemStack.copy(), false);
+        }
+
+        itemStack.stackSize = 0;
+    }
+
+    /**
      * 登録アイテムからItemStackを生成する。最大スタック上限個。
      * 生成した分NBTが変化する。
      *
@@ -357,31 +441,23 @@ public class itemStorageBox extends Item {
         if (sItem == null) return null;
 
         int count = getStoredCount(storageBox);
+        if (count <= 0) return null;
 
-        ItemStack storedAll = null;
-        if (count > 0) {
-            int meta = getItemNBTData(storageBox, "meta");
-            storedAll = new ItemStack(sItem, count, meta);
-        } else {
-            setStoredItemToNBT(storageBox, null, 0);
-        }
-        return storedAll;
+        int meta = getItemNBTData(storageBox, "Meta");
+        return new ItemStack(sItem, count, meta);
     }
 
     /**
-     * NBTの"ItemID"からItemを返す
+     * NBTの"ItemName"からItemを返す
      *
      * @param storageBox ItemStack 取得したいアイテムが入ったストレージボックス
      * @return Item
      */
     public static Item getStoredItem(ItemStack storageBox) {
-        if (storageBox.hasTagCompound() && storageBox.getTagCompound()
-            .hasKey("ItemID")) {
-            int itemID = getItemNBTData(storageBox, "ItemID");
-            if (itemID == 0) return null;
-
-            int count = getItemNBTData(storageBox, "Count");
-            if (count > 1) return getItemById(itemID);
+        NBTTagCompound nbt = storageBox.getTagCompound();
+        if (nbt != null && nbt.hasKey("ItemName") && !nbt.getString("ItemName").isEmpty()) {
+            Object obj = Item.itemRegistry.getObject(nbt.getString("ItemName"));
+            if (obj instanceof Item) return (Item) obj;
         }
         return null;
     }
@@ -399,9 +475,26 @@ public class itemStorageBox extends Item {
         return 0;
     }
 
+
+
     /**
      * NBTに登録アイテムと個数をセット
-     * NBT ["ItemID": int, "Count": int, "Meta": int]
+     * NBT ["ItemName": String, "Count": int, "Meta": int]
+     *
+     * @param storageBox ItemStack ストレージボックス
+     * @param item       ItemStack 登録するアイテム
+     */
+    public static void setStoredItemToNBT(ItemStack storageBox, ItemStack item) {
+        if (item == null) {
+            setStoredItemToNBT(storageBox, null, 0);
+        } else {
+            setStoredItemToNBT(storageBox, item, item.stackSize);
+        }
+    }
+
+    /**
+     * NBTに登録アイテムと個数をセット
+     * NBT ["ItemName": String, "Count": int, "Meta": int]
      *
      * @param storageBox ItemStack ストレージボックス
      * @param item       ItemStack 登録するアイテム
@@ -415,37 +508,18 @@ public class itemStorageBox extends Item {
         }
 
         if (item == null) {
-            setItemNBTData(nbt, "ItemID", 0);
+            setItemNBTData(nbt, "ItemName", "");
             setItemNBTData(nbt, "Count", 0);
             setItemNBTData(nbt, "Meta", 0);
         } else {
-            int itemID = Item.getIdFromItem(item.getItem());
-            int meta = item.getItemDamage();
-            setItemNBTData(nbt, "ItemID", itemID);
+            String name = GameData.getItemRegistry().getNameForObject(item.getItem());
+            System.out.println("setStoredItemToNBT: " + name);
+            setItemNBTData(nbt, "ItemName", name);
             setItemNBTData(nbt, "Count", count);
-            setItemNBTData(nbt, "Meta", meta);
+            setItemNBTData(nbt, "Meta", item.getItemDamage());
         }
 
-        storageBox.setTagCompound(nbt);
-    }
-
-    /**
-     * NBTに登録アイテムと個数をセット
-     * NBT ["ItemID": int, "Count": int, "Meta": int]
-     *
-     * @param storageBox ItemStack ストレージボックス
-     * @param item       ItemStack 登録するアイテム
-     */
-    public static void setStoredItemToNBT(ItemStack storageBox, ItemStack item) {
-        if (item == null) {
-            setItemNBTData(storageBox, "ItemID", 0);
-            setItemNBTData(storageBox, "Count", 0);
-            setItemNBTData(storageBox, "Meta", 0);
-        } else {
-            setItemNBTData(storageBox, "ItemID", Item.getIdFromItem(item.getItem()));
-            setItemNBTData(storageBox, "Count", item.stackSize);
-            setItemNBTData(storageBox, "Meta", item.getItemDamage());
-        }
+        //storageBox.setTagCompound(nbt);
     }
 
     /**
@@ -462,7 +536,7 @@ public class itemStorageBox extends Item {
     /**
      * ストレージボックスの登録アイテムを増加させる。
      * NBTが変化する。
-     * 
+     *
      * @param storageBox ストレージボックス
      * @param add        加算するアイテム
      * @return ItemStackインスタンス
@@ -514,11 +588,10 @@ public class itemStorageBox extends Item {
      * @return int値
      */
     public static int getItemNBTData(ItemStack storageBox, String key) {
-        int data = 0;
         NBTTagCompound nbt = storageBox.getTagCompound();
-        if (nbt == null) return data;
-        data = getItemNBTData(nbt, key);
-        return data;
+
+        if (nbt == null) return 0;
+        return getItemNBTData(nbt, key);
     }
 
     /**
@@ -528,10 +601,8 @@ public class itemStorageBox extends Item {
      * @return int値
      */
     public static int getItemNBTData(NBTTagCompound nbt, String key) {
-        int data = 0;
-        if (nbt == null || !nbt.hasKey(key)) return data;
-        data = nbt.getInteger(key);
-        return data;
+        if (nbt == null || !nbt.hasKey(key)) return 0;
+        return nbt.getInteger(key);
     }
 
     /**

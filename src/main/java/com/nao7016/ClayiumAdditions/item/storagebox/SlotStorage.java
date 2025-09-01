@@ -1,5 +1,6 @@
 package com.nao7016.ClayiumAdditions.item.storagebox;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -19,5 +20,10 @@ public class SlotStorage extends Slot {
         if (storageBox == null) return false;
 
         return storageBox.canStore(itemStack);
+    }
+
+    @Override
+    public boolean canTakeStack(EntityPlayer player) {
+        return false;
     }
 }
