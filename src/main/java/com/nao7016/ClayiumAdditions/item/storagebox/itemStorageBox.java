@@ -13,12 +13,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
@@ -53,28 +54,40 @@ public class itemStorageBox extends Item {
         Item sItem = getStoredItem(storageBox);
         if (sItem == null) return super.onItemUse(storageBox, player, world, x, y, z, side, hitX, hitY, hitZ);
 
-        ItemStack sItemStack = generateStoredItemStack(storageBox);
-        if (sItemStack == null || sItemStack.getItem() == null) {
+        ItemStack stored = getStoredItemStack(storageBox);
+        if (stored == null || stored.getItem() == null) {
             return super.onItemUse(storageBox, player, world, x, y, z, side, hitX, hitY, hitZ);
         }
 
-        boolean use = true;
-
-        if (sItem instanceof ItemBlock) {
-            ItemBlock block = (ItemBlock) sItem;
-            if (world.isRemote) {
-                use = block.func_150936_a(world, x, y, z, side, player, sItemStack);
+        TileEntity tile = world.getTileEntity(x, y, z);
+        if (tile instanceof IInventory inventory) {
+            if (player.isSneaking()) {
+                log.info("dropToChest called");
+                dropToChest(storageBox, inventory, side, true);
             } else {
-                use = canPlaceItemBlockOnSide(world, x, y, z, side, player, sItem, sItemStack);
+                log.info("storageFromChest called");
+                storageFromChest(storageBox, inventory, side);
             }
-        }
+            return true;
+        } else {
+            ItemStack sItemStack = generateStoredItemStack(storageBox);
+            boolean use = true;
 
-        if (use) {
-            use = sItem.onItemUse(sItemStack, player, world, x, y, z, side, hitX, hitY, hitZ);
-        }
+            if (sItem instanceof ItemBlock block) {
+                if (world.isRemote) {
+                    use = block.func_150936_a(world, x, y, z, side, player, sItemStack);
+                } else {
+                    use = canPlaceItemBlockOnSide(world, x, y, z, side, player, sItem, sItemStack);
+                }
+            }
 
-        addItemStack(storageBox, sItemStack);
-        return use;
+            if (use) {
+                use = sItem.onItemUse(sItemStack, player, world, x, y, z, side, hitX, hitY, hitZ);
+            }
+
+            addItemStack(storageBox, sItemStack);
+            return use;
+        }
     }
 
     @Override
@@ -373,41 +386,49 @@ public class itemStorageBox extends Item {
         }
     }
 
-    public void dropToChest(ItemStack storageBox, List<Slot> slots, boolean onlyOneStack) {
+    public void dropToChest(ItemStack storageBox, IInventory inventory, int side, boolean onlyOneStack) {
         ItemStack sItemStack = getStoredItemStackAll(storageBox);
         if (sItemStack == null) return;
 
         int count = sItemStack.stackSize;
         int removed = 0;
-        IInventory inventory = slots.get(0).inventory;
 
-        for (int i = 0; i < inventory.getSizeInventory(); i++) {
-            Slot slot = i < slots.size() ? slots.get(i) : null;
-            if (slot == null) continue;
+        int[] slots = inventory instanceof ISidedInventory
+            ? ((ISidedInventory) inventory).getAccessibleSlotsFromSide(side)
+            : buildSlotsForLinearInventory(inventory);
 
-            if (!slot.isItemValid(sItemStack)) continue;
-
-            ItemStack target = inventory.getStackInSlot(i);
+        for (int slot : slots) {
+            ItemStack target = inventory.getStackInSlot(slot);
             // 空スロットは新規に配置
             if (target == null) {
                 ItemStack newStack = sItemStack.copy();
                 int moving = Math.min(count, sItemStack.getMaxStackSize());
 
-                newStack.stackSize = moving;
-                inventory.setInventorySlotContents(i, newStack);
-                inventory.markDirty();
+                if (newStack.stackSize > 0) {
+                    if (inventory.isItemValidForSlot(slot, newStack) && (!(inventory instanceof ISidedInventory)
+                        || ((ISidedInventory) inventory).canInsertItem(slot, newStack, side))) {
 
-                removed += moving;
-                count -= moving;
-                // 既存のスロットに追加
+                        newStack.stackSize = moving;
+                        inventory.setInventorySlotContents(slot, newStack);
+                        inventory.markDirty();
+
+                        removed += moving;
+                        count -= moving;
+                    }
+                }
+
             } else if (sItemStack.isItemEqual(target) && target.stackSize < target.getMaxStackSize()) {
+                // 既存のスロットに追加
                 int space = target.getMaxStackSize() - target.stackSize;
                 int moving = Math.min(count, space);
-                target.stackSize += moving;
-                inventory.markDirty();
+                if (inventory.isItemValidForSlot(slot, target) && (!(inventory instanceof ISidedInventory)
+                    || ((ISidedInventory) inventory).canInsertItem(slot, target, side))) {
+                    target.stackSize += moving;
+                    inventory.markDirty();
 
-                removed += moving;
-                count -= moving;
+                    removed += moving;
+                    count -= moving;
+                }
             }
 
             if (count <= 0) break;
@@ -415,35 +436,32 @@ public class itemStorageBox extends Item {
         }
 
         if (removed > 0) {
-            sItemStack.stackSize -= removed;
+            sItemStack.stackSize = removed;
             removeStoredItemStack(storageBox, sItemStack);
         }
     }
 
-    public void storageFromChest(ItemStack storageBox, List slots, EntityPlayer player) {
+    // 現状つかわれない、あとで使う可能性はある
+    public void storageFromChest(ItemStack storageBox, IInventory inventory, int side) {
         ItemStack sItemStack = getStoredItemStackAll(storageBox);
         if (sItemStack == null) return;
 
         int added = 0;
-        IInventory inventory = null;
 
-        for (int i = 0; i < slots.size(); i++) {
-            Slot slot = (Slot) slots.get(i);
-            if (slot == null) continue;
+        int[] slots = inventory instanceof ISidedInventory
+            ? ((ISidedInventory) inventory).getAccessibleSlotsFromSide(side)
+            : buildSlotsForLinearInventory(inventory);
 
-            inventory = slot.inventory;
-            int slotIndex = slot.getSlotIndex();
-
-            ItemStack containerStack = inventory.getStackInSlot(slotIndex);
+        for (int slot : slots) {
+            ItemStack containerStack = inventory.getStackInSlot(slot);
             if (containerStack == null) continue;
 
             if (!sItemStack.isItemEqual(containerStack)) continue;
 
-            slot.onPickupFromSlot(player, containerStack);
             added += containerStack.stackSize;
-            inventory.setInventorySlotContents(slotIndex, null);
+            inventory.setInventorySlotContents(slot, null);
         }
-        if (inventory != null) inventory.markDirty();
+        inventory.markDirty();
 
         if (added > 0) {
             ItemStack add = sItemStack.copy();
@@ -608,13 +626,14 @@ public class itemStorageBox extends Item {
             setItemNBTData(nbt, "ItemName", "");
             setItemNBTData(nbt, "Count", 0);
             setItemNBTData(nbt, "Meta", 0);
+            log.info("setStoredItemToNBT: cleared");
         } else {
             String name = GameData.getItemRegistry()
                 .getNameForObject(item.getItem());
-            System.out.println("setStoredItemToNBT: " + name);
             setItemNBTData(nbt, "ItemName", name);
             setItemNBTData(nbt, "Count", count);
             setItemNBTData(nbt, "Meta", item.getItemDamage());
+            log.info("setStoredItemToNBT: {}, {}, {}", name, count, item.getItemDamage());
         }
 
         // storageBox.setTagCompound(nbt);
@@ -701,6 +720,13 @@ public class itemStorageBox extends Item {
     public static int getItemNBTData(NBTTagCompound nbt, String key) {
         if (nbt == null || !nbt.hasKey(key)) return 0;
         return nbt.getInteger(key);
+    }
+
+    public static int[] buildSlotsForLinearInventory(IInventory inv) {
+        int[] slots = new int[inv.getSizeInventory()];
+        for (int i = 0; i < slots.length; i++) slots[i] = i;
+
+        return slots;
     }
 
     /**

@@ -23,7 +23,7 @@ public class StorageBoxUtil {
      */
     public static StringBuilder calcItemNumByUnit(ItemStack stack, boolean appendItemNum) {
         StringBuilder builder = new StringBuilder("Empty");
-        ItemStack sItemStack = itemStorageBox.getStoredItemStack(stack);
+        ItemStack sItemStack = itemStorageBox.getStoredItemStackAll(stack);
         if (sItemStack == null) return builder;
 
         Item sItem = sItemStack.getItem();
@@ -169,7 +169,7 @@ public class StorageBoxUtil {
 
     /**
      * 指定クラスのフィールドをすべて得る
-     * 
+     *
      * @param insClass    フィールドを取り出す対象のクラス。
      * @param instance    フィールドを取り出す対象のクラスのインスタンス。static フィールドを得る場合は null にする。
      * @param targetClass 取り出したいフィールドの型。一致するフィールドがすべて取り出される。
