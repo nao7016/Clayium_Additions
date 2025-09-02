@@ -17,6 +17,7 @@ public class ClientProxy extends CommonProxy {
     public void init(FMLInitializationEvent event) {
         super.init(event);
         MinecraftForgeClient.registerItemRenderer(CAItems.storageBox, new StorageRenderer());
+        MinecraftForgeClient.registerItemRenderer(CAItems.clayStorageBox, new StorageRenderer());
         StorageKey.set();
     }
 }

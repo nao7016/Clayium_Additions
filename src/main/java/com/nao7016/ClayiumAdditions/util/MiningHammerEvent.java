@@ -23,7 +23,7 @@ public class MiningHammerEvent {
 
             if (event.block == CBlocks.blockClayOre || event.block == CABlocks.blockDeepslateClayOre) {
                 event.drops.clear();
-                event.drops.add(new ItemStack(event.block, 1));
+                event.drops.add(new ItemStack(event.block, 1, event.blockMetadata));
                 held.damageItem(1, player);
             }
         }
