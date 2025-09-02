@@ -8,11 +8,13 @@ import java.util.Objects;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -108,6 +110,97 @@ public class itemStorageBox extends Item {
             addItemStack(storageBox, sItemStack);
         }
         return storageBox;
+    }
+
+    @Override
+    public ItemStack onEaten(ItemStack storageBox, World world, EntityPlayer player) {
+        Item sItem = getStoredItem(storageBox);
+        if (sItem != null) {
+            ItemStack sItemStack = generateStoredItemStack(storageBox, 1);
+            ItemStack tempStack = sItem.onEaten(sItemStack, world, player);
+
+            if (sItemStack != null && !sItemStack.isItemEqual(tempStack)) {
+                dropItem(player, tempStack);
+            }
+        }
+
+        return super.onEaten(storageBox, world, player);
+    }
+
+    @Override
+    public boolean hitEntity(ItemStack storageBox, EntityLivingBase target, EntityLivingBase attacker) {
+        Item sItem = getStoredItem(storageBox);
+        if (sItem != null) {
+            ItemStack sItemStack = generateStoredItemStack(storageBox);
+            if (sItemStack != null) {
+                sItem.hitEntity(sItemStack, target, attacker);
+                addItemStack(storageBox, sItemStack);
+            }
+        }
+
+        return super.hitEntity(storageBox, target, attacker);
+    }
+
+    @Override
+    public boolean onBlockDestroyed(ItemStack storageBox, World world, Block block, int x, int y, int z,
+        EntityLivingBase entityliving) {
+        Item sItem = getStoredItem(storageBox);
+
+        if (sItem != null) {
+            ItemStack sItemStack = generateStoredItemStack(storageBox);
+            sItem.onBlockDestroyed(sItemStack, world, block, x, y, z, entityliving);
+            addItemStack(storageBox, sItemStack);
+        }
+
+        return super.onBlockDestroyed(storageBox, world, block, x, y, z, entityliving);
+    }
+
+    @Override
+    public boolean itemInteractionForEntity(ItemStack storageBox, EntityPlayer player, EntityLivingBase entity) {
+        boolean result;
+        Item sItem = getStoredItem(storageBox);
+        if (sItem != null) {
+            ItemStack sItemStack = generateStoredItemStack(storageBox);
+            result = sItem.itemInteractionForEntity(sItemStack, player, entity);
+            addItemStack(storageBox, sItemStack);
+        } else {
+            result = super.itemInteractionForEntity(storageBox, player, entity);
+        }
+        return result;
+    }
+
+    @Override
+    public int getMaxItemUseDuration(ItemStack storageBox) {
+        Item sItem = getStoredItem(storageBox);
+        if (sItem != null) {
+            ItemStack sItemStack = getStoredItemStackAll(storageBox);
+            if (sItemStack != null) {
+                return sItem.getMaxItemUseDuration(sItemStack);
+            }
+        }
+        return super.getMaxItemUseDuration(storageBox);
+    }
+
+    @Override
+    public EnumAction getItemUseAction(ItemStack storageBox) {
+        Item sItem = getStoredItem(storageBox);
+        if (sItem != null) {
+            ItemStack sItemStack = getStoredItemStack(storageBox);
+            return sItem.getItemUseAction(sItemStack);
+        }
+        return super.getItemUseAction(storageBox);
+    }
+
+    @Override
+    public void onPlayerStoppedUsing(ItemStack storageBox, World world, EntityPlayer player, int remained) {
+        Item sItem = getStoredItem(storageBox);
+        if (sItem == null) return;
+
+        ItemStack sItemStack = generateStoredItemStack(storageBox);
+        if (sItemStack == null) return;
+
+        sItem.onPlayerStoppedUsing(sItemStack, world, player, remained);
+        addItemStack(storageBox, sItemStack);
     }
 
     @Override
@@ -361,7 +454,7 @@ public class itemStorageBox extends Item {
 
     /**
      * 副産物をプレイヤーに還す
-     * 
+     *
      * @param player    EntityPlayer プレイヤー
      * @param itemStack ItemStack 渡すアイテム(副産物)
      */
