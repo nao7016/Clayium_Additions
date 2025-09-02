@@ -5,6 +5,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import com.nao7016.ClayiumAdditions.CAModMain;
 import com.nao7016.ClayiumAdditions.Tags;
+import com.nao7016.ClayiumAdditions.item.storagebox.AutoCollect;
 import com.nao7016.ClayiumAdditions.network.CANetwork;
 import com.nao7016.ClayiumAdditions.plugin.EtOreIntegration;
 import com.nao7016.ClayiumAdditions.plugin.nei.NEIPluginClayiumAdditions;
@@ -42,6 +43,7 @@ public class CommonProxy {
         CARecipes.register();
         MinecraftForge.EVENT_BUS.register(new HammerEvent());
         MinecraftForge.EVENT_BUS.register(new MiningHammerEvent());
+        MinecraftForge.EVENT_BUS.register(new AutoCollect());
 
         if (Loader.isModLoaded("NotEnoughItems")) {
             NEIPluginClayiumAdditions.registerNEI();

@@ -156,16 +156,16 @@ public class itemStorageBox extends Item {
 
     @Override
     public boolean onBlockDestroyed(ItemStack storageBox, World world, Block block, int x, int y, int z,
-        EntityLivingBase entityliving) {
+        EntityLivingBase entity) {
         Item sItem = getStoredItem(storageBox);
 
         if (sItem != null) {
             ItemStack sItemStack = generateStoredItemStack(storageBox);
-            sItem.onBlockDestroyed(sItemStack, world, block, x, y, z, entityliving);
+            sItem.onBlockDestroyed(sItemStack, world, block, x, y, z, entity);
             addItemStack(storageBox, sItemStack);
         }
 
-        return super.onBlockDestroyed(storageBox, world, block, x, y, z, entityliving);
+        return super.onBlockDestroyed(storageBox, world, block, x, y, z, entity);
     }
 
     @Override
@@ -258,6 +258,7 @@ public class itemStorageBox extends Item {
         builder.insert(0, "Unit: ");
         list.add(builder.toString());
         list.add("Items: " + getStoredCount(stack));
+        list.add("AutoCollect: " + (isAutoCollect(stack) ? "ON" : "OFF"));
         list.add("[Information]");
         sItem.addInformation(sItemStack, player, list, flag);
     }
@@ -727,6 +728,25 @@ public class itemStorageBox extends Item {
         for (int i = 0; i < slots.length; i++) slots[i] = i;
 
         return slots;
+    }
+
+    /**
+     * 自動回収機能が有効であるか
+     *
+     * @param storageBox NBT取得先
+     */
+    public static boolean isAutoCollect(ItemStack storageBox) {
+        return getItemNBTData(storageBox, "Auto") == 0;
+    }
+
+    /**
+     * 自動回収機能をON/OFF切り替え
+     *
+     * @param storageBox NBT設定先
+     */
+    public static void changeAutoCollect(ItemStack storageBox) {
+        int value = isAutoCollect(storageBox) ? 1 : 0;
+        setItemNBTData(storageBox, "Auto", value);
     }
 
     /**
