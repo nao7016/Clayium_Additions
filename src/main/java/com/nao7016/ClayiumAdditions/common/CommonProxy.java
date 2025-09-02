@@ -5,7 +5,9 @@ import net.minecraftforge.common.MinecraftForge;
 
 import com.nao7016.ClayiumAdditions.CAModMain;
 import com.nao7016.ClayiumAdditions.Tags;
-import com.nao7016.ClayiumAdditions.network.EtOreIntegration;
+import com.nao7016.ClayiumAdditions.item.storagebox.AutoCollect;
+import com.nao7016.ClayiumAdditions.network.CANetwork;
+import com.nao7016.ClayiumAdditions.plugin.EtOreIntegration;
 import com.nao7016.ClayiumAdditions.plugin.nei.NEIPluginClayiumAdditions;
 import com.nao7016.ClayiumAdditions.recipe.CARecipes;
 import com.nao7016.ClayiumAdditions.util.HammerEvent;
@@ -26,6 +28,7 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
         CAModMain.LOG.info("Clayium Additions: ver" + Tags.VERSION);
+        CANetwork.init();
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
@@ -40,6 +43,7 @@ public class CommonProxy {
         CARecipes.register();
         MinecraftForge.EVENT_BUS.register(new HammerEvent());
         MinecraftForge.EVENT_BUS.register(new MiningHammerEvent());
+        MinecraftForge.EVENT_BUS.register(new AutoCollect());
 
         if (Loader.isModLoaded("NotEnoughItems")) {
             NEIPluginClayiumAdditions.registerNEI();

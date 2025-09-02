@@ -8,6 +8,7 @@ public class Config {
 
     public static boolean cfgSplittedEnergeticClayEnabled;
     public static boolean cfgAutoWaterWheelEnabled;
+    public static boolean cfgStorageBox;
     public static boolean cfgTransform;
     public static boolean cfgMiningHammer;
     public static boolean cfgModeSky;
@@ -23,6 +24,8 @@ public class Config {
             "If true, Splitted Energetic Clay will be enabled.");
         cfgAutoWaterWheelEnabled = configuration
             .getBoolean("EnableAutoWaterWheel", "item", true, "If true, Auto Water Wheel will be enabled.");
+        cfgStorageBox = configuration
+            .getBoolean("EnabledStorageBox", "item", true, "If true, Storage Box will be enabled.");
         cfgTransform = configuration.getBoolean(
             "EnableAdditionalTransformerRecipe",
             "recipe",

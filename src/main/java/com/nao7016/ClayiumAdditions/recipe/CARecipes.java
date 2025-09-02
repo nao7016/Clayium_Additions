@@ -8,6 +8,8 @@ import java.util.Arrays;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.ShapelessRecipes;
 
 import com.nao7016.ClayiumAdditions.common.CABlocks;
 import com.nao7016.ClayiumAdditions.common.CAItems;
@@ -82,6 +84,18 @@ public class CARecipes {
                 .addRecipe(i(CABlocks.blockRawClayOre, 1, 2), "OOO", "OOO", "OOO", 'O', i(CAItems.rawClayOre, 1, 2));
             GameRegistry.addShapelessRecipe(i(CAItems.rawClayOre, 9, 1), i(CABlocks.blockRawClayOre, 1, 1));
             GameRegistry.addShapelessRecipe(i(CAItems.rawClayOre, 9, 2), i(CABlocks.blockRawClayOre, 1, 2));
+        }
+
+        if (Config.cfgStorageBox) {
+
+            ShapelessRecipes recipe1 = new SBAutoCollectRecipe(i(CAItems.storageBox));
+            CraftingManager.getInstance()
+                .getRecipeList()
+                .add(recipe1);
+            ShapelessRecipes recipe2 = new SBAutoCollectRecipe(i(CAItems.clayStorageBox));
+            CraftingManager.getInstance()
+                .getRecipeList()
+                .add(recipe2);
         }
     }
 
