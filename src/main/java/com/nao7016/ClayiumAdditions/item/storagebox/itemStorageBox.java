@@ -6,7 +6,6 @@ import static com.nao7016.ClayiumAdditions.util.StorageBoxUtil.setItemNBTData;
 import java.util.List;
 import java.util.Objects;
 
-import cpw.mods.fml.common.registry.GameData;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,6 +27,7 @@ import com.nao7016.ClayiumAdditions.CAModMain;
 import com.nao7016.ClayiumAdditions.common.CATabs;
 import com.nao7016.ClayiumAdditions.util.StorageBoxUtil;
 
+import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.clayium.util.UtilLocale;
@@ -45,9 +45,9 @@ public class itemStorageBox extends Item {
         setHasSubtypes(true);
     }
 
-
     @Override
-    public boolean onItemUse(ItemStack storageBox, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+    public boolean onItemUse(ItemStack storageBox, EntityPlayer player, World world, int x, int y, int z, int side,
+        float hitX, float hitY, float hitZ) {
         Item sItem = getStoredItem(storageBox);
         if (sItem == null) return super.onItemUse(storageBox, player, world, x, y, z, side, hitX, hitY, hitZ);
 
@@ -101,7 +101,7 @@ public class itemStorageBox extends Item {
                     player.setItemInUse(storageBox, itemInUseCount);
                 }
             } else {
-                //バケツなど、副産物がある系の操作
+                // バケツなど、副産物がある系の操作
                 sItemStack.stackSize -= tempStack.stackSize;
                 dropItem(player, tempStack);
             }
@@ -184,22 +184,25 @@ public class itemStorageBox extends Item {
         }
     }
 
-    public static boolean canPlaceItemBlockOnSide(World world, int x, int y, int z, int side, EntityPlayer player, Item sItem, ItemStack sItemStack) {
+    public static boolean canPlaceItemBlockOnSide(World world, int x, int y, int z, int side, EntityPlayer player,
+        Item sItem, ItemStack sItemStack) {
         if (!(sItem instanceof ItemBlock)) return false;
 
         Block block = world.getBlock(x, y, z);
 
         if (block == Blocks.snow) side = 1;
-        else if (block != Blocks.vine && block != Blocks.tallgrass && block != Blocks.deadbush && !block.isReplaceable(world, x, y, z)) {
-            switch (side) {
-                case 0 -> y--;
-                case 1 -> y++;
-                case 2 -> z--;
-                case 3 -> z++;
-                case 4 -> x--;
-                case 5 -> x++;
+        else if (block != Blocks.vine && block != Blocks.tallgrass
+            && block != Blocks.deadbush
+            && !block.isReplaceable(world, x, y, z)) {
+                switch (side) {
+                    case 0 -> y--;
+                    case 1 -> y++;
+                    case 2 -> z--;
+                    case 3 -> z++;
+                    case 4 -> x--;
+                    case 5 -> x++;
+                }
             }
-        }
 
         return world.canPlaceEntityOnSide(Block.getBlockFromItem(sItem), x, y, z, false, side, player, sItemStack);
     }
@@ -358,7 +361,8 @@ public class itemStorageBox extends Item {
 
     /**
      * 副産物をプレイヤーに還す
-     * @param player EntityPlayer プレイヤー
+     * 
+     * @param player    EntityPlayer プレイヤー
      * @param itemStack ItemStack 渡すアイテム(副産物)
      */
     public static void dropItem(EntityPlayer player, ItemStack itemStack) {
@@ -455,7 +459,9 @@ public class itemStorageBox extends Item {
      */
     public static Item getStoredItem(ItemStack storageBox) {
         NBTTagCompound nbt = storageBox.getTagCompound();
-        if (nbt != null && nbt.hasKey("ItemName") && !nbt.getString("ItemName").isEmpty()) {
+        if (nbt != null && nbt.hasKey("ItemName")
+            && !nbt.getString("ItemName")
+                .isEmpty()) {
             Object obj = Item.itemRegistry.getObject(nbt.getString("ItemName"));
             if (obj instanceof Item) return (Item) obj;
         }
@@ -474,8 +480,6 @@ public class itemStorageBox extends Item {
         }
         return 0;
     }
-
-
 
     /**
      * NBTに登録アイテムと個数をセット
@@ -512,14 +516,15 @@ public class itemStorageBox extends Item {
             setItemNBTData(nbt, "Count", 0);
             setItemNBTData(nbt, "Meta", 0);
         } else {
-            String name = GameData.getItemRegistry().getNameForObject(item.getItem());
+            String name = GameData.getItemRegistry()
+                .getNameForObject(item.getItem());
             System.out.println("setStoredItemToNBT: " + name);
             setItemNBTData(nbt, "ItemName", name);
             setItemNBTData(nbt, "Count", count);
             setItemNBTData(nbt, "Meta", item.getItemDamage());
         }
 
-        //storageBox.setTagCompound(nbt);
+        // storageBox.setTagCompound(nbt);
     }
 
     /**

@@ -101,9 +101,10 @@ public class ContainerStorage extends Container {
 
             ItemStack stored = storageBox.copy();
             Item storedItem = itemStorageBox.getStoredItem(stored);
-            System.out.println("[StorageBox] GUI closed. Stored Item: "
-                + (storedItem != null ? storedItem : "Empty")
-                + ", Count: " + itemStorageBox.getStoredCount(stored));
+            System.out.println(
+                "[StorageBox] GUI closed. Stored Item: " + (storedItem != null ? storedItem : "Empty")
+                    + ", Count: "
+                    + itemStorageBox.getStoredCount(stored));
         }
     }
 

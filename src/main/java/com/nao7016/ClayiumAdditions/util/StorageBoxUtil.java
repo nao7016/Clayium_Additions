@@ -1,16 +1,16 @@
 package com.nao7016.ClayiumAdditions.util;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-
-import com.nao7016.ClayiumAdditions.item.storagebox.itemStorageBox;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
+import com.nao7016.ClayiumAdditions.item.storagebox.itemStorageBox;
 
 public class StorageBoxUtil {
 
@@ -164,13 +164,14 @@ public class StorageBoxUtil {
                 fields.add(field.get(instance));
             } catch (Exception ignored) {}
         }
-        return  fields;
+        return fields;
     }
 
     /**
      * 指定クラスのフィールドをすべて得る
-     * @param insClass フィールドを取り出す対象のクラス。
-     * @param instance フィールドを取り出す対象のクラスのインスタンス。static フィールドを得る場合は null にする。
+     * 
+     * @param insClass    フィールドを取り出す対象のクラス。
+     * @param instance    フィールドを取り出す対象のクラスのインスタンス。static フィールドを得る場合は null にする。
      * @param targetClass 取り出したいフィールドの型。一致するフィールドがすべて取り出される。
      * @return 取り出したフィールド
      */
@@ -178,9 +179,11 @@ public class StorageBoxUtil {
         List<Field> fieldList = new ArrayList<>();
         if (insClass == null && instance != null) insClass = instance.getClass();
 
-        Field[] fields = Objects.requireNonNull(insClass).getDeclaredFields();
+        Field[] fields = Objects.requireNonNull(insClass)
+            .getDeclaredFields();
         for (Field field : fields) {
-            if (!field.getType().equals(targetClass)) continue;
+            if (!field.getType()
+                .equals(targetClass)) continue;
             if (instance == null && !Modifier.isStatic(field.getModifiers())) continue;
 
             field.setAccessible(true);
