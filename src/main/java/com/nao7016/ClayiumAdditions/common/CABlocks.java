@@ -30,9 +30,6 @@ public class CABlocks {
     public static Block blockDeepslateClayOre;
     public static Block blockRawClayOre;
 
-    public static Block[] blocksAddCondenser;
-    public static Block[] blocksAddSmelter;
-
     public static void registerBlocks() {
         if (Config.cfgAutoWaterWheelEnabled) {
             for (int tier = 3; tier <= 5; tier++) {
@@ -75,11 +72,6 @@ public class CABlocks {
                     "blockRawClayOre");
             }
         }
-    }
-
-    public static void registerAddMachines() {
-        blocksAddCondenser = CBlocks.registerTieredMachines("Condenser", "condenser", "Condenser", new int[] { 6, 7 });
-        blocksAddSmelter = CBlocks.registerTieredMachines("Smelter", "smelter", "Smelter", new int[] { 10, 11, 12 });
     }
 
     private static Block register(Block block, Class<? extends ItemBlock> extendclass, String name) {

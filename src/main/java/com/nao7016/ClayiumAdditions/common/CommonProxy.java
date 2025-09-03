@@ -12,6 +12,7 @@ import com.nao7016.ClayiumAdditions.plugin.nei.NEIPluginClayiumAdditions;
 import com.nao7016.ClayiumAdditions.recipe.CARecipes;
 import com.nao7016.ClayiumAdditions.util.HammerEvent;
 import com.nao7016.ClayiumAdditions.util.MiningHammerEvent;
+import com.nao7016.ClayiumAdditions.util.UtilAddTier;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -29,13 +30,14 @@ public class CommonProxy {
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
         CAModMain.LOG.info("Clayium Additions: ver" + Tags.VERSION);
         CANetwork.init();
+        if (Config.cfgAddMachines) UtilAddTier.setAddTierManagers();
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
         CAItems.registerItems();
         CABlocks.registerBlocks();
-        if (Config.cfgAddMachines) CABlocks.registerAddMachines();
+        if (Config.cfgAddMachines) AddMachines.registerAddMachines();
     }
 
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
