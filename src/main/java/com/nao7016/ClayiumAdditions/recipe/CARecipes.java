@@ -87,6 +87,24 @@ public class CARecipes {
         }
 
         if (Config.cfgStorageBox) {
+            GameRegistry.addRecipe(
+                i(CAItems.storageBox),
+                "CCC",
+                "CSC",
+                "CCC",
+                'C',
+                i(Blocks.chest),
+                'S',
+                i(CBlocks.blockStorageContainer, 1, 480));
+            GameRegistry.addRecipe(
+                i(CAItems.clayStorageBox),
+                "CCC",
+                "CBC",
+                "CCC",
+                'C',
+                i(Blocks.chest),
+                'B',
+                i(Items.clay_ball));
 
             ShapelessRecipes recipe1 = new SBAutoCollectRecipe(i(CAItems.storageBox));
             CraftingManager.getInstance()
