@@ -1,10 +1,11 @@
 package com.nao7016.ClayiumAdditions.plugin.nei;
 
-import com.nao7016.ClayiumAdditions.common.AddMachines;
-import com.nao7016.ClayiumAdditions.common.Config;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
+import com.nao7016.ClayiumAdditions.common.AddMachines;
+import com.nao7016.ClayiumAdditions.common.Config;
 
 import codechicken.nei.recipe.CatalystInfo;
 import codechicken.nei.recipe.RecipeCatalysts;

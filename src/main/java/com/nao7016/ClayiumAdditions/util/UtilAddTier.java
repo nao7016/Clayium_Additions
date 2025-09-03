@@ -11,23 +11,31 @@ public class UtilAddTier extends UtilTier {
         for (int tier = 0; tier <= 13; tier++) {
             // tier generic
             if (7 <= tier && tier < 10) {
-                tierGeneric.get("multCraftTime").put(tier, 0.0625F);
-                tierGeneric.get("multConsumingEnergy").put(tier, 25.0F);
+                tierGeneric.get("multCraftTime")
+                    .put(tier, 0.0625F);
+                tierGeneric.get("multConsumingEnergy")
+                    .put(tier, 25.0F);
             } else if (11 <= tier) {
-                tierGeneric.get("multCraftTime").put(tier, 0.01F);
-                tierGeneric.get("multConsumingEnergy").put(tier, 250.0F);
+                tierGeneric.get("multCraftTime")
+                    .put(tier, 0.01F);
+                tierGeneric.get("multConsumingEnergy")
+                    .put(tier, 250.0F);
             }
 
             // tier smelter
             if (10 <= tier) {
-                tierSmelter.get("multCraftTime").put(tier, 0.0025F);
-                tierSmelter.get("multConsumingEnergy").put(tier, 560000.0F);
+                tierSmelter.get("multCraftTime")
+                    .put(tier, 0.0025F);
+                tierSmelter.get("multConsumingEnergy")
+                    .put(tier, 560000.0F);
             }
 
             // tier ca condenser
             if (12 <= tier) {
-                tierCACondenser.get("multCraftTime").put(tier, 0.01F);
-                tierCACondenser.get("multConsumingEnergy").put(tier, 100.0F);
+                tierCACondenser.get("multCraftTime")
+                    .put(tier, 0.01F);
+                tierCACondenser.get("multConsumingEnergy")
+                    .put(tier, 100.0F);
             }
         }
     }
