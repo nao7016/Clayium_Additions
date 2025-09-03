@@ -4,6 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import com.nao7016.ClayiumAdditions.common.AddMachines;
+import com.nao7016.ClayiumAdditions.common.Config;
+
 import codechicken.nei.recipe.CatalystInfo;
 import codechicken.nei.recipe.RecipeCatalysts;
 import mods.clayium.block.CBlocks;
@@ -67,6 +70,39 @@ public class NEIClayiumCatalyst {
 
         // tier 13
         registerCatalysts("ECDecomposer", CBlocks.blockEnergeticClayDecomposer);
+
+        if (Config.cfgAddMachines) {
+            // tier 1
+            registerCatalysts("BendingMachine", AddMachines.blocksAddBendingMachine);
+            registerCatalysts("WireDrawingMachine", AddMachines.blocksAddWireDrawingMachine);
+            registerCatalysts("PipeDrawingMachine", AddMachines.blocksAddPipeDrawingMachine);
+            registerCatalysts("CuttingMachine", AddMachines.blocksAddCuttingMachine);
+            registerCatalysts("Lathe", AddMachines.blocksAddLathe);
+            registerCatalysts("MillingMachine", AddMachines.blocksAddMillingMachine);
+            registerCatalysts("CobblestoneGenerator", AddMachines.blocksAddCobblestoneGenerator);
+
+            // tier 2
+            registerCatalysts("Condenser", AddMachines.blocksAddCondenser);
+            registerCatalysts("Grinder", AddMachines.blocksAddGrinder);
+            registerCatalysts("Decomposer", AddMachines.blocksAddDecomposer);
+
+            // tier 3
+            registerCatalysts("Assembler", AddMachines.blocksAddAssembler);
+            registerCatalysts("Centrifuge", AddMachines.blocksAddCentrifuge);
+            registerCatalysts("Inscriber", AddMachines.blocksAddInscriber);
+
+            // tier 4
+            registerCatalysts("Smelter", AddMachines.blocksAddSmelter);
+            registerCatalysts("ChemicalReactor", AddMachines.blocksAddChemicalReactor);
+            registerCatalysts("SaltExtractor", AddMachines.blocksAddSaltExtractor);
+
+            // tier 6
+            registerCatalysts("ElectrolysisReactor", AddMachines.blocksAddElectrolysisReactor);
+
+            // tier 9
+            registerCatalysts("MatterTransformer", AddMachines.blocksAddTransformer);
+            registerCatalysts("CACondenser", AddMachines.blocksAddCACondenser);
+        }
 
         // registerCatalysts("", CBlocks.blocks);
 

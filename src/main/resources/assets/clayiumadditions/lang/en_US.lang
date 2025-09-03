@@ -49,6 +49,155 @@ tile.blockDeepslateClayOre.2.name=Deepslate Large Dense Clay Ore
 tile.blockRawClayOre.1.name=Raw Industrial Clay Ore Block
 tile.blockRawClayOre.2.name=Raw Advanced Industrial Clay Ore Block
 
+tile.blockClayiumBendingMachine.name=Clayium Bending Machine
+tile.blockAntimatterBendingMachine.name=Antimatter Bending Machine
+tile.blockPureAntimatterBendingMachine.name=Pure Antimatter Bending Machine
+tile.blockOECBendingMachine.name=OEC Bending Machine
+tile.blockOPABendingMachine.name=OPA Bending Machine
+
+tile.blockAdvancedWireDrawingMachine.name=Advanced Wire Drawing Machine
+tile.blockPrecisionWireDrawingMachine.name=Precision Wire Drawing Machine
+tile.blockClaySteelWireDrawingMachine.name=Clay Steel Wire Drawing Machine
+tile.blockClayiumWireDrawingMachine.name=Clayium Wire Drawing Machine
+tile.blockUltimateWireDrawingMachine.name=Ultimate Wire Drawing Machine
+tile.blockAntimatterWireDrawingMachine.name=Antimatter Wire Drawing Machine
+tile.blockPureAntimatterWireDrawingMachine.name=Pure Antimatter Wire Drawing Machine
+tile.blockOECWireDrawingMachine.name=OEC Wire Drawing Machine
+tile.blockOPAWireDrawingMachine.name=OPA Wire Drawing Machine
+
+tile.blockAdvancedPipeDrawingMachine.name=Advanced Pipe Drawing Machine
+tile.blockPrecisionPipeDrawingMachine.name=Precision Pipe Drawing Machine
+tile.blockClaySteelPipeDrawingMachine.name=Clay Steel Pipe Drawing Machine
+tile.blockClayiumPipeDrawingMachine.name=Clayium Pipe Drawing Machine
+tile.blockUltimatePipeDrawingMachine.name=Ultimate Pipe Drawing Machine
+tile.blockAntimatterPipeDrawingMachine.name=Antimatter Pipe Drawing Machine
+tile.blockPureAntimatterPipeDrawingMachine.name=Pure Antimatter Pipe Drawing Machine
+tile.blockOECPipeDrawingMachine.name=OEC Pipe Drawing Machine
+tile.blockOPAPipeDrawingMachine.name=OPA Pipe Drawing Machine
+
+tile.blockAdvancedCuttingMachine.name=Advanced Cutting Machine
+tile.blockPrecisionCuttingMachine.name=Precision Cutting Machine
+tile.blockClaySteelCuttingMachine.name=Clay Steel Cutting Machine
+tile.blockClayiumCuttingMachine.name=Clayium Cutting Machine
+tile.blockUltimateCuttingMachine.name=Ultimate Cutting Machine
+tile.blockAntimatterCuttingMachine.name=Antimatter Cutting Machine
+tile.blockPureAntimatterCuttingMachine.name=Pure Antimatter Cutting Machine
+tile.blockOECCuttingMachine.name=OEC Cutting Machine
+tile.blockOPACuttingMachine.name=OPA Cutting Machine
+
+tile.blockAdvancedLathe.name=Advanced Lathe
+tile.blockPrecisionLathe.name=Precision Lathe
+tile.blockClaySteelLathe.name=Clay Steel Lathe
+tile.blockClayiumLathe.name=Clayium Lathe
+tile.blockUltimateLathe.name=Ultimate Lathe
+tile.blockAntimatterLathe.name=Antimatter Lathe
+tile.blockPureAntimatterLathe.name=Pure Antimatter Lathe
+tile.blockOECLathe.name=OEC Lathe
+tile.blockOPALathe.name=OPA Lathe
+
+tile.blockClayiumCobblestoneGenerator.name=Clayium Cobblestone Generator
+tile.blockUltimateCobblestoneGenerator.name=Ultimate Cobblestone Generator
+tile.blockAntimatterCobblestoneGenerator.name=Antimatter Cobblestone Generator
+tile.blockPureAntimatterCobblestoneGenerator.name=Pure Antimatter Cobblestone Generator
+tile.blockOECCobblestoneGenerator.name=OEC Cobblestone Generator
+tile.blockOPACobblestoneGenerator.name=OPA Cobblestone Generator
+
+tile.blockPrecisionCondenser.name=Precision Condenser
+tile.blockClaySteelCondenser.name=Clay Steel Condenser
+tile.blockClayiumCondenser.name=Clayium Condenser
+tile.blockUltimateCondenser.name=Ultimate Condenser
+tile.blockPureAntimatterCondenser.name=Pure Antimatter Condenser
+tile.blockOECCondenser.name=OEC Condenser
+tile.blockOPACondenser.name=OPA Condenser
+
+tile.blockClaySteelGrinder.name=Clay Steel Grinder
+tile.blockClayiumGrinder.name=Clayium Grinder
+tile.blockUltimateGrinder.name=Ultimate Grinder
+tile.blockPureAntimatterGrinder.name=Pure Antimatter Grinder
+tile.blockOECGrinder.name=OEC Grinder
+tile.blockOPAGrinder.name=OPA Grinder
+
+tile.blockAdvancedDecomposer.name=Advanced Decomposer
+tile.blockPrecisionDecomposer.name=Precision Decomposer
+tile.blockClaySteelDecomposer.name=Clay Steel Decomposer
+tile.blockClayiumDecomposer.name=Clayium Decomposer
+tile.blockUltimateDecomposer.name=Ultimate Decomposer
+tile.blockAntimatterDecomposer.name=Antimatter Decomposer
+tile.blockPureAntimatterDecomposer.name=Pure Antimatter Decomposer
+tile.blockOECDecomposer.name=OEC Decomposer
+tile.blockOPADecomposer.name=OPA Decomposer
+
+tile.blockAdvancedMillingMachine.name=Advanced Milling Machine
+tile.blockPrecisionMillingMachine.name=Precision Milling Machine
+tile.blockClaySteelMillingMachine.name=Clay Steel Milling Machine
+tile.blockClayiumMillingMachine.name=Clayium Milling Machine
+tile.blockUltimateMillingMachine.name=Ultimate Milling Machine
+tile.blockAntimatterMillingMachine.name=Antimatter Milling Machine
+tile.blockPureAntimatterMillingMachine.name=Pure Antimatter Milling Machine
+tile.blockOECMillingMachine.name=OEC Milling Machine
+tile.blockOPAMillingMachine.name=OPA Milling Machine
+
+tile.blockAdvancedAssembler.name=Advanced Assembler
+tile.blockClaySteelAssembler.name=Clay Steel Assembler
+tile.blockClayiumAssembler.name=Clayium Assembler
+tile.blockUltimateAssembler.name=Ultimate Assembler
+tile.blockPureAntimatterAssembler.name=Pure Antimatter Assembler
+tile.blockOECAssembler.name=OEC Assembler
+tile.blockOPAAssembler.name=OPA Assembler
+
+tile.blockAdvancedInscriber.name=Advanced Inscriber
+tile.blockPrecisionInscriber.name=Precision Inscriber
+tile.blockClaySteelInscriber.name=Clay Steel Inscriber
+tile.blockClayiumInscriber.name=Clayium Inscriber
+tile.blockUltimateInscriber.name=Ultimate Inscriber
+tile.blockAntimatterInscriber.name=Antimatter Inscriber
+tile.blockPureAntimatterInscriber.name=Pure Antimatter Inscriber
+tile.blockOECInscriber.name=OEC Inscriber
+tile.blockOPAInscriber.name=OPA Inscriber
+
+tile.blockClaySteelCentrifuge.name=Clay Steel Centrifuge
+tile.blockClayiumCentrifuge.name=Clayium Centrifuge
+tile.blockUltimateCentrifuge.name=Ultimate Centrifuge
+tile.blockAntimatterCentrifuge.name=Antimatter Centrifuge
+tile.blockPureAntimatterCentrifuge.name=Pure Antimatter Centrifuge
+tile.blockOECCentrifuge.name=OEC Centrifuge
+tile.blockOPACentrifuge.name=OPA Centrifuge
+
+tile.blockAntimatterSmelter.name=Antimatter Smelter
+tile.blockPureAntimatterSmelter.name=Pure Antimatter Smelter
+tile.blockOECSmelter.name=OEC Smelter
+tile.blockOPASmelter.name=OPA Smelter
+
+tile.blockPrecisionChemicalReactor.name=Precision Chemical Reactor
+tile.blockClaySteelChemicalReactor.name=Clay Steel Chemical Reactor
+tile.blockUltimateChemicalReactor.name=Ultimate Chemical Reactor
+tile.blockAntimatterChemicalReactor.name=Antimatter Chemical Reactor
+tile.blockPureAntimatterChemicalReactor.name=Pure Antimatter Chemical Reactor
+tile.blockOECChemicalReactor.name=OEC Chemical Reactor
+tile.blockOPAChemicalReactor.name=OPA Chemical Reactor
+
+tile.blockClayiumSaltExtractor.name=Clayium Salt Extractor
+tile.blockUltimateSaltExtractor.name=Ultimate Salt Extractor
+tile.blockAntimatterSaltExtractor.name=Antimatter Salt Extractor
+tile.blockPureAntimatterSaltExtractor.name=Pure Antimatter Salt Extractor
+tile.blockOECSaltExtractor.name=OEC Salt Extractor
+tile.blockOPASaltExtractor.name=OPA Salt Extractor
+
+tile.blockAntimatterElectrolysisReactor.name=Antimatter Electrolysis Reactor
+tile.blockPureAntimatterElectrolysisReactor.name=Pure Antimatter Electrolysis Reactor
+tile.blockOECElectrolysisReactor.name=OEC Electrolysis Reactor
+tile.blockOPAElectrolysisReactor.name=OPA Electrolysis Reactor
+
+tile.blockOPATransformer.name=OPA Matter Transformer
+
+tile.blockOECCACondenser.name=OEC CA Condenser
+tile.blockOPACACondenser.name=OPA CA Condenser
+
+tile.blockAntimatterAutoCrafter.name=Antimatter Auto Crafter
+tile.blockPureAntimatterAutoCrafter.name=Pure Antimatter Auto Crafter
+tile.blockOECAutoCrafter.name=OEC Auto Crafter
+tile.blockOPAAutoCrafter.name=OPA Auto Crafter
+
 recipe.ClayHammer=Clay Hammer
 
 key.clayiumadditions.storagebox=Storage / Pull
