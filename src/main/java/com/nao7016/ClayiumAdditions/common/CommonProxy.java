@@ -35,7 +35,7 @@ public class CommonProxy {
     public void init(FMLInitializationEvent event) {
         CAItems.registerItems();
         CABlocks.registerBlocks();
-
+        if (Config.cfgAddMachines) CABlocks.registerAddMachines();
     }
 
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)

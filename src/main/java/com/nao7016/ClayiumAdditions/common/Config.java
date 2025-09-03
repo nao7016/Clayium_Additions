@@ -13,6 +13,7 @@ public class Config {
     public static boolean cfgMiningHammer;
     public static boolean cfgModeSky;
     public static boolean cfgEtFuturum;
+    public static boolean cfgAddMachines;
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
@@ -25,7 +26,12 @@ public class Config {
         cfgAutoWaterWheelEnabled = configuration
             .getBoolean("EnableAutoWaterWheel", "item", true, "If true, Auto Water Wheel will be enabled.");
         cfgStorageBox = configuration
-            .getBoolean("EnabledStorageBox", "item", true, "If true, Storage Box will be enabled.");
+            .getBoolean("EnableStorageBox", "item", true, "If true, Storage Box will be enabled.");
+        cfgAddMachines = configuration.getBoolean(
+            "EnableAdditionalMachines",
+            "item",
+            false,
+            "If true, additional tiers Machines will be enabled. (ex. tier 6,7 Condenser) Mainly for modpacks.");
         cfgTransform = configuration.getBoolean(
             "EnableAdditionalTransformerRecipe",
             "recipe",

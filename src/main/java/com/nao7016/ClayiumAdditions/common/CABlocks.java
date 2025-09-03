@@ -1,6 +1,7 @@
 package com.nao7016.ClayiumAdditions.common;
 
 import static cpw.mods.fml.common.registry.GameRegistry.registerTileEntity;
+import static mods.clayium.block.CBlocks.tierPrefix;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -24,39 +25,30 @@ public class CABlocks {
 
     public static CreativeTabs CATabs = com.nao7016.ClayiumAdditions.common.CATabs.ca_tabs;
 
-    public static Block blockAutoSimpleWaterWheel;
-    public static Block blockAutoBasicWaterWheel;
-    public static Block blockAutoAdvancedWaterWheel;
-    public static Block[] blocksWaterWheel = new Block[16];
+    public static Block[] blocksAutoWaterWheel = new Block[tierPrefix.length];
+    public static Block[] blocksWaterWheel = new Block[tierPrefix.length];
     public static Block blockDeepslateClayOre;
     public static Block blockRawClayOre;
 
+    public static Block[] blocksAddCondenser;
+    public static Block[] blocksAddSmelter;
+
     public static void registerBlocks() {
         if (Config.cfgAutoWaterWheelEnabled) {
-            blockAutoSimpleWaterWheel = register(
-                new AutoWaterWheel("Auto Simple Water Wheel", "clayiumadditions:autowaterwheel", 3)
-                    .setBlockName("blockAutoSimpleWaterWheel")
-                    .setCreativeTab(CATabs),
-                ItemBlockTiered.class,
-                "blockAutoSimpleWaterWheel");
-            blockAutoBasicWaterWheel = register(
-                new AutoWaterWheel("Auto Basic Water Wheel", "clayiumadditions:autowaterwheel", 4)
-                    .setBlockName("blockAutoBasicWaterWheel")
-                    .setCreativeTab(CATabs),
-                ItemBlockTiered.class,
-                "blockAutoBasicWaterWheel");
-            blockAutoAdvancedWaterWheel = register(
-                new AutoWaterWheel("Auto Advanced Water Wheel", "clayiumadditions:autowaterwheel", 5)
-                    .setBlockName("blockAutoAdvancedWaterWheel")
-                    .setCreativeTab(CATabs),
-                ItemBlockTiered.class,
-                "blockAutoAdvancedWaterWheel");
+            for (int tier = 3; tier <= 5; tier++) {
+                blocksAutoWaterWheel[tier] = register(
+                    new AutoWaterWheel(
+                        "Auto " + tierPrefix[tier] + " Water Wheel",
+                        "clayiumadditions:autowaterwheel",
+                        tier).setBlockName("blockAuto" + tierPrefix[tier] + "WaterWheel")
+                            .setCreativeTab(CATabs),
+                    ItemBlockTiered.class,
+                    "blockAuto" + tierPrefix[tier] + "WaterWheel");
+            }
             registerTileEntity(TileAutoWaterWheel.class, "AutoWaterWheel");
 
             blocksWaterWheel[2] = CBlocks.blockDenseClayWaterWheel;
-            blocksWaterWheel[3] = blockAutoSimpleWaterWheel;
-            blocksWaterWheel[4] = blockAutoBasicWaterWheel;
-            blocksWaterWheel[5] = blockAutoAdvancedWaterWheel;
+            System.arraycopy(blocksAutoWaterWheel, 3, blocksWaterWheel, 3, 3);
         }
 
         if (Config.cfgEtFuturum) {
@@ -83,6 +75,11 @@ public class CABlocks {
                     "blockRawClayOre");
             }
         }
+    }
+
+    public static void registerAddMachines() {
+        blocksAddCondenser = CBlocks.registerTieredMachines("Condenser", "condenser", "Condenser", new int[] { 6, 7 });
+        blocksAddSmelter = CBlocks.registerTieredMachines("Smelter", "smelter", "Smelter", new int[] { 10, 11, 12 });
     }
 
     private static Block register(Block block, Class<? extends ItemBlock> extendclass, String name) {
