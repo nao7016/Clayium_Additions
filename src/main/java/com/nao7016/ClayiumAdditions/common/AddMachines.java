@@ -5,9 +5,14 @@ import static mods.clayium.block.CBlocks.*;
 import net.minecraft.block.Block;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import mods.clayium.block.*;
+import mods.clayium.block.ClayAssembler;
+import mods.clayium.block.ClayAutoCrafter;
+import mods.clayium.block.ClayChemicalReactor;
+import mods.clayium.block.CobblestoneGenerator;
+import mods.clayium.block.SaltExtractor;
 import mods.clayium.block.itemblock.ItemBlockTiered;
-import mods.clayium.block.tile.*;
+import mods.clayium.block.tile.TileCACondenser;
+import mods.clayium.block.tile.TileClayCentrifuge;
 import mods.clayium.core.ClayiumCore;
 import mods.clayium.util.UtilTier;
 
