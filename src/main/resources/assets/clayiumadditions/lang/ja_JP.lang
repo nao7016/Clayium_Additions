@@ -49,6 +49,155 @@ tile.blockDeepslateClayOre.2.name=深層高密度粘土鉱石大
 tile.blockRawClayOre.1.name=工業用粘土の原石ブロック
 tile.blockRawClayOre.2.name=発展工業用粘土の原石ブロック
 
+tile.blockClayiumBendingMachine.name=クレイウムプレート作成機
+tile.blockAntimatterBendingMachine.name=反物質プレート作成機
+tile.blockPureAntimatterBendingMachine.name=純反物質プレート作成機
+tile.blockOECBendingMachine.name=OEC プレート作成機
+tile.blockOPABendingMachine.name=OPA プレート作成機
+
+tile.blockAdvancedWireDrawingMachine.name=発展ワイヤー圧延機
+tile.blockPrecisionWireDrawingMachine.name=精密ワイヤー圧延機
+tile.blockClaySteelWireDrawingMachine.name=粘土鋼ワイヤー圧延機
+tile.blockClayiumWireDrawingMachine.name=クレイウムワイヤー圧延機
+tile.blockUltimateWireDrawingMachine.name=究極ワイヤー圧延機
+tile.blockAntimatterWireDrawingMachine.name=反物質ワイヤー圧延機
+tile.blockPureAntimatterWireDrawingMachine.name=純反物質ワイヤー圧延機
+tile.blockOECWireDrawingMachine.name=OEC ワイヤー圧延機
+tile.blockOPAWireDrawingMachine.name=OPA ワイヤー圧延機
+
+tile.blockAdvancedPipeDrawingMachine.name=発展パイプ圧延機
+tile.blockPrecisionPipeDrawingMachine.name=精密パイプ圧延機
+tile.blockClaySteelPipeDrawingMachine.name=粘土鋼パイプ圧延機
+tile.blockClayiumPipeDrawingMachine.name=クレイウムパイプ圧延機
+tile.blockUltimatePipeDrawingMachine.name=究極パイプ圧延機
+tile.blockAntimatterPipeDrawingMachine.name=反物質パイプ圧延機
+tile.blockPureAntimatterPipeDrawingMachine.name=純反物質パイプ圧延機
+tile.blockOECPipeDrawingMachine.name=OEC パイプ圧延機
+tile.blockOPAPipeDrawingMachine.name=OPA パイプ圧延機
+
+tile.blockAdvancedCuttingMachine.name=発展切断機
+tile.blockPrecisionCuttingMachine.name=精密切断機
+tile.blockClaySteelCuttingMachine.name=粘土鋼切断機
+tile.blockClayiumCuttingMachine.name=クレイウム切断機
+tile.blockUltimateCuttingMachine.name=究極切断機
+tile.blockAntimatterCuttingMachine.name=反物質切断機
+tile.blockPureAntimatterCuttingMachine.name=純反物質切断機
+tile.blockOECCuttingMachine.name=OEC 切断機
+tile.blockOPACuttingMachine.name=OPA 切断機
+
+tile.blockAdvancedLathe.name=発展旋盤
+tile.blockPrecisionLathe.name=精密旋盤
+tile.blockClaySteelLathe.name=粘土鋼旋盤
+tile.blockClayiumLathe.name=クレイウム旋盤
+tile.blockUltimateLathe.name=究極旋盤
+tile.blockAntimatterLathe.name=反物質旋盤
+tile.blockPureAntimatterLathe.name=純反物質旋盤
+tile.blockOECLathe.name=OEC 旋盤
+tile.blockOPALathe.name=OPA 旋盤
+
+tile.blockClayiumCobblestoneGenerator.name=クレイウム丸石製造機
+tile.blockUltimateCobblestoneGenerator.name=究極丸石製造機
+tile.blockAntimatterCobblestoneGenerator.name=反物質丸石製造機
+tile.blockPureAntimatterCobblestoneGenerator.name=純反物質丸石製造機
+tile.blockOECCobblestoneGenerator.name=OEC 丸石製造機
+tile.blockOPACobblestoneGenerator.name=OPA 丸石製造機
+
+tile.blockPrecisionCondenser.name=精密コンデンサー
+tile.blockClaySteelCondenser.name=粘土鋼コンデンサー
+tile.blockClayiumCondenser.name=クレイウムコンデンサー
+tile.blockUltimateCondenser.name=究極コンデンサー
+tile.blockPureAntimatterCondenser.name=純反物質コンデンサー
+tile.blockOECCondenser.name=OEC コンデンサー
+tile.blockOPACondenser.name=OPA コンデンサー
+
+tile.blockClaySteelGrinder.name=粘土鋼粉砕機
+tile.blockClayiumGrinder.name=クレイウム粉砕機
+tile.blockUltimateGrinder.name=究極粉砕機
+tile.blockPureAntimatterGrinder.name=純反物質粉砕機
+tile.blockOECGrinder.name=OEC 粉砕機
+tile.blockOPAGrinder.name=OPA 粉砕機
+
+tile.blockAdvancedDecomposer.name=発展分解機
+tile.blockPrecisionDecomposer.name=精密分解機
+tile.blockClaySteelDecomposer.name=粘土鋼分解機
+tile.blockClayiumDecomposer.name=クレイウム分解機
+tile.blockUltimateDecomposer.name=究極分解機
+tile.blockAntimatterDecomposer.name=反物質分解機
+tile.blockPureAntimatterDecomposer.name=純反物質分解機
+tile.blockOECDecomposer.name=OEC 分解機
+tile.blockOPADecomposer.name=OPA 分解機
+
+tile.blockAdvancedMillingMachine.name=発展フライス盤
+tile.blockPrecisionMillingMachine.name=精密フライス盤
+tile.blockClaySteelMillingMachine.name=粘土鋼フライス盤
+tile.blockClayiumMillingMachine.name=クレイウムフライス盤
+tile.blockUltimateMillingMachine.name=究極フライス盤
+tile.blockAntimatterMillingMachine.name=反物質フライス盤
+tile.blockPureAntimatterMillingMachine.name=純反物質フライス盤
+tile.blockOECMillingMachine.name=OEC フライス盤
+tile.blockOPAMillingMachine.name=OPA フライス盤
+
+tile.blockAdvancedAssembler.name=発展組立機
+tile.blockClaySteelAssembler.name=粘土鋼組立機
+tile.blockClayiumAssembler.name=クレイウム組立機
+tile.blockUltimateAssembler.name=究極組立機
+tile.blockPureAntimatterAssembler.name=純反物質組立機
+tile.blockOECAssembler.name=OEC 組立機
+tile.blockOPAAssembler.name=OPA 組立機
+
+tile.blockAdvancedInscriber.name=発展印刷機
+tile.blockPrecisionInscriber.name=精密印刷機
+tile.blockClaySteelInscriber.name=粘土鋼印刷機
+tile.blockClayiumInscriber.name=クレイウム印刷機
+tile.blockUltimateInscriber.name=究極印刷機
+tile.blockAntimatterInscriber.name=反物質印刷機
+tile.blockPureAntimatterInscriber.name=純反物質印刷機
+tile.blockOECInscriber.name=OEC 印刷機
+tile.blockOPAInscriber.name=OPA 印刷機
+
+tile.blockClaySteelCentrifuge.name=粘土鋼遠心分離機
+tile.blockClayiumCentrifuge.name=クレイウム遠心分離機
+tile.blockUltimateCentrifuge.name=究極遠心分離機
+tile.blockAntimatterCentrifuge.name=反物質遠心分離機
+tile.blockPureAntimatterCentrifuge.name=純反物質遠心分離機
+tile.blockOECCentrifuge.name=OEC 遠心分離機
+tile.blockOPACentrifuge.name=OPA 遠心分離機
+
+tile.blockAntimatterSmelter.name=反物質精錬機
+tile.blockPureAntimatterSmelter.name=純反物質精錬機
+tile.blockOECSmelter.name=OEC 精錬機
+tile.blockOPASmelter.name=OPA 精錬機
+
+tile.blockPrecisionChemicalReactor.name=精密化学反応機
+tile.blockClaySteelChemicalReactor.name=粘土鋼化学反応機
+tile.blockUltimateChemicalReactor.name=究極化学反応機
+tile.blockAntimatterChemicalReactor.name=反物質化学反応機
+tile.blockPureAntimatterChemicalReactor.name=純反物質化学反応機
+tile.blockOECChemicalReactor.name=OEC 化学反応機
+tile.blockOPAChemicalReactor.name=OPA 化学反応機
+
+tile.blockClayiumSaltExtractor.name=クレイウム塩析出装置
+tile.blockUltimateSaltExtractor.name=究極塩析出装置
+tile.blockAntimatterSaltExtractor.name=反物質塩析出装置
+tile.blockPureAntimatterSaltExtractor.name=純反物質塩析出装置
+tile.blockOECSaltExtractor.name=OEC 塩析出装置
+tile.blockOPASaltExtractor.name=OPA 塩析出装置
+
+tile.blockAntimatterElectrolysisReactor.name=反物質電気精錬機
+tile.blockPureAntimatterElectrolysisReactor.name=純反物質電気精錬機
+tile.blockOECElectrolysisReactor.name=OEC 電気精錬機
+tile.blockOPAElectrolysisReactor.name=OPA 電気精錬機
+
+tile.blockOPATransformer.name=OPA 物質変換装置
+
+tile.blockOECCACondenser.name=OEC CA 凝縮機
+tile.blockOPACACondenser.name=OPA CA 凝縮機
+
+tile.blockAntimatterAutoCrafter.name=反物質自動クラフト装置
+tile.blockPureAntimatterAutoCrafter.name=純反物質自動クラフト装置
+tile.blockOECAutoCrafter.name=OEC 自動クラフト装置
+tile.blockOPAAutoCrafter.name=OPA 自動クラフト装置
+
 recipe.ClayHammer=粘土ハンマー
 
 key.clayiumadditions.storagebox=収納 / 取り出し
