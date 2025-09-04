@@ -8,6 +8,7 @@ import com.nao7016.ClayiumAdditions.Tags;
 import com.nao7016.ClayiumAdditions.item.storagebox.AutoCollect;
 import com.nao7016.ClayiumAdditions.network.CANetwork;
 import com.nao7016.ClayiumAdditions.plugin.EtOreIntegration;
+import com.nao7016.ClayiumAdditions.plugin.InventoryBogoSorter;
 import com.nao7016.ClayiumAdditions.plugin.nei.NEIPluginClayiumAdditions;
 import com.nao7016.ClayiumAdditions.recipe.CARecipes;
 import com.nao7016.ClayiumAdditions.util.HammerEvent;
@@ -57,6 +58,10 @@ public class CommonProxy {
 
         if (Loader.isModLoaded("etfuturum")) {
             MinecraftForge.EVENT_BUS.register(new EtOreIntegration());
+        }
+
+        if (Loader.isModLoaded("bogosorter")) {
+            InventoryBogoSorter.init();
         }
     }
 
