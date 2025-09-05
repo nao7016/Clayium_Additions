@@ -71,6 +71,30 @@ public class StorageBoxUtil {
     }
 
     /**
+     * 一番上のSI接頭辞を付けてStringで返す。
+     * 
+     * @param number 数値
+     * @return G, M, k, なしのどれか
+     */
+    public static String calcNumberPrefix(int number) {
+        int G = 1_000_000_000;
+        int M = 1_000_000;
+        int K = 1_000;
+        int giga = number / G;
+        int mega = number / M;
+        int kilo = number / K;
+        if (giga >= 1) {
+            return giga + "G";
+        } else if (mega >= 1) {
+            return mega + "M";
+        } else if (kilo >= 1) {
+            return kilo + "k";
+        } else {
+            return String.valueOf(number);
+        }
+    }
+
+    /**
      *
      * @param stack NBT取得元
      * @param key   取得キー

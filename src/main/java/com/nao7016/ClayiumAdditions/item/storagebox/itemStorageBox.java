@@ -62,10 +62,10 @@ public class itemStorageBox extends Item {
         TileEntity tile = world.getTileEntity(x, y, z);
         if (tile instanceof IInventory inventory) {
             if (player.isSneaking()) {
-                log.info("dropToChest called");
+                // log.info("dropToChest called");
                 dropToChest(storageBox, inventory, side, true);
             } else {
-                log.info("storageFromChest called");
+                // log.info("storageFromChest called");
                 storageFromChest(storageBox, inventory, side);
             }
             return true;
@@ -627,14 +627,14 @@ public class itemStorageBox extends Item {
             setItemNBTData(nbt, "ItemName", "");
             setItemNBTData(nbt, "Count", 0);
             setItemNBTData(nbt, "Meta", 0);
-            log.info("setStoredItemToNBT: cleared");
+            // log.info("setStoredItemToNBT: cleared");
         } else {
             String name = GameData.getItemRegistry()
                 .getNameForObject(item.getItem());
             setItemNBTData(nbt, "ItemName", name);
             setItemNBTData(nbt, "Count", count);
             setItemNBTData(nbt, "Meta", item.getItemDamage());
-            log.info("setStoredItemToNBT: {}, {}, {}", name, count, item.getItemDamage());
+            // log.info("setStoredItemToNBT: {}, {}, {}", name, count, item.getItemDamage());
         }
 
         // storageBox.setTagCompound(nbt);

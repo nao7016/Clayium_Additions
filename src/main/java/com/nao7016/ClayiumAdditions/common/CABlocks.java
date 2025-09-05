@@ -31,7 +31,7 @@ public class CABlocks {
     public static Block blockRawClayOre;
 
     public static void registerBlocks() {
-        if (Config.cfgAutoWaterWheelEnabled) {
+        if (Config.cfgAutoWaterWheel) {
             for (int tier = 3; tier <= 5; tier++) {
                 blocksAutoWaterWheel[tier] = register(
                     new AutoWaterWheel(
