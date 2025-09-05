@@ -19,7 +19,6 @@ public class Config {
     public static boolean cfgModeSky;
     public static boolean cfgEtFuturum;
 
-
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
@@ -39,7 +38,11 @@ public class Config {
             "If true, additional tiers Machines will be enabled. (ex. tier 6,7 Condenser) Mainly for modpacks.");
         cfgStorageBox = configuration
             .getBoolean("EnableStorageBox", "storagebox", true, "If true, Storage Box will be enabled.");
-        cfgSBMoreDisplay = configuration.getBoolean("EnableStorageBoxMoreDisplay", "storagebox", false, "If true, Storage Box show item amount and auto collection.");
+        cfgSBMoreDisplay = configuration.getBoolean(
+            "EnableStorageBoxMoreDisplay",
+            "storagebox",
+            false,
+            "If true, Storage Box show item amount and auto collection.");
         cfgTransform = configuration.getBoolean(
             "EnableAdditionalTransformerRecipe",
             "recipe",
