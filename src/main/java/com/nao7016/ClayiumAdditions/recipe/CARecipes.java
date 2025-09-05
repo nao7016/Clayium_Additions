@@ -126,7 +126,7 @@ public class CARecipes {
     }
 
     private static void registerCESpritted() {
-        if (Config.cfgSplittedEnergeticClayEnabled) {
+        if (Config.cfgSplittedEnergeticClay) {
             for (int tier = 4; tier <= 12; tier++) {
                 CRecipes.recipeCuttingMachine.addRecipe(
                     i(CBlocks.blockCompressedClay, 1, tier),
@@ -176,7 +176,7 @@ public class CARecipes {
     }
 
     private static void registerAssembler() {
-        if (Config.cfgAutoWaterWheelEnabled) {
+        if (Config.cfgAutoWaterWheel) {
             for (int i = 2; i <= 4; i++) {
                 CRecipes.recipeAssembler.addRecipe(
                     ii(i(CABlocks.blocksWaterWheel[i]), CMaterials.get(getTier(i + 1), CMaterials.LARGE_PLATE)),
@@ -199,7 +199,7 @@ public class CARecipes {
             4000L);
         Block[][] arrayBlocklist = new Block[][] { CBlocks.blocksMultitrackBuffer };
         ArrayList<Block[]> blocksList = new ArrayList(Arrays.asList(arrayBlocklist));
-        if (Config.cfgAutoWaterWheelEnabled) {
+        if (Config.cfgAutoWaterWheel) {
             blocksList.add(CABlocks.blocksWaterWheel);
         }
 
