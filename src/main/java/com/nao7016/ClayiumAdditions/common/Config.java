@@ -13,6 +13,7 @@ public class Config {
 
     public static boolean cfgStorageBox;
     public static boolean cfgSBMoreDisplay;
+    public static boolean cfgSBSIPrefix;
 
     public static boolean cfgTransform;
 
@@ -43,6 +44,11 @@ public class Config {
             "storagebox",
             false,
             "If true, Storage Box show item amount and auto collection.");
+        cfgSBSIPrefix = configuration.getBoolean(
+            "UsingSIPrefixes",
+            "storagebox",
+            true,
+            "If true, over 1,000 amount will be shorten and use SI prefixes.");
         cfgTransform = configuration.getBoolean(
             "EnableAdditionalTransformerRecipe",
             "recipe",
