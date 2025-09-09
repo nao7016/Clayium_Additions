@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import net.minecraft.item.ItemStack;
 
-import com.nao7016.ClayiumAdditions.item.itemClayHammer;
+import com.nao7016.ClayiumAdditions.item.hammer.itemClayHammer;
 import com.nao7016.ClayiumAdditions.recipe.CrushRecipes;
 import com.nao7016.ClayiumAdditions.util.CrushList;
 

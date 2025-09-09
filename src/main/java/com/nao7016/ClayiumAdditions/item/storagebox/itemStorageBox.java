@@ -1,7 +1,7 @@
 package com.nao7016.ClayiumAdditions.item.storagebox;
 
-import static com.nao7016.ClayiumAdditions.util.StorageBoxUtil.findPrivateValue;
-import static com.nao7016.ClayiumAdditions.util.StorageBoxUtil.setItemNBTData;
+import static com.nao7016.ClayiumAdditions.util.UtilStorageBox.findPrivateValue;
+import static com.nao7016.ClayiumAdditions.util.UtilStorageBox.setItemNBTData;
 
 import java.util.List;
 import java.util.Objects;
@@ -28,7 +28,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.nao7016.ClayiumAdditions.CAModMain;
 import com.nao7016.ClayiumAdditions.common.CATabs;
-import com.nao7016.ClayiumAdditions.util.StorageBoxUtil;
+import com.nao7016.ClayiumAdditions.util.UtilStorageBox;
 
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.relauncher.Side;
@@ -254,7 +254,7 @@ public class itemStorageBox extends Item {
         if (sItem == null) return;
         String storageItemName = "Name: " + sItem.getItemStackDisplayName(sItemStack);
         list.add(storageItemName);
-        StringBuilder builder = StorageBoxUtil.calcItemNumByUnit(stack, false);
+        StringBuilder builder = UtilStorageBox.calcItemNumByUnit(stack, false);
         builder.insert(0, "Unit: ");
         list.add(builder.toString());
         list.add("Items: " + getStoredCount(stack));

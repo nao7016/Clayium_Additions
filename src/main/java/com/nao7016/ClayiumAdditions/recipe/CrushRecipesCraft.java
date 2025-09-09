@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
-import com.nao7016.ClayiumAdditions.item.itemClayHammer;
+import com.nao7016.ClayiumAdditions.item.hammer.itemClayHammer;
 
 public class CrushRecipesCraft implements IRecipe {
 

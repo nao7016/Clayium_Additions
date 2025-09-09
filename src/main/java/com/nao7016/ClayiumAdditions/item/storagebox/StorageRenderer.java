@@ -12,7 +12,7 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import com.nao7016.ClayiumAdditions.common.Config;
-import com.nao7016.ClayiumAdditions.util.StorageBoxUtil;
+import com.nao7016.ClayiumAdditions.util.UtilStorageBox;
 
 public class StorageRenderer extends RenderItem implements IItemRenderer {
 
@@ -38,7 +38,7 @@ public class StorageRenderer extends RenderItem implements IItemRenderer {
         if (type != ItemRenderType.INVENTORY || !(item.getItem() instanceof itemStorageBox)) return;
 
         ItemStack stored = itemStorageBox.getStoredItemStackAll(item);
-        String count = Config.cfgSBSIPrefix ? StorageBoxUtil.calcNumberPrefix(itemStorageBox.getStoredCount(item))
+        String count = Config.cfgSBSIPrefix ? UtilStorageBox.calcNumberPrefix(itemStorageBox.getStoredCount(item))
             : String.valueOf(itemStorageBox.getStoredCount(item));
         if (stored != null) {
             GL11.glPushMatrix();

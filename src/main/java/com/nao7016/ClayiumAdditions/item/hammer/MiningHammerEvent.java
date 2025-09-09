@@ -1,11 +1,10 @@
-package com.nao7016.ClayiumAdditions.util;
+package com.nao7016.ClayiumAdditions.item.hammer;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.world.BlockEvent;
 
 import com.nao7016.ClayiumAdditions.common.CABlocks;
-import com.nao7016.ClayiumAdditions.item.itemClayMiningHammer;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import mods.clayium.block.CBlocks;
