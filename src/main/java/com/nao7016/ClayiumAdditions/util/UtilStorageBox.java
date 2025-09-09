@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import com.nao7016.ClayiumAdditions.item.storagebox.itemStorageBox;
 
-public class StorageBoxUtil {
+public class UtilStorageBox {
 
     /**
      * LC + Stack + itemに分ける
@@ -72,7 +72,7 @@ public class StorageBoxUtil {
 
     /**
      * 一番上のSI接頭辞を付けてStringで返す。
-     * 
+     *
      * @param number 数値
      * @return G, M, k, なしのどれか
      */

@@ -6,7 +6,7 @@ import net.minecraft.inventory.IInventory;
 
 import com.cleanroommc.bogosorter.BogoSortAPI;
 import com.cleanroommc.bogosorter.api.IPosSetter;
-import com.nao7016.ClayiumAdditions.util.StorageBoxUtil;
+import com.nao7016.ClayiumAdditions.util.UtilStorageBox;
 
 import mods.clayium.block.tile.InventoryMultiPage;
 import mods.clayium.block.tile.InventoryOffsetted;
@@ -20,10 +20,10 @@ public class InventoryBogoSorter {
         BogoSortAPI.INSTANCE.addCompat(ContainerNormalInventory.class, ((container, builder) -> {
 
             // ContainerNormalInventory -> ContainerTemp.tileを取得
-            List<Object> l = StorageBoxUtil.findPrivateValue(ContainerTemp.class, container, IInventory.class);
+            List<Object> l = UtilStorageBox.findPrivateValue(ContainerTemp.class, container, IInventory.class);
             if (l.size() != 1 || !(l.get(0) instanceof InventoryMultiPage multiPage)) return;
             // InventoryOffsetted.inventoryを取得
-            List<Object> l2 = StorageBoxUtil.findPrivateValue(InventoryOffsetted.class, multiPage, IInventory.class);
+            List<Object> l2 = UtilStorageBox.findPrivateValue(InventoryOffsetted.class, multiPage, IInventory.class);
             if (l2.size() != 1 || !(l2.get(0) instanceof TileMetalChest)) return;
 
             if (container.drawInventoryName()) {
