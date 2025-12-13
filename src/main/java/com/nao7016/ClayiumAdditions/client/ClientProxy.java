@@ -1,12 +1,15 @@
 package com.nao7016.ClayiumAdditions.client;
 
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 
 import com.nao7016.ClayiumAdditions.common.CAItems;
 import com.nao7016.ClayiumAdditions.common.CommonProxy;
+import com.nao7016.ClayiumAdditions.event.IDChecker;
 import com.nao7016.ClayiumAdditions.item.storagebox.StorageKey;
 import com.nao7016.ClayiumAdditions.item.storagebox.StorageRenderer;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
@@ -19,5 +22,9 @@ public class ClientProxy extends CommonProxy {
         MinecraftForgeClient.registerItemRenderer(CAItems.storageBox, new StorageRenderer());
         MinecraftForgeClient.registerItemRenderer(CAItems.clayStorageBox, new StorageRenderer());
         StorageKey.set();
+
+        if (!(Loader.isModLoaded("inventorytweaks") || Loader.isModLoaded("VeinMiner"))) {
+            MinecraftForge.EVENT_BUS.register(new IDChecker());
+        }
     }
 }

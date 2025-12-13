@@ -1,4 +1,4 @@
-package com.nao7016.ClayiumAdditions.util;
+package com.nao7016.ClayiumAdditions.event;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
