@@ -68,9 +68,11 @@ public class CARecipes {
         if (Config.cfgMiningHammer) {
             GameRegistry.addRecipe(
                 i(CAItems.clayMiningHammer),
-                "CCC",
+                "CBC",
                 " S ",
                 " S ",
+                'B',
+                CMaterials.get(CMaterials.IND_CLAY, CMaterials.BLOCK),
                 'C',
                 CMaterials.get(CMaterials.DENSE_CLAY, CMaterials.CYLINDER),
                 'S',
