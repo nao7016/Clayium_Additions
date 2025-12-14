@@ -1,4 +1,4 @@
-package com.nao7016.ClayiumAdditions.plugin.nei;
+package com.nao7016.ClayiumAdditions.compat.nei;
 
 import java.awt.Rectangle;
 import java.util.ArrayList;

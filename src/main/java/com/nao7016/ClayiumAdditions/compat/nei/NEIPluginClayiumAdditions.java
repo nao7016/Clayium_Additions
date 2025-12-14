@@ -1,4 +1,4 @@
-package com.nao7016.ClayiumAdditions.plugin.nei;
+package com.nao7016.ClayiumAdditions.compat.nei;
 
 import com.nao7016.ClayiumAdditions.common.Config;
 

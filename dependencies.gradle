@@ -41,10 +41,12 @@ dependencies {
     devOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.7.4-GTNH:dev")
     //devOnlyNonPublishable("ganymedes01.etfuturum:Et-Futurum-Requiem:2.6.2.9-GTNH:dev")
     //devOnlyNonPublishable("com.github.GTNewHorizons:InventoryBogoSorter:1.2.51-GTNH:dev")
+    //devOnlyNonPublishable("curse.maven:craftguide-75557:2459319")
 
     compileOnly("com.github.GTNewHorizons:NotEnoughItems:2.7.4-GTNH:dev")
     compileOnly("ganymedes01.etfuturum:Et-Futurum-Requiem:2.6.2.9-GTNH:dev")
     compileOnly("com.github.GTNewHorizons:InventoryBogoSorter:1.2.51-GTNH:dev")
+    compileOnly("curse.maven:craftguide-75557:2459319")
 
     runtimeOnlyNonPublishable("curse.maven:inventory-tweaks-223094:2210792")
     runtimeOnlyNonPublishable("curse.maven:nbtreader-227127:2224950")

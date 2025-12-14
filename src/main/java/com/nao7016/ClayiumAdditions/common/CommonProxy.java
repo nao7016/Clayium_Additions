@@ -5,13 +5,13 @@ import net.minecraftforge.common.MinecraftForge;
 
 import com.nao7016.ClayiumAdditions.CAModMain;
 import com.nao7016.ClayiumAdditions.Tags;
+import com.nao7016.ClayiumAdditions.compat.EtOreIntegration;
+import com.nao7016.ClayiumAdditions.compat.InventoryBogoSorter;
+import com.nao7016.ClayiumAdditions.compat.nei.NEIPluginClayiumAdditions;
 import com.nao7016.ClayiumAdditions.event.HammerEvent;
 import com.nao7016.ClayiumAdditions.event.MiningHammerEvent;
 import com.nao7016.ClayiumAdditions.item.storagebox.AutoCollect;
 import com.nao7016.ClayiumAdditions.network.CANetwork;
-import com.nao7016.ClayiumAdditions.plugin.EtOreIntegration;
-import com.nao7016.ClayiumAdditions.plugin.InventoryBogoSorter;
-import com.nao7016.ClayiumAdditions.plugin.nei.NEIPluginClayiumAdditions;
 import com.nao7016.ClayiumAdditions.recipe.CARecipes;
 import com.nao7016.ClayiumAdditions.util.UtilAddTier;
 
@@ -63,6 +63,14 @@ public class CommonProxy {
         if (Loader.isModLoaded("bogosorter")) {
             InventoryBogoSorter.init();
         }
+
+        // if (Loader.isModLoaded("craftguide")) {
+        // try {
+        // Class.forName("ClayiumAdditions.compat.craftguide.MachineRecipes").newInstance();
+        // } catch (ReflectiveOperationException e) {
+        // e.printStackTrace();
+        // }
+        // }
     }
 
     // register server commands in this event handler (Remove if not needed)
