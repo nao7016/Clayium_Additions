@@ -23,7 +23,8 @@ public class ClientProxy extends CommonProxy {
         MinecraftForgeClient.registerItemRenderer(CAItems.clayStorageBox, new StorageRenderer());
         StorageKey.set();
 
-        if (!(Loader.isModLoaded("inventorytweaks")|| Loader.isModLoaded("VeinMiner")|| Loader.isModLoaded("etfuturum"))) {
+        if (!(Loader.isModLoaded("inventorytweaks") || Loader.isModLoaded("VeinMiner")
+            || Loader.isModLoaded("etfuturum"))) {
             MinecraftForge.EVENT_BUS.register(new IDChecker());
         }
     }
