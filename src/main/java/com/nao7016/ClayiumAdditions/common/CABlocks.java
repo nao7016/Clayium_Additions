@@ -3,8 +3,6 @@ package com.nao7016.ClayiumAdditions.common;
 import static cpw.mods.fml.common.registry.GameRegistry.registerTileEntity;
 import static mods.clayium.block.CBlocks.tierPrefix;
 
-import com.nao7016.ClayiumAdditions.block.ClayBufferOne;
-import com.nao7016.ClayiumAdditions.block.tile.TileClayBufferOne;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
@@ -12,9 +10,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import com.nao7016.ClayiumAdditions.block.AutoWaterWheel;
+import com.nao7016.ClayiumAdditions.block.ClayBufferOne;
 import com.nao7016.ClayiumAdditions.block.DeepslateClayOre;
 import com.nao7016.ClayiumAdditions.block.RawClayOreBlock;
 import com.nao7016.ClayiumAdditions.block.tile.TileAutoWaterWheel;
+import com.nao7016.ClayiumAdditions.block.tile.TileClayBufferOne;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -56,8 +56,7 @@ public class CABlocks {
                 new ClayBufferOne(tier).setBlockName("block" + tierPrefix[tier] + "ClayBufferOne")
                     .setCreativeTab(CATabs),
                 ItemBlockTiered.class,
-                "block" + tierPrefix[tier] + "ClayBufferOne"
-            );
+                "block" + tierPrefix[tier] + "ClayBufferOne");
         }
         registerTileEntity(TileClayBufferOne.class, "ClayBufferOne");
 

@@ -137,26 +137,67 @@ public class CARecipes {
                     10L,
                     ClayiumCore.divideByProgressionRateI(10));
             }
-            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 4), 4, i((Block)CBlocks.blockCompressedClay, 1, 4), 100L, 16L);
-            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 5), 4, i((Block)CBlocks.blockCompressedClay, 1, 5), 1000L, 16L);
-            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 6), 4, i((Block)CBlocks.blockCompressedClay, 1, 6), 10000L, 13L);
-            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 7), 5, i((Block)CBlocks.blockCompressedClay, 1, 7), 100000L, 10L);
-            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 8), 5, i((Block)CBlocks.blockCompressedClay, 1, 8), 1000000L, 8L);
-            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 9), 5, i((Block)CBlocks.blockCompressedClay, 1, 9), 10000000L, 6L);
-            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 10), 5, i((Block)CBlocks.blockCompressedClay, 1, 10), 100000000L, 4L);
-            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 11), 5, i((Block)CBlocks.blockCompressedClay, 1, 11), 1000000000L, 3L);
-            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 12), 5, i((Block)CBlocks.blockCompressedClay, 1, 12), 1000000000L, 25L);
+            CRecipes.recipeCondenser
+                .addRecipe(i(CAItems.clayEnergy, 9, 4), 4, i((Block) CBlocks.blockCompressedClay, 1, 4), 100L, 16L);
+            CRecipes.recipeCondenser
+                .addRecipe(i(CAItems.clayEnergy, 9, 5), 4, i((Block) CBlocks.blockCompressedClay, 1, 5), 1000L, 16L);
+            CRecipes.recipeCondenser
+                .addRecipe(i(CAItems.clayEnergy, 9, 6), 4, i((Block) CBlocks.blockCompressedClay, 1, 6), 10000L, 13L);
+            CRecipes.recipeCondenser
+                .addRecipe(i(CAItems.clayEnergy, 9, 7), 5, i((Block) CBlocks.blockCompressedClay, 1, 7), 100000L, 10L);
+            CRecipes.recipeCondenser
+                .addRecipe(i(CAItems.clayEnergy, 9, 8), 5, i((Block) CBlocks.blockCompressedClay, 1, 8), 1000000L, 8L);
+            CRecipes.recipeCondenser
+                .addRecipe(i(CAItems.clayEnergy, 9, 9), 5, i((Block) CBlocks.blockCompressedClay, 1, 9), 10000000L, 6L);
+            CRecipes.recipeCondenser.addRecipe(
+                i(CAItems.clayEnergy, 9, 10),
+                5,
+                i((Block) CBlocks.blockCompressedClay, 1, 10),
+                100000000L,
+                4L);
+            CRecipes.recipeCondenser.addRecipe(
+                i(CAItems.clayEnergy, 9, 11),
+                5,
+                i((Block) CBlocks.blockCompressedClay, 1, 11),
+                1000000000L,
+                3L);
+            CRecipes.recipeCondenser.addRecipe(
+                i(CAItems.clayEnergy, 9, 12),
+                5,
+                i((Block) CBlocks.blockCompressedClay, 1, 12),
+                1000000000L,
+                25L);
 
-            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 4), 3, i((Block)CBlocks.blockCompressedClay, 1, 4), 1L, 16L);
-            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 5), 3, i((Block)CBlocks.blockCompressedClay, 1, 5), 10L, 32L);
-            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 6), 3, i((Block)CBlocks.blockCompressedClay, 1, 6), 100L, 64L);
-            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 7), 4, i((Block)CBlocks.blockCompressedClay, 1, 7), 1000L, 64L);
-            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 8), 4, i((Block)CBlocks.blockCompressedClay, 1, 8), 10000L, 64L);
-            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 9), 4, i((Block)CBlocks.blockCompressedClay, 1, 9), 100000L, 64L);
-            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 10), 4, i((Block)CBlocks.blockCompressedClay, 1, 10), 1000000L, 64L);
-            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 11), 4, i((Block)CBlocks.blockCompressedClay, 1, 11), 10000000L, 64L);
-            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 12), 4, i((Block)CBlocks.blockCompressedClay, 1, 12), 10000000L, 64L);
-
+            CRecipes.recipeEnergeticClayCondenser
+                .addRecipe(i(CAItems.clayEnergy, 9, 4), 3, i((Block) CBlocks.blockCompressedClay, 1, 4), 1L, 16L);
+            CRecipes.recipeEnergeticClayCondenser
+                .addRecipe(i(CAItems.clayEnergy, 9, 5), 3, i((Block) CBlocks.blockCompressedClay, 1, 5), 10L, 32L);
+            CRecipes.recipeEnergeticClayCondenser
+                .addRecipe(i(CAItems.clayEnergy, 9, 6), 3, i((Block) CBlocks.blockCompressedClay, 1, 6), 100L, 64L);
+            CRecipes.recipeEnergeticClayCondenser
+                .addRecipe(i(CAItems.clayEnergy, 9, 7), 4, i((Block) CBlocks.blockCompressedClay, 1, 7), 1000L, 64L);
+            CRecipes.recipeEnergeticClayCondenser
+                .addRecipe(i(CAItems.clayEnergy, 9, 8), 4, i((Block) CBlocks.blockCompressedClay, 1, 8), 10000L, 64L);
+            CRecipes.recipeEnergeticClayCondenser
+                .addRecipe(i(CAItems.clayEnergy, 9, 9), 4, i((Block) CBlocks.blockCompressedClay, 1, 9), 100000L, 64L);
+            CRecipes.recipeEnergeticClayCondenser.addRecipe(
+                i(CAItems.clayEnergy, 9, 10),
+                4,
+                i((Block) CBlocks.blockCompressedClay, 1, 10),
+                1000000L,
+                64L);
+            CRecipes.recipeEnergeticClayCondenser.addRecipe(
+                i(CAItems.clayEnergy, 9, 11),
+                4,
+                i((Block) CBlocks.blockCompressedClay, 1, 11),
+                10000000L,
+                64L);
+            CRecipes.recipeEnergeticClayCondenser.addRecipe(
+                i(CAItems.clayEnergy, 9, 12),
+                4,
+                i((Block) CBlocks.blockCompressedClay, 1, 12),
+                10000000L,
+                64L);
 
         }
     }

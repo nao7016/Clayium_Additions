@@ -1,9 +1,11 @@
 package com.nao7016.ClayiumAdditions.block.tile;
 
-import mods.clayium.block.tile.TileClayBuffer;
 import net.minecraft.item.ItemStack;
 
+import mods.clayium.block.tile.TileClayBuffer;
+
 public class TileClayBufferOne extends TileClayBuffer {
+
     public void initParams() {
         super.initParams();
         this.containerItemStacks = new ItemStack[1];
