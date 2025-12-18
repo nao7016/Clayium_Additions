@@ -29,7 +29,7 @@ public class CARecipes {
     public static void register() {
         registerCrafting();
         registerHammer();
-        registerCESpritted();
+        registerCESplitted();
         registerGrinder();
         registerTransformer();
         registerAssembler();
@@ -127,7 +127,7 @@ public class CARecipes {
         }
     }
 
-    private static void registerCESpritted() {
+    private static void registerCESplitted() {
         if (Config.cfgSplittedEnergeticClay) {
             for (int tier = 4; tier <= 12; tier++) {
                 CRecipes.recipeCuttingMachine.addRecipe(
@@ -137,6 +137,27 @@ public class CARecipes {
                     10L,
                     ClayiumCore.divideByProgressionRateI(10));
             }
+            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 4), 4, i((Block)CBlocks.blockCompressedClay, 1, 4), 100L, 16L);
+            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 5), 4, i((Block)CBlocks.blockCompressedClay, 1, 5), 1000L, 16L);
+            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 6), 4, i((Block)CBlocks.blockCompressedClay, 1, 6), 10000L, 13L);
+            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 7), 5, i((Block)CBlocks.blockCompressedClay, 1, 7), 100000L, 10L);
+            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 8), 5, i((Block)CBlocks.blockCompressedClay, 1, 8), 1000000L, 8L);
+            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 9), 5, i((Block)CBlocks.blockCompressedClay, 1, 9), 10000000L, 6L);
+            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 10), 5, i((Block)CBlocks.blockCompressedClay, 1, 10), 100000000L, 4L);
+            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 11), 5, i((Block)CBlocks.blockCompressedClay, 1, 11), 1000000000L, 3L);
+            CRecipes.recipeCondenser.addRecipe(i(CAItems.clayEnergy, 9, 12), 5, i((Block)CBlocks.blockCompressedClay, 1, 12), 1000000000L, 25L);
+
+            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 4), 3, i((Block)CBlocks.blockCompressedClay, 1, 4), 1L, 16L);
+            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 5), 3, i((Block)CBlocks.blockCompressedClay, 1, 5), 10L, 32L);
+            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 6), 3, i((Block)CBlocks.blockCompressedClay, 1, 6), 100L, 64L);
+            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 7), 4, i((Block)CBlocks.blockCompressedClay, 1, 7), 1000L, 64L);
+            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 8), 4, i((Block)CBlocks.blockCompressedClay, 1, 8), 10000L, 64L);
+            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 9), 4, i((Block)CBlocks.blockCompressedClay, 1, 9), 100000L, 64L);
+            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 10), 4, i((Block)CBlocks.blockCompressedClay, 1, 10), 1000000L, 64L);
+            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 11), 4, i((Block)CBlocks.blockCompressedClay, 1, 11), 10000000L, 64L);
+            CRecipes.recipeEnergeticClayCondenser.addRecipe(i(CAItems.clayEnergy, 9, 12), 4, i((Block)CBlocks.blockCompressedClay, 1, 12), 10000000L, 64L);
+
+
         }
     }
 
@@ -189,6 +210,16 @@ public class CARecipes {
                     120L);
             }
         }
+
+        for (int i = 4; i <= 13; i++) {
+            CRecipes.recipeAssembler.addRecipe(
+                ii(i(CBlocks.blocksBuffer[i]), CMaterials.get(getTier(i), CMaterials.PLATE)),
+                0,
+                4,
+                ii(i(CABlocks.blocksBufferOne[i], 2)),
+                100L * (long) Math.pow(10.0F, (i - 4)),
+                40L);
+        }
     }
 
     private static void registerCAInjector() {
@@ -199,37 +230,16 @@ public class CARecipes {
             ii(i(CBlocks.blocksMillingMachine[3])),
             e(3.0F, 3),
             4000L);
+
         Block[][] arrayBlocklist = new Block[][] { CBlocks.blocksMultitrackBuffer };
         ArrayList<Block[]> blocksList = new ArrayList(Arrays.asList(arrayBlocklist));
         if (Config.cfgAutoWaterWheel) {
             blocksList.add(CABlocks.blocksWaterWheel);
+            blocksList.add(CABlocks.blocksBufferOne);
         }
 
         for (Block[] blocks : blocksList) {
-            int j = -1;
-            int n = 0;
-
-            for (int i = 0; i < blocks.length; ++i) {
-                n = (int) ((double) n + Math.pow(1.3F, i));
-                if (n >= 64) {
-                    n = 64;
-                }
-
-                if (blocks[i] != null) {
-                    if (j != -1) {
-                        CRecipes.recipeCAInjector.addRecipe(
-                            ii(i(blocks[j]), CMaterials.get(CMaterials.ANTIMATTER, CMaterials.GEM, n)),
-                            0,
-                            i,
-                            ii(i(blocks[i])),
-                            e(3.0F, i + 1),
-                            4000L);
-                    }
-
-                    j = i;
-                    n = 0;
-                }
-            }
+            recipeCAInjector(blocks);
         }
     }
 
@@ -252,5 +262,34 @@ public class CARecipes {
         if (tier == 12) return CMaterials.OCTUPLE_CLAY;
         if (tier == 13) return CMaterials.OCTUPLE_PURE_ANTIMATTER;
         return null;
+    }
+
+    private static void recipeCAInjector(Block[] blocks) {
+        if (blocks == null) return;
+
+        int j = -1;
+        int n = 0;
+
+        for (int i = 0; i < blocks.length; ++i) {
+            n = (int) ((double) n + Math.pow(1.3F, i));
+            if (n >= 64) {
+                n = 64;
+            }
+
+            if (blocks[i] != null) {
+                if (j != -1) {
+                    CRecipes.recipeCAInjector.addRecipe(
+                        ii(i(blocks[j]), CMaterials.get(CMaterials.ANTIMATTER, CMaterials.GEM, n)),
+                        0,
+                        i,
+                        ii(i(blocks[i])),
+                        e(3.0F, i),
+                        4000L);
+                }
+
+                j = i;
+                n = 0;
+            }
+        }
     }
 }
