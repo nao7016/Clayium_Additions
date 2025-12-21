@@ -9,4 +9,4 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-version = "0.1.2"
+version = "0.1.3"
