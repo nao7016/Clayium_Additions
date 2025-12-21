@@ -1,5 +1,7 @@
 # Clayium Additions
 
+[![](https://cf.way2muchnoise.eu/1317667.svg)](https://www.curseforge.com/minecraft/mc-mods/clayium-additions) [![](https://cf.way2muchnoise.eu/versions/1317667.svg)](https://www.curseforge.com/minecraft/mc-mods/clayium-additions) 
+
 ---
 ###### EN
 
