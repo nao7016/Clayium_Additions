@@ -33,6 +33,7 @@ public class CARecipes {
         registerGrinder();
         registerTransformer();
         registerAssembler();
+        registerBlastFurnace();
         registerCAInjector();
     }
 
@@ -260,6 +261,77 @@ public class CARecipes {
                 ii(i(CABlocks.blocksBufferOne[i], 2)),
                 100L * (long) Math.pow(10.0F, (i - 4)),
                 40L);
+        }
+    }
+
+    private static void registerBlastFurnace() {
+        if (Config.cfgBlastFurnace) {
+            CMaterial[] materials = new CMaterial[] { CMaterials.CALCIUM, CMaterials.POTASSIUM };
+            for (CMaterial material : materials) {
+                CRecipes.recipeBlastFurnace.addRecipe(
+                    oo(
+                        CMaterials.get(CMaterials.IND_CLAY, CMaterials.DUST, 8),
+                        CMaterials.getOD(material, CMaterials.DUST)),
+                    0,
+                    6,
+                    ii(CMaterials.get(material, CMaterials.INGOT)),
+                    e((double) 20.0F, 6),
+                    10L);
+            }
+
+            materials = new CMaterial[] { CMaterials.BERYLLIUM, CMaterials.HAFNIUM, CMaterials.CLAY_STEEL,
+                CMaterials.STEEL };
+            for (CMaterial material : materials) {
+                CRecipes.recipeBlastFurnace.addRecipe(
+                    oo(
+                        CMaterials.get(CMaterials.IND_CLAY, CMaterials.DUST, 8),
+                        CMaterials.getOD(material, CMaterials.DUST)),
+                    0,
+                    7,
+                    ii(CMaterials.get(material, CMaterials.INGOT)),
+                    e((double) 40.0F, 7),
+                    10L);
+            }
+
+            materials = new CMaterial[] { CMaterials.MANGANESE, CMaterials.STRONTIUM, CMaterials.BARIUM,
+                CMaterials.CLAYIUM };
+            for (CMaterial material : materials) {
+                CRecipes.recipeBlastFurnace.addRecipe(
+                    oo(
+                        CMaterials.get(CMaterials.IND_CLAY, CMaterials.DUST, 8),
+                        CMaterials.getOD(material, CMaterials.DUST)),
+                    0,
+                    8,
+                    ii(CMaterials.get(material, CMaterials.INGOT)),
+                    e((double) 40.0F, 8),
+                    20L);
+            }
+
+            materials = new CMaterial[] { CMaterials.TITANIUM, CMaterials.ULTIMATE_ALLOY };
+            for (CMaterial material : materials) {
+                CRecipes.recipeBlastFurnace.addRecipe(
+                    oo(
+                        CMaterials.get(CMaterials.ADVIND_CLAY, CMaterials.DUST, 8),
+                        CMaterials.getOD(material, CMaterials.DUST)),
+                    0,
+                    9,
+                    ii(CMaterials.get(material, CMaterials.INGOT)),
+                    e((double) 80.0F, 9),
+                    40L);
+            }
+
+            materials = new CMaterial[] { CMaterials.CHROME };
+            for (CMaterial material : materials) {
+                CRecipes.recipeBlastFurnace.addRecipe(
+                    oo(
+                        CMaterials.get(CMaterials.ADVIND_CLAY, CMaterials.DUST, 16),
+                        CMaterials.getOD(material, CMaterials.DUST)),
+                    0,
+                    10,
+                    ii(CMaterials.get(material, CMaterials.INGOT)),
+                    e((double) 80.0F, 10),
+                    40L);
+            }
         }
     }
 
