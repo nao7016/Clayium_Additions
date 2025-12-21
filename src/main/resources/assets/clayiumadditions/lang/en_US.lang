@@ -49,6 +49,19 @@ tile.blockDeepslateClayOre.2.name=Deepslate Large Dense Clay Ore
 tile.blockRawClayOre.1.name=Raw Industrial Clay Ore Block
 tile.blockRawClayOre.2.name=Raw Advanced Industrial Clay Ore Block
 
+tile.blockBasicClayBufferOne.name=Limited Buffer
+tile.blockAdvancedClayBufferOne.name=Advanced Limited Buffer
+tile.blockPrecisionClayBufferOne.name=Precision Limited Buffer
+tile.blockClaySteelClayBufferOne.name=Clay Steel Limited Buffer
+tile.blockClayiumClayBufferOne.name=Clayium Limited Buffer
+tile.blockUltimateClayBufferOne.name=Ultimate Limited Buffer
+tile.blockAntimatterClayBufferOne.name=Antimatter Limited Buffer
+tile.blockPureAntimatterClayBufferOne.name=Pure Antimatter Limited Buffer
+tile.blockOECClayBufferOne.name=OEC Limited Buffer
+tile.blockOPAClayBufferOne.name=OPA Limited Buffer
+tooltip.BufferOne.line1=Transfers items. Acts as an item pipe.
+tooltip.BufferOne.line2=Keep the same ability with only 1 slot.
+
 tile.blockClayiumBendingMachine.name=Clayium Bending Machine
 tile.blockAntimatterBendingMachine.name=Antimatter Bending Machine
 tile.blockPureAntimatterBendingMachine.name=Pure Antimatter Bending Machine
@@ -201,5 +214,6 @@ tile.blockOPAAutoCrafter.name=OPA Auto Crafter
 recipe.ClayHammer=Clay Hammer
 
 key.clayiumadditions.storagebox=Storage / Pull
+
 
 itemGroup.clayiumAdditionsTabs=Clayium Additions

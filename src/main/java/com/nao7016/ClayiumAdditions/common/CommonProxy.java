@@ -30,24 +30,27 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
         CAModMain.LOG.info("Clayium Additions: ver" + Tags.VERSION);
+        CAItems.registerItems();
+        CABlocks.registerBlocks();
         CANetwork.init();
-        if (Config.cfgAddMachines) UtilAddTier.setAddTierManagers();
+
+        if (Config.cfgAddMachines) {
+            AddMachines.registerAddMachines();
+            UtilAddTier.setAddTierManagers();
+        }
+
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
-        CAItems.registerItems();
-        CABlocks.registerBlocks();
-        if (Config.cfgAddMachines) AddMachines.registerAddMachines();
-    }
-
-    // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
-    public void postInit(FMLPostInitializationEvent event) {
         CARecipes.register();
         MinecraftForge.EVENT_BUS.register(new HammerEvent());
         MinecraftForge.EVENT_BUS.register(new MiningHammerEvent());
         MinecraftForge.EVENT_BUS.register(new AutoCollect());
+    }
 
+    // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
+    public void postInit(FMLPostInitializationEvent event) {
         if (Loader.isModLoaded("NotEnoughItems")) {
             NEIPluginClayiumAdditions.registerNEI();
         }

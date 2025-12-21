@@ -37,6 +37,8 @@ public class NEIClayiumCatalyst {
         registerCatalysts("Assembler", CBlocks.blocksAssembler);
         registerCatalysts("Centrifuge", CBlocks.blocksCentrifuge);
         registerCatalysts("Inscriber", CBlocks.blocksInscriber);
+        registerCatalysts("ECCondenser", CBlocks.blockEnergeticClayCondenser);
+        registerCatalysts("ECCondenser", CBlocks.blockEnergeticClayCondenserMK2);
 
         // tier 4
         registerCatalysts("Smelter", CBlocks.blocksSmelter);
