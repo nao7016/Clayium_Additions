@@ -16,7 +16,7 @@ public class Config {
     public static boolean cfgSBSIPrefix;
 
     public static boolean cfgTransform;
-    public static boolean cfgBlastFurnace;
+    public static boolean cfgQoLRecipe;
 
     public static boolean cfgModeSky;
     public static boolean cfgEtFuturum;
@@ -55,8 +55,8 @@ public class Config {
             "recipe",
             true,
             "If true, additional Transformer recipes will be available.");
-        cfgBlastFurnace = configuration
-            .getBoolean("EnableBlastFurnaceRecipes", "recipe", false, "If true, added some Blast Furnace QoL recipes.");
+        cfgQoLRecipe = configuration
+            .getBoolean("EnableQoLRecipes", "recipe", false, "If true, added some QoL recipes.");
         cfgModeSky = configuration.getBoolean(
             "SkyMode",
             "mode",
