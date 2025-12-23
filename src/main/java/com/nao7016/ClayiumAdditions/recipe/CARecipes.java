@@ -30,10 +30,12 @@ public class CARecipes {
         registerCrafting();
         registerHammer();
         registerCESplitted();
+        registerCMachines();
         registerGrinder();
         registerTransformer();
         registerAssembler();
         registerBlastFurnace();
+        registerReactor();
         registerCAInjector();
     }
 
@@ -203,6 +205,29 @@ public class CARecipes {
         }
     }
 
+    private static void registerCMachines() {
+        CMaterial[] materials = new CMaterial[] { CMaterials.IMPURE_SILICON, CMaterials.SILICON, CMaterials.SILICONE,
+            CMaterials.ALUMINIUM, CMaterials.CLAY_STEEL, CMaterials.CLAYIUM, CMaterials.ULTIMATE_ALLOY,
+            CMaterials.AZ91D_ALLOY, CMaterials.ZK60A_ALLOY };
+
+        if (Config.cfgQoLRecipe) {
+            for (CMaterial material : materials) {
+                CRecipes.recipeBendingMachine.addRecipe(
+                    CMaterials.getOD(material, CMaterials.INGOT),
+                    9,
+                    CMaterials.get(material, CMaterials.PLATE),
+                    e(7),
+                    (long) ((int) (material.hardness)));
+                CRecipes.recipeBendingMachine.addRecipe(
+                    CMaterials.getOD(material, CMaterials.PLATE, 4),
+                    9,
+                    CMaterials.get(material, CMaterials.LARGE_PLATE),
+                    e(7),
+                    (long) ((int) (2.0F * material.hardness)));
+            }
+        }
+    }
+
     private static void registerGrinder() {
         if (Config.cfgEtFuturum && Loader.isModLoaded("etfuturum")) {
             CRecipes.recipeGrinder.addRecipe(
@@ -262,10 +287,27 @@ public class CARecipes {
                 100L * (long) Math.pow(10.0F, (i - 4)),
                 40L);
         }
+
+        if (Config.cfgQoLRecipe) {
+            CRecipes.recipeAssembler.addRecipe(
+                ii(CItems.itemMisc.get("PrecisionCircuit"), CMaterials.get(CMaterials.EXC_CLAY, CMaterials.DUST, 8)),
+                0,
+                10,
+                ii(CItems.itemMisc.get("IntegratedCircuit")),
+                6000000L,
+                20L);
+            CRecipes.recipeAssembler.addRecipe(
+                ii(CMaterials.get(CMaterials.BERYLLIUM, CMaterials.DUST, 8), CItems.itemMisc.get("ClayCore")),
+                0,
+                10,
+                ii(CItems.itemMisc.get("SynchronousParts")),
+                e(9),
+                1200L);
+        }
     }
 
     private static void registerBlastFurnace() {
-        if (Config.cfgBlastFurnace) {
+        if (Config.cfgQoLRecipe) {
             CMaterial[] materials = new CMaterial[] { CMaterials.CALCIUM, CMaterials.POTASSIUM };
             for (CMaterial material : materials) {
                 CRecipes.recipeBlastFurnace.addRecipe(
@@ -332,6 +374,18 @@ public class CARecipes {
                     e((double) 80.0F, 10),
                     40L);
             }
+        }
+    }
+
+    private static void registerReactor() {
+        if (Config.cfgQoLRecipe) {
+            CRecipes.recipeReactor.addRecipe(
+                ii(i(CBlocks.blockClayTreeSapling), CMaterials.get(CMaterials.ORG_CLAY, CMaterials.DUST, 1)),
+                0,
+                8,
+                ii(i(CBlocks.blockClayTreeLog, 8)),
+                e(8),
+                24000L);
         }
     }
 
