@@ -32,7 +32,13 @@ item.storage_box.name=ストレージボックス
 item.storage_box.tooltip.line1=本物のストレージボックス
 item.clay_storage_box.name=粘土ストレージボックス
 item.clay_storage_box.tooltip.line1=おもちゃの粘土箱
-item.clay_storage_box.tooltip.line2=入るアイテム : 粘土玉、(圧縮)粘土ブロック系、粘土鉱石類
+item.clay_storage_box.tooltip.line2=__DETAIL__
+item.clay_storage_box.tooltip.line3=入るアイテム : 粘土玉, (圧縮)粘土ブロック系, 粘土鉱石類
+item.mining_storage_box.name=採掘ストレージボックス
+item.mining_storage_box.tooltip.line1=鉱夫の必需品
+item.mining_storage_box.tooltip.line2=__DETAIL__
+item.mining_storage_box.tooltip.line3=入るアイテム : 土, 石, 丸石, 砂利, 火打石,
+item.mining_storage_box.tooltip.line4=砂, 松明, ネザーラック, ソウルサンド
 
 tile.blockAutoSimpleWaterWheel.name=簡易自動粘土水車
 tile.blockAutoBasicWaterWheel.name=基本自動粘土水車

@@ -206,23 +206,41 @@ public class CARecipes {
     }
 
     private static void registerCMachines() {
+        CMaterial[] clays = new CMaterial[] { CMaterials.CLAY, CMaterials.DENSE_CLAY, CMaterials.IND_CLAY,
+            CMaterials.ADVIND_CLAY };
         CMaterial[] materials = new CMaterial[] { CMaterials.IMPURE_SILICON, CMaterials.SILICON, CMaterials.SILICONE,
             CMaterials.ALUMINIUM, CMaterials.CLAY_STEEL, CMaterials.CLAYIUM, CMaterials.ULTIMATE_ALLOY,
             CMaterials.AZ91D_ALLOY, CMaterials.ZK60A_ALLOY };
 
         if (Config.cfgQoLRecipe) {
+            // Bending Clays
+            for (CMaterial clay : clays) {
+                CRecipes.recipeBendingMachine.addRecipe(
+                    CMaterials.get(clay, CMaterials.BLOCK, 4),
+                    getTier(clay) + 3,
+                    CMaterials.get(clay, CMaterials.PLATE, 4),
+                    4L * e(getTier(clay)),
+                    (long) ((int) clay.hardness));
+                CRecipes.recipeBendingMachine.addRecipe(
+                    CMaterials.get(clay, CMaterials.PLATE, 16),
+                    getTier(clay) + 3,
+                    CMaterials.get(clay, CMaterials.LARGE_PLATE, 4),
+                    4L * e(getTier(clay)),
+                    (long) ((int) (2.0F * clay.hardness)));
+            }
+            // Bending Materials
             for (CMaterial material : materials) {
                 CRecipes.recipeBendingMachine.addRecipe(
-                    CMaterials.getOD(material, CMaterials.INGOT),
+                    CMaterials.getOD(material, CMaterials.INGOT, 4),
                     9,
-                    CMaterials.get(material, CMaterials.PLATE),
-                    e(7),
+                    CMaterials.get(material, CMaterials.PLATE, 4),
+                    4L * e(7),
                     (long) ((int) (material.hardness)));
                 CRecipes.recipeBendingMachine.addRecipe(
-                    CMaterials.getOD(material, CMaterials.PLATE, 4),
+                    CMaterials.getOD(material, CMaterials.PLATE, 16),
                     9,
-                    CMaterials.get(material, CMaterials.LARGE_PLATE),
-                    e(7),
+                    CMaterials.get(material, CMaterials.LARGE_PLATE, 4),
+                    4L * e(7),
                     (long) ((int) (2.0F * material.hardness)));
             }
         }
@@ -269,7 +287,7 @@ public class CARecipes {
         if (Config.cfgAutoWaterWheel) {
             for (int i = 2; i <= 4; i++) {
                 CRecipes.recipeAssembler.addRecipe(
-                    ii(i(CABlocks.blocksWaterWheel[i]), CMaterials.get(getTier(i + 1), CMaterials.LARGE_PLATE)),
+                    ii(i(CABlocks.blocksWaterWheel[i]), CMaterials.get(getMaterial(i + 1), CMaterials.LARGE_PLATE)),
                     0,
                     i + 1,
                     ii(i(CABlocks.blocksWaterWheel[i + 1])),
@@ -278,9 +296,10 @@ public class CARecipes {
             }
         }
 
+        // Buffer One
         for (int i = 4; i <= 13; i++) {
             CRecipes.recipeAssembler.addRecipe(
-                ii(i(CBlocks.blocksBuffer[i]), CMaterials.get(getTier(i), CMaterials.PLATE)),
+                ii(i(CBlocks.blocksBuffer[i]), CMaterials.get(getMaterial(i), CMaterials.PLATE)),
                 0,
                 4,
                 ii(i(CABlocks.blocksBufferOne[i], 2)),
@@ -288,6 +307,7 @@ public class CARecipes {
                 40L);
         }
 
+        // Circuit and Synchro
         if (Config.cfgQoLRecipe) {
             CRecipes.recipeAssembler.addRecipe(
                 ii(CItems.itemMisc.get("PrecisionCircuit"), CMaterials.get(CMaterials.EXC_CLAY, CMaterials.DUST, 8)),
@@ -410,7 +430,7 @@ public class CARecipes {
         }
     }
 
-    public static CMaterial getTier(int tier) {
+    public static CMaterial getMaterial(int tier) {
         if (tier == 1) return CMaterials.CLAY;
         if (tier == 2) return CMaterials.DENSE_CLAY;
         if (tier == 3) return CMaterials.IND_CLAY;
@@ -429,6 +449,27 @@ public class CARecipes {
         if (tier == 12) return CMaterials.OCTUPLE_CLAY;
         if (tier == 13) return CMaterials.OCTUPLE_PURE_ANTIMATTER;
         return null;
+    }
+
+    public static int getTier(CMaterial material) {
+        if (material == CMaterials.CLAY) return 1;
+        if (material == CMaterials.DENSE_CLAY) return 2;
+        if (material == CMaterials.IND_CLAY) return 3;
+        if (material == CMaterials.ADVIND_CLAY) return 4;
+        if (material == CMaterials.IMPURE_SILICON) return 5;
+        if (ClayiumCore.cfgHardcoreAluminium) {
+            if (material == CMaterials.IMPURE_ALUMINIUM) return 6;
+        } else {
+            if (material == CMaterials.ALUMINIUM) return 6;
+        }
+        if (material == CMaterials.CLAY_STEEL) return 7;
+        if (material == CMaterials.CLAYIUM) return 8;
+        if (material == CMaterials.ULTIMATE_ALLOY) return 9;
+        if (material == CMaterials.ANTIMATTER) return 10;
+        if (material == CMaterials.PURE_ANTIMATTER) return 11;
+        if (material == CMaterials.OCTUPLE_CLAY) return 12;
+        if (material == CMaterials.OCTUPLE_PURE_ANTIMATTER) return 13;
+        return -1;
     }
 
     private static void recipeCAInjector(Block[] blocks) {
