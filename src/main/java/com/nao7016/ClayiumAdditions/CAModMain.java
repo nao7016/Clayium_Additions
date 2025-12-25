@@ -35,7 +35,9 @@ public class CAModMain {
         + ",);" // buildVersion
         + "required-after:clayium@[0.4.6.36.hotfix2,);" // clayium
         + "after:etfuturum@[2.6.2,);" // Et Futurum Requiem
-        + "after:bogosorter@[1.2.51-GTNH,)";
+        + "after:bogosorter@[1.2.51-GTNH,);"
+        + "required-after:gtnhmixins@[2.0.1,);"
+        + "required-after:unimixins@[0.0.20,);";
     @SidedProxy(
         clientSide = "com.nao7016.ClayiumAdditions.client.ClientProxy",
         serverSide = "com.nao7016.ClayiumAdditions.common.CommonProxy")
