@@ -8,7 +8,7 @@ import com.gtnewhorizon.gtnhmixins.builders.MixinBuilder;
 public enum Mixins implements IMixins {
 
     CLAYIUM(new MixinBuilder().setPhase(Phase.EARLY)
-        .addClientMixins("MixinTilePANCore"));
+        .addCommonMixins("MixinTilePANCore"));
 
     private final MixinBuilder builder;
 
