@@ -3,15 +3,15 @@
 #If you want to translate "__DETAIL__", please use "tooltip.HoldShiftForDetails=".
 #en_US and ja_JP are already available "__DETAIL__" translation, not necessary to add the key.
 
-item.clay_energy.4.name=Splitted Energetic Clay
-item.clay_energy.5.name=Splitted Compressed Energetic Clay
-item.clay_energy.6.name=Splitted Double Compressed Energetic Clay
-item.clay_energy.7.name=Splitted Triple Compressed Energetic Clay
-item.clay_energy.8.name=Splitted Quadruple Compressed Energetic Clay
-item.clay_energy.9.name=Splitted Quintuple Compressed Energetic Clay
-item.clay_energy.10.name=Splitted Sextuple Energetic Clay
-item.clay_energy.11.name=Splitted Septuple Energetic Clay
-item.clay_energy.12.name=Splitted Octuple Energetic Clay
+item.clay_energy.4.name=Split Energetic Clay
+item.clay_energy.5.name=Split Compressed Energetic Clay
+item.clay_energy.6.name=Split Double Compressed Energetic Clay
+item.clay_energy.7.name=Split Triple Compressed Energetic Clay
+item.clay_energy.8.name=Split Quadruple Compressed Energetic Clay
+item.clay_energy.9.name=Split Quintuple Compressed Energetic Clay
+item.clay_energy.10.name=Split Sextuple Energetic Clay
+item.clay_energy.11.name=Split Septuple Energetic Clay
+item.clay_energy.12.name=Split Octuple Energetic Clay
 item.clay_energy.tooltip.line1=Oh, over-compressed?
 item.clay_energy.tooltip.line2=OK, JUST 1 decompression.
 item.clay_bowl_empty.name=Empty Clay Bowl
@@ -32,7 +32,13 @@ item.storage_box.name=Storage Box
 item.storage_box.tooltip.line1=The true Storage Box
 item.clay_storage_box.name=Clay Storage Box
 item.clay_storage_box.tooltip.line1=Toy Clay Box
-item.clay_storage_box.tooltip.line2=Can be stored: Clay Ball, (Compressed) Clay Blocks, Clay Ores
+item.clay_storage_box.tooltip.line2=__DETAIL__
+item.clay_storage_box.tooltip.line3=Can be stored: Clay Ball, (Compressed) Clay Blocks, Clay Ores
+item.mining_storage_box.name=Mining Storage Box
+item.mining_storage_box.tooltip.line1=Essential items for miners
+item.mining_storage_box.tooltip.line2=__DETAIL__
+item.mining_storage_box.tooltip.line3=Can be stored: Dirt, Stone, Cobblestone, Gravel, Flint, 
+item.mining_storage_box.tooltip.line4=Sand, Torch, Netherrack, Soul Sand
 
 tile.blockAutoSimpleWaterWheel.name=Simple Auto Clay Water Wheel
 tile.blockAutoBasicWaterWheel.name=Basic Auto Clay Water Wheel
