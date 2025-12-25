@@ -19,12 +19,10 @@ public class MixinTilePANCore {
 
     @ModifyVariable(method = "refreshItemSet", at = @At("STORE"), name = "prohibiteds", require = 1)
     private Set<TilePANCore.ItemStackWithEnergy> addProhibited(Set<TilePANCore.ItemStackWithEnergy> prohibiteds) {
-        double d0 = 10000F;
 
         for (int tier = 4; tier <= 12; tier++) {
             ItemStack energyClay = i(CAItems.clayEnergy, 1, tier);
-            prohibiteds.add(new TilePANCore.ItemStackWithEnergy(energyClay, d0, d0));
-            d0 *= 10.0F;
+            prohibiteds.add(new TilePANCore.ItemStackWithEnergy(energyClay, 0, 0));
         }
 
         return prohibiteds;
