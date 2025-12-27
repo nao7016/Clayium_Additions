@@ -47,13 +47,14 @@ public class CommonProxy {
         MinecraftForge.EVENT_BUS.register(new HammerEvent());
         MinecraftForge.EVENT_BUS.register(new MiningHammerEvent());
         MinecraftForge.EVENT_BUS.register(new AutoCollect());
+
+        if (Loader.isModLoaded("NotEnoughItems")) {
+            NEIPluginClayiumAdditions.registerNEI();
+        }
     }
 
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
     public void postInit(FMLPostInitializationEvent event) {
-        if (Loader.isModLoaded("NotEnoughItems")) {
-            NEIPluginClayiumAdditions.registerNEI();
-        }
 
         if (!ClayiumCore.cfgEnableFluidCapsule && ClayiumCore.creativeTabClayiumCapsule != null) {
             ((CreativeTab) ClayiumCore.creativeTabClayiumCapsule).setTabIconItem(Items.bucket);
