@@ -11,6 +11,7 @@ import codechicken.nei.recipe.CatalystInfo;
 import codechicken.nei.recipe.RecipeCatalysts;
 import mods.clayium.block.CBlocks;
 
+@Deprecated
 public class NEIClayiumCatalyst {
 
     public static void registerMachineCatalysts() {

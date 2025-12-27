@@ -50,7 +50,7 @@ public class NEIIMCSender {
         sendHandlerClayium("SaltExtractor", "clayium:blockBasicSaltExtractor");
 
         // tier 5
-        sendHandlerClayium("QuartzCrucible", "clayium:blockQuartzCrucible");
+        sendHandlerClayium("QuartzCrucible", "clayium:blockQuartzCrucible", 1, false);
         sendHandlerClayium("SolarClayFabricator", "clayium:blockSolarClayFabricatorMK1");
 
         // tier 6
@@ -61,8 +61,8 @@ public class NEIIMCSender {
 
         // tier 7
         sendHandlerClayium("Reactor", "clayium:blockClayReactor");
-        sendHandlerClayium("ClayTree", "clayium:blockClayTreeSapling");
-        sendHandlerClayium("MatterTransformer", "clayium:blockClaySteelMatterTransformer");
+        sendHandlerClayium("ClayTree", "clayium:blockClayTreeSapling", 1, false);
+        sendHandlerClayium("MatterTransformer", "clayium:blockClaySteelTransformer");
 
         // tier 9
         sendHandlerClayium("CACondenser", "clayium:itemGems:800");
