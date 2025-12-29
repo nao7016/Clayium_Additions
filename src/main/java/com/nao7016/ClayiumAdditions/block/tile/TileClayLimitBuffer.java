@@ -4,7 +4,7 @@ import net.minecraft.item.ItemStack;
 
 import mods.clayium.block.tile.TileClayBuffer;
 
-public class TileClayBufferOne extends TileClayBuffer {
+public class TileClayLimitBuffer extends TileClayBuffer {
 
     public void initParams() {
         super.initParams();
