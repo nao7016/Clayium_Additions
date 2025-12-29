@@ -110,6 +110,15 @@ public class CARecipes {
                 i(Blocks.chest),
                 'B',
                 i(Items.clay_ball));
+            GameRegistry.addRecipe(
+                i(CAItems.miningStorageBox),
+                "CCC",
+                "CMC",
+                "CCC",
+                'C',
+                i(Blocks.chest),
+                'M',
+                i(Blocks.cobblestone));
 
             ShapelessRecipes recipe1 = new SBAutoCollectRecipe(i(CAItems.storageBox));
             CraftingManager.getInstance()
@@ -119,6 +128,10 @@ public class CARecipes {
             CraftingManager.getInstance()
                 .getRecipeList()
                 .add(recipe2);
+            ShapelessRecipes recipe3 = new SBAutoCollectRecipe(i(CAItems.storageBox));
+            CraftingManager.getInstance()
+                .getRecipeList()
+                .add(recipe3);
         }
     }
 
