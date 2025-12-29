@@ -4,24 +4,24 @@ import java.util.List;
 
 import net.minecraft.item.ItemStack;
 
-import com.nao7016.ClayiumAdditions.block.tile.TileClayBufferOne;
+import com.nao7016.ClayiumAdditions.block.tile.TileClayLimitBuffer;
 
 import mods.clayium.block.ClayNoRecipeMachines;
 import mods.clayium.util.UtilLocale;
 
-public class ClayBufferOne extends ClayNoRecipeMachines {
+public class ClayLimitBuffer extends ClayNoRecipeMachines {
 
-    public ClayBufferOne(int tier) {
-        this(tier, TileClayBufferOne.class);
+    public ClayLimitBuffer(int tier) {
+        this(tier, TileClayLimitBuffer.class);
     }
 
-    public ClayBufferOne(int tier, Class<? extends TileClayBufferOne> tileClass) {
+    public ClayLimitBuffer(int tier, Class<? extends TileClayLimitBuffer> tileClass) {
         super((String) null, "", tier, tileClass, 2);
         this.guiId = 11;
     }
 
     public List getTooltip(ItemStack itemStack) {
-        List ret = UtilLocale.localizeTooltip("tooltip.BufferOne");
+        List ret = UtilLocale.localizeTooltip("tooltip.LimitBuffer");
         ret.addAll(super.getTooltip(itemStack));
         return ret;
     }

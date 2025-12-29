@@ -302,7 +302,7 @@ public class CARecipes {
                 ii(i(CBlocks.blocksBuffer[i]), CMaterials.get(getMaterial(i), CMaterials.PLATE)),
                 0,
                 4,
-                ii(i(CABlocks.blocksBufferOne[i], 2)),
+                ii(i(CABlocks.blocksLimitBuffer[i], 2)),
                 100L * (long) Math.pow(10.0F, (i - 4)),
                 40L);
         }
@@ -422,7 +422,7 @@ public class CARecipes {
         ArrayList<Block[]> blocksList = new ArrayList(Arrays.asList(arrayBlocklist));
         if (Config.cfgAutoWaterWheel) {
             blocksList.add(CABlocks.blocksWaterWheel);
-            blocksList.add(CABlocks.blocksBufferOne);
+            blocksList.add(CABlocks.blocksLimitBuffer);
         }
 
         for (Block[] blocks : blocksList) {

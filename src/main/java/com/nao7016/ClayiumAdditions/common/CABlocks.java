@@ -10,11 +10,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 import com.nao7016.ClayiumAdditions.block.AutoWaterWheel;
-import com.nao7016.ClayiumAdditions.block.ClayBufferOne;
+import com.nao7016.ClayiumAdditions.block.ClayLimitBuffer;
 import com.nao7016.ClayiumAdditions.block.DeepslateClayOre;
 import com.nao7016.ClayiumAdditions.block.RawClayOreBlock;
 import com.nao7016.ClayiumAdditions.block.tile.TileAutoWaterWheel;
-import com.nao7016.ClayiumAdditions.block.tile.TileClayBufferOne;
+import com.nao7016.ClayiumAdditions.block.tile.TileClayLimitBuffer;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -29,7 +29,7 @@ public class CABlocks {
 
     public static Block[] blocksAutoWaterWheel = new Block[tierPrefix.length];
     public static Block[] blocksWaterWheel = new Block[tierPrefix.length];
-    public static Block[] blocksBufferOne = new Block[tierPrefix.length];
+    public static Block[] blocksLimitBuffer = new Block[tierPrefix.length];
     public static Block blockDeepslateClayOre;
     public static Block blockRawClayOre;
 
@@ -52,13 +52,13 @@ public class CABlocks {
         }
 
         for (int tier = 4; tier <= 13; tier++) {
-            blocksBufferOne[tier] = register(
-                new ClayBufferOne(tier).setBlockName("block" + tierPrefix[tier] + "ClayBufferOne")
+            blocksLimitBuffer[tier] = register(
+                new ClayLimitBuffer(tier).setBlockName("block" + tierPrefix[tier] + "LimitBuffer")
                     .setCreativeTab(CATabs),
                 ItemBlockTiered.class,
-                "block" + tierPrefix[tier] + "ClayBufferOne");
+                "block" + tierPrefix[tier] + "LimitBuffer");
         }
-        registerTileEntity(TileClayBufferOne.class, "ClayBufferOne");
+        registerTileEntity(TileClayLimitBuffer.class, "LimitBuffer");
 
         if (Config.cfgEtFuturum) {
             if (Loader.isModLoaded("etfuturum")) {
