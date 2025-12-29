@@ -50,6 +50,9 @@ public class ContainerStorage extends Container {
 
             if (stack.getItem() instanceof itemStorageBox) return null;
 
+            itemStorageBox box = getBoxItem();
+            if (!box.canStore(stack)) return null;
+
             int storageSlotStart = 0;
             int storageSlotEnd = 1;
             int playerInvStart = storageSlotEnd;

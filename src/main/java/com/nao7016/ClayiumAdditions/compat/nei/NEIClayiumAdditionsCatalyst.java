@@ -10,6 +10,7 @@ import com.nao7016.ClayiumAdditions.common.Config;
 import codechicken.nei.recipe.CatalystInfo;
 import codechicken.nei.recipe.RecipeCatalysts;
 
+@Deprecated
 public class NEIClayiumAdditionsCatalyst {
 
     public static void registerHammerCatalysts() {

@@ -11,38 +11,35 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-import com.nao7016.ClayiumAdditions.common.CABlocks;
-import com.nao7016.ClayiumAdditions.common.CAItems;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import mods.clayium.block.CBlocks;
-import mods.clayium.item.CItems;
 
-public class itemClayStorageBox extends itemStorageBox {
+public class itemMiningStorageBox extends itemStorageBox {
 
     private IIcon defaultIcon;
 
-    public itemClayStorageBox() {
+    public itemMiningStorageBox() {
         super();
-        setUnlocalizedName("clay_storage_box");
+        setUnlocalizedName("mining_storage_box");
     }
 
     private static final Set<Item> Whitelist = new HashSet<>(
         Arrays.asList(
-            Items.clay_ball,
-            CItems.itemLargeClayBall,
-            Item.getItemFromBlock(Blocks.clay),
-            Item.getItemFromBlock(CBlocks.blockClayOre),
-            Item.getItemFromBlock(CABlocks.blockDeepslateClayOre),
-            Item.getItemFromBlock(CBlocks.blockCompressedClay),
-            CItems.itemCompressedClayShard,
-            CAItems.clayEnergy));
+            Item.getItemFromBlock(Blocks.dirt),
+            Item.getItemFromBlock(Blocks.cobblestone),
+            Item.getItemFromBlock(Blocks.stone),
+            Item.getItemFromBlock(Blocks.gravel),
+            Items.flint,
+            Item.getItemFromBlock(Blocks.sand),
+            Item.getItemFromBlock(Blocks.sandstone),
+            Item.getItemFromBlock(Blocks.torch),
+            Item.getItemFromBlock(Blocks.netherrack),
+            Item.getItemFromBlock(Blocks.soul_sand)));
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-        defaultIcon = iconRegister.registerIcon("clayiumadditions:storage_box_clay");
+        defaultIcon = iconRegister.registerIcon("clayiumadditions:storage_box_mining");
         this.itemIcon = defaultIcon;
     }
 

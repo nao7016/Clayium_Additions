@@ -7,8 +7,8 @@ import codechicken.nei.api.API;
 public class NEIPluginClayiumAdditions {
 
     public static void registerNEI() {
-        NEIClayiumCatalyst.registerMachineCatalysts();
-        NEIClayiumAdditionsCatalyst.registerHammerCatalysts();
+        NEIIMCSender.IMCHandlerSender();
+        NEIIMCSender.IMCCatalystSender();
         registerHammer();
     }
 

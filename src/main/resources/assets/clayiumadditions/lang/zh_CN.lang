@@ -32,7 +32,13 @@ item.storage_box.name=Storage Box
 item.storage_box.tooltip.line1=The true Storage Box
 item.clay_storage_box.name=Clay Storage Box
 item.clay_storage_box.tooltip.line1=Toy Clay Box
-item.clay_storage_box.tooltip.line2=Can be stored: Clay Ball, (Compressed) Clay Blocks, Clay Ores
+item.clay_storage_box.tooltip.line2=__DETAIL__
+item.clay_storage_box.tooltip.line3=Can be stored: Clay Ball, (Compressed) Clay Blocks, Clay Ores
+item.mining_storage_box.name=Mining Storage Box
+item.mining_storage_box.tooltip.line1=Essential items for miners
+item.mining_storage_box.tooltip.line2=__DETAIL__
+item.mining_storage_box.tooltip.line3=Can be stored: Dirt, Stone, Cobblestone, Gravel, Flint, 
+item.mining_storage_box.tooltip.line4=Sand, Torch, Netherrack, Soul Sand
 
 tile.blockAutoSimpleWaterWheel.name=简易自动粘土水车
 tile.blockAutoBasicWaterWheel.name=基础自动粘土水车

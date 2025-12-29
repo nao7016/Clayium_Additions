@@ -11,6 +11,7 @@ import com.nao7016.ClayiumAdditions.item.itemClayHammer;
 import com.nao7016.ClayiumAdditions.item.itemClayMiningHammer;
 import com.nao7016.ClayiumAdditions.item.itemRawClayOre;
 import com.nao7016.ClayiumAdditions.item.storagebox.itemClayStorageBox;
+import com.nao7016.ClayiumAdditions.item.storagebox.itemMiningStorageBox;
 import com.nao7016.ClayiumAdditions.item.storagebox.itemStorageBox;
 
 import cpw.mods.fml.common.Loader;
@@ -27,6 +28,7 @@ public class CAItems {
     public static Item clayMiningHammer;
     public static Item storageBox;
     public static Item clayStorageBox;
+    public static Item miningStorageBox;
 
     private static Item register(Item item, String name) {
         GameRegistry.registerItem(item, name);
@@ -58,6 +60,7 @@ public class CAItems {
         if (Config.cfgStorageBox) {
             storageBox = register(new itemStorageBox(), "storage_box");
             clayStorageBox = register(new itemClayStorageBox(), "clay_storage_box");
+            miningStorageBox = register(new itemMiningStorageBox(), "mining_storage_box");
         }
     }
 
