@@ -21,7 +21,6 @@ public class ClientProxy extends CommonProxy {
         super.init(event);
         MinecraftForgeClient.registerItemRenderer(CAItems.storageBox, new StorageRenderer());
         MinecraftForgeClient.registerItemRenderer(CAItems.clayStorageBox, new StorageRenderer());
-        MinecraftForgeClient.registerItemRenderer(CAItems.miningStorageBox, new StorageRenderer());
         StorageKey.set();
 
         if (!(Loader.isModLoaded("inventorytweaks") || Loader.isModLoaded("VeinMiner")
