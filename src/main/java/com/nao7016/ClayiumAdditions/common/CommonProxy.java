@@ -10,11 +10,13 @@ import com.nao7016.ClayiumAdditions.compat.InventoryBogoSorter;
 import com.nao7016.ClayiumAdditions.compat.nei.NEIPluginClayiumAdditions;
 import com.nao7016.ClayiumAdditions.event.HammerEvent;
 import com.nao7016.ClayiumAdditions.event.MiningHammerEvent;
+import com.nao7016.ClayiumAdditions.event.PlayerLogin;
 import com.nao7016.ClayiumAdditions.item.storagebox.AutoCollect;
 import com.nao7016.ClayiumAdditions.network.CANetwork;
 import com.nao7016.ClayiumAdditions.recipe.CARecipes;
 import com.nao7016.ClayiumAdditions.util.UtilAddTier;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -47,6 +49,9 @@ public class CommonProxy {
         MinecraftForge.EVENT_BUS.register(new HammerEvent());
         MinecraftForge.EVENT_BUS.register(new MiningHammerEvent());
         MinecraftForge.EVENT_BUS.register(new AutoCollect());
+        FMLCommonHandler.instance()
+            .bus()
+            .register(new PlayerLogin());
 
         if (Loader.isModLoaded("NotEnoughItems")) {
             NEIPluginClayiumAdditions.registerNEI();
