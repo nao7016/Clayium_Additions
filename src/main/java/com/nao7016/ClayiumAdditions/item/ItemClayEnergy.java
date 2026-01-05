@@ -19,11 +19,11 @@ import mods.clayium.item.IClayEnergy;
 import mods.clayium.item.ItemDamaged;
 import mods.clayium.util.UtilLocale;
 
-public class itemClayEnergy extends ItemDamaged implements IClayEnergy {
+public class ItemClayEnergy extends ItemDamaged implements IClayEnergy {
 
     private final Map<Integer, IIcon> iconMap = new HashMap<>();
 
-    public itemClayEnergy() {
+    public ItemClayEnergy() {
         setUnlocalizedName("clay_energy");
         setHasSubtypes(true);
         setCreativeTab(CATabs.ca_tabs);

@@ -17,9 +17,9 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.clayium.util.UtilLocale;
 
-public class itemClayBowlEmpty extends Item {
+public class ItemClayBowlEmpty extends Item {
 
-    public itemClayBowlEmpty() {
+    public ItemClayBowlEmpty() {
         setUnlocalizedName("clay_bowl_empty");
         setCreativeTab(CATabs.ca_tabs);
     }

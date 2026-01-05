@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.world.BlockEvent;
 
 import com.nao7016.ClayiumAdditions.common.CABlocks;
-import com.nao7016.ClayiumAdditions.item.itemClayMiningHammer;
+import com.nao7016.ClayiumAdditions.item.ItemClayMiningHammer;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import mods.clayium.block.CBlocks;
@@ -17,7 +17,7 @@ public class MiningHammerEvent {
         EntityPlayer player = event.harvester;
         if (player != null && player.getHeldItem() != null
             && player.getHeldItem()
-                .getItem() instanceof itemClayMiningHammer) {
+                .getItem() instanceof ItemClayMiningHammer) {
 
             ItemStack held = player.getHeldItem();
 
@@ -33,7 +33,7 @@ public class MiningHammerEvent {
     public void onBreak(BlockEvent.BreakEvent event) {
         ItemStack held = event.getPlayer() != null ? event.getPlayer()
             .getHeldItem() : null;
-        if (held == null || !(held.getItem() instanceof itemClayMiningHammer)) return;
+        if (held == null || !(held.getItem() instanceof ItemClayMiningHammer)) return;
 
         if (event.block == CBlocks.blockClayOre || event.block == CABlocks.blockDeepslateClayOre) {
             event.setExpToDrop(0);
