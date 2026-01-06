@@ -44,7 +44,7 @@ public class CAItems {
         addGadget.addItemList("Speed2", 98, "gadget_speed2", 11);
         register(addGadget, "itemGadget");
         ItemGadgetHolder.addGadget(new GadgetSpeed());
-        if (Config.cfgSplittedEnergeticClay) {
+        if (Config.cfgSplitEnergeticClay) {
             clayEnergy = register(new ItemClayEnergy(), "clay_energy");
         }
         if (Config.cfgModeSky) {

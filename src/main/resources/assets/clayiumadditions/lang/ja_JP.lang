@@ -54,6 +54,9 @@ tile.blockDeepslateClayOre.1.name=深層高密度粘土鉱石
 tile.blockDeepslateClayOre.2.name=深層高密度粘土鉱石大
 tile.blockRawClayOre.1.name=工業用粘土の原石ブロック
 tile.blockRawClayOre.2.name=発展工業用粘土の原石ブロック
+item.itemGadget.Speed0.name=粘土ガジェット [移動速度 I]
+item.itemGadget.Speed1.name=粘土ガジェット [移動速度 II]
+item.itemGadget.Speed2.name=粘土ガジェット [移動速度 III]
 
 tile.blockBasicLimitBuffer.name=制限バッファー
 tile.blockAdvancedLimitBuffer.name=発展制限バッファー

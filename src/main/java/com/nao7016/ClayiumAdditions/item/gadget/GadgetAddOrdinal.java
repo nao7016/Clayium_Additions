@@ -23,9 +23,7 @@ public abstract class GadgetAddOrdinal extends GadgetOrdinal implements IItemGad
 
     @Override
     public boolean match(ItemStack itemStack, World world, Entity entity, int slot, boolean isCurrentItem) {
-        boolean isGadget = itemStack != null
-            && (itemStack.getItem() == CItems.itemGadget || itemStack.getItem() == CAItems.addGadget);
-        return isGadget && (this.itemNames.contains(CItems.itemGadget.getItemName(itemStack))
+        return isGadget(itemStack) && (this.itemNames.contains(CItems.itemGadget.getItemName(itemStack))
             || this.itemNames.contains(CAItems.addGadget.getItemName(itemStack)));
     }
 
@@ -34,14 +32,17 @@ public abstract class GadgetAddOrdinal extends GadgetOrdinal implements IItemGad
         int i = -1;
 
         for (ItemStack itemStack : list) {
-            if (itemStack != null
-                && (itemStack.getItem() == CItems.itemGadget || itemStack.getItem() == CAItems.addGadget)) {
+            if (isGadget(itemStack)) {
                 i = Math.max(this.itemNames.indexOf(CItems.itemGadget.getItemName(itemStack)), i);
                 i = Math.max(this.itemNames.indexOf(CAItems.addGadget.getItemName(itemStack)), i);
             }
 
             this.update(i, entity, isRemote);
         }
+    }
+
+    private boolean isGadget(ItemStack itemStack) {
+        return itemStack != null && (itemStack.getItem() == CItems.itemGadget || itemStack.getItem() == CAItems.addGadget);
     }
 
     public abstract void update(int itemIndex, Entity entity, boolean isRemote);

@@ -144,7 +144,7 @@ public class CARecipes {
     }
 
     private static void registerCESplitted() {
-        if (Config.cfgSplittedEnergeticClay) {
+        if (Config.cfgSplitEnergeticClay) {
             for (int tier = 4; tier <= 12; tier++) {
                 CRecipes.recipeCuttingMachine.addRecipe(
                     i(CBlocks.blockCompressedClay, 1, tier),

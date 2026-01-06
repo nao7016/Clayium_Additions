@@ -6,7 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 
 public class Config {
 
-    public static boolean cfgSplittedEnergeticClay;
+    public static boolean cfgSplitEnergeticClay;
     public static boolean cfgAutoWaterWheel;
     public static boolean cfgMiningHammer;
     public static boolean cfgAddMachines;
@@ -24,20 +24,20 @@ public class Config {
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
-        cfgSplittedEnergeticClay = configuration.getBoolean(
-            "EnableSplittedEnergeticClay",
+        cfgSplitEnergeticClay = configuration.getBoolean(
+            "EnableSplitEnergeticClay",
             "item",
             true,
-            "If true, Splitted Energetic Clay will be enabled.");
+            "If true, Split Energetic Clay will be enabled.");
         cfgAutoWaterWheel = configuration
             .getBoolean("EnableAutoWaterWheel", "item", true, "If true, Auto Water Wheel will be enabled.");
         cfgMiningHammer = configuration
             .getBoolean("EnableMiningHammer", "item", true, "If true, Clay Mining Hammer will be enabled.");
         cfgAddMachines = configuration.getBoolean(
-            "EnableAdditionalMachines",
+            "EnableAdditionalTieredMachines",
             "item",
             false,
-            "If true, additional tiers Machines will be enabled. (ex. tier 6,7 Condenser) Mainly for modpacks.");
+            "If true, additional tiered Machines will be enabled. (ex. tier 6,7 Condenser) Mainly for modpacks.");
         cfgStorageBox = configuration
             .getBoolean("EnableStorageBox", "storagebox", true, "If true, Storage Box will be enabled.");
         cfgSBMoreDisplay = configuration.getBoolean(

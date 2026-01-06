@@ -21,7 +21,7 @@ public class GadgetSpeed extends GadgetAddOrdinal {
 
     public void update(int itemIndex, Entity entity, boolean isRemote) {
         if (this.mod == null) {
-            this.mod = new AttributeModifier(uuid, "GadgetSpeed", 0.2D, 2);
+            this.mod = new AttributeModifier(uuid, "GadgetSpeed", 0.2D, 1);
         }
 
         if (itemIndex >= 0) {
