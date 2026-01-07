@@ -39,6 +39,9 @@ item.mining_storage_box.tooltip.line1=Essential items for miners
 item.mining_storage_box.tooltip.line2=__DETAIL__
 item.mining_storage_box.tooltip.line3=Can be stored: Dirt, Stone, Cobblestone, Gravel, Flint, 
 item.mining_storage_box.tooltip.line4=Sand, Torch, Netherrack, Soul Sand
+item.itemGadget.Speed0.name=Clay Gadget [Speed I]
+item.itemGadget.Speed1.name=Clay Gadget [Speed II]
+item.itemGadget.Speed2.name=Clay Gadget [Speed III]
 
 tile.blockAutoSimpleWaterWheel.name=Simple Auto Clay Water Wheel
 tile.blockAutoBasicWaterWheel.name=Basic Auto Clay Water Wheel

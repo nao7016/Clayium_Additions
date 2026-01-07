@@ -14,12 +14,12 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.clayium.item.ItemDamaged;
 
-public class itemRawClayOre extends ItemDamaged {
+public class ItemRawClayOre extends ItemDamaged {
 
     private IIcon[] icons = new IIcon[3];
     private static final int[] VALID_METAS = { 1, 2 };
 
-    public itemRawClayOre() {
+    public ItemRawClayOre() {
         setUnlocalizedName("raw_clay_ore");
         setCreativeTab(CATabs.ca_tabs);
         setMaxStackSize(64);
