@@ -24,11 +24,8 @@ public class Config {
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
-        cfgSplitEnergeticClay = configuration.getBoolean(
-            "EnableSplitEnergeticClay",
-            "item",
-            true,
-            "If true, Split Energetic Clay will be enabled.");
+        cfgSplitEnergeticClay = configuration
+            .getBoolean("EnableSplitEnergeticClay", "item", true, "If true, Split Energetic Clay will be enabled.");
         cfgAutoWaterWheel = configuration
             .getBoolean("EnableAutoWaterWheel", "item", true, "If true, Auto Water Wheel will be enabled.");
         cfgMiningHammer = configuration

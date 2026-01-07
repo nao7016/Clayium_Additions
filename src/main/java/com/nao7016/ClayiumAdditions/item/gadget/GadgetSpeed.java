@@ -7,12 +7,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+
 public class GadgetSpeed extends GadgetAddOrdinal {
+
     Logger log = LogManager.getLogger();
 
     private AttributeModifier mod;

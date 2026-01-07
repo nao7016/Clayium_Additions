@@ -23,8 +23,10 @@ public abstract class GadgetAddOrdinal extends GadgetOrdinal implements IItemGad
 
     @Override
     public boolean match(ItemStack itemStack, World world, Entity entity, int slot, boolean isCurrentItem) {
-        return isGadget(itemStack) && ( /*this.itemNames.contains(CItems.itemGadget.getItemName(itemStack))
-            ||  */ this.itemNames.contains(CAItems.addGadget.getItemName(itemStack)));
+        return isGadget(itemStack) && ( /*
+                                         * this.itemNames.contains(CItems.itemGadget.getItemName(itemStack))
+                                         * ||
+                                         */ this.itemNames.contains(CAItems.addGadget.getItemName(itemStack)));
     }
 
     @Override
@@ -42,7 +44,8 @@ public abstract class GadgetAddOrdinal extends GadgetOrdinal implements IItemGad
     }
 
     private boolean isGadget(ItemStack itemStack) {
-        return itemStack != null && (itemStack.getItem() == CItems.itemGadget || itemStack.getItem() == CAItems.addGadget);
+        return itemStack != null
+            && (itemStack.getItem() == CItems.itemGadget || itemStack.getItem() == CAItems.addGadget);
     }
 
     public abstract void update(int itemIndex, Entity entity, boolean isRemote);

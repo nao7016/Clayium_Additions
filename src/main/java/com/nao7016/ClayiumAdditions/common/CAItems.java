@@ -4,6 +4,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.nao7016.ClayiumAdditions.item.*;
 import com.nao7016.ClayiumAdditions.item.ItemClayBowl;
 import com.nao7016.ClayiumAdditions.item.gadget.GadgetSpeed;
@@ -16,8 +19,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import ganymedes01.etfuturum.api.RawOreRegistry;
 import mods.clayium.item.ItemGadget;
 import mods.clayium.item.ItemGadgetHolder;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class CAItems {
 
