@@ -9,8 +9,11 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class GadgetSpeed extends GadgetAddOrdinal {
+    Logger log = LogManager.getLogger();
 
     private AttributeModifier mod;
     private static UUID uuid = UUID.fromString("400d58e3-62dc-7c2d-e4b4-e3d3348af325");
@@ -19,9 +22,12 @@ public class GadgetSpeed extends GadgetAddOrdinal {
         super(new String[] { "Speed0", "Speed1", "Speed2" });
     }
 
+    @Override
     public void update(int itemIndex, Entity entity, boolean isRemote) {
+        // log.info("[debug]: [GadgetSpeed] update called with itemIndex: {}", itemIndex);
         if (this.mod == null) {
             this.mod = new AttributeModifier(uuid, "GadgetSpeed", 0.2D, 1);
+            // log.info("[debug]: [GadgetSpeed] GadgetSpeed modified: {}", this.mod);
         }
 
         if (itemIndex >= 0) {
@@ -36,6 +42,7 @@ public class GadgetSpeed extends GadgetAddOrdinal {
                         this.mod.getOperation()));
                 ((EntityLivingBase) entity).getAttributeMap()
                     .applyAttributeModifiers(map);
+                // log.info("[debug]: [GadgetSpeed] GadgetSpeed modified: {}", map);
             }
         } else if (entity instanceof EntityLivingBase) {
             Multimap map = HashMultimap.create();

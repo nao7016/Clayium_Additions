@@ -23,8 +23,8 @@ public abstract class GadgetAddOrdinal extends GadgetOrdinal implements IItemGad
 
     @Override
     public boolean match(ItemStack itemStack, World world, Entity entity, int slot, boolean isCurrentItem) {
-        return isGadget(itemStack) && (this.itemNames.contains(CItems.itemGadget.getItemName(itemStack))
-            || this.itemNames.contains(CAItems.addGadget.getItemName(itemStack)));
+        return isGadget(itemStack) && ( /*this.itemNames.contains(CItems.itemGadget.getItemName(itemStack))
+            ||  */ this.itemNames.contains(CAItems.addGadget.getItemName(itemStack)));
     }
 
     @Override
@@ -33,7 +33,7 @@ public abstract class GadgetAddOrdinal extends GadgetOrdinal implements IItemGad
 
         for (ItemStack itemStack : list) {
             if (isGadget(itemStack)) {
-                i = Math.max(this.itemNames.indexOf(CItems.itemGadget.getItemName(itemStack)), i);
+                // i = Math.max(this.itemNames.indexOf(CItems.itemGadget.getItemName(itemStack)), i);
                 i = Math.max(this.itemNames.indexOf(CAItems.addGadget.getItemName(itemStack)), i);
             }
 

@@ -16,9 +16,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import ganymedes01.etfuturum.api.RawOreRegistry;
 import mods.clayium.item.ItemGadget;
 import mods.clayium.item.ItemGadgetHolder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CAItems {
 
+    private static final Logger log = LogManager.getLogger(CAItems.class);
     public static Item clayEnergy;
     public static Item clayBowlEmpty;
     public static Item clayBowl;
@@ -44,6 +47,7 @@ public class CAItems {
         addGadget.addItemList("Speed2", 98, "gadget_speed2", 11);
         register(addGadget, "itemGadget");
         ItemGadgetHolder.addGadget(new GadgetSpeed());
+        // log.info("[debug]: [CAItems] GadgetSpeed added to ItemGadgetHolder");
         if (Config.cfgSplitEnergeticClay) {
             clayEnergy = register(new ItemClayEnergy(), "clay_energy");
         }
