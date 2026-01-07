@@ -7,18 +7,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
 public class GadgetSpeed extends GadgetAddOrdinal {
 
-    Logger log = LogManager.getLogger();
-
     private AttributeModifier mod;
     private static UUID uuid = UUID.fromString("400d58e3-62dc-7c2d-e4b4-e3d3348af325");
+    private int previousIndex = -1;
 
     // リストのインデックスによって効果値を変更させる
     public GadgetSpeed() {
@@ -27,11 +23,15 @@ public class GadgetSpeed extends GadgetAddOrdinal {
 
     @Override
     public void update(int itemIndex, Entity entity, boolean isRemote) {
-        // log.info("[debug]: [GadgetSpeed] update called with itemIndex: {}", itemIndex);
+        if (isRemote) return;
+
+        // 過剰な効果の付け外しを抑制
+        if (itemIndex == previousIndex) return;
+        previousIndex = itemIndex;
+
         // AttributeModifierがnullの場合、新たに作成
         if (this.mod == null) {
             this.mod = new AttributeModifier(uuid, "GadgetSpeed", 0.2D, 1);
-            // log.info("[debug]: [GadgetSpeed] GadgetSpeed modified: {}", this.mod);
         }
 
         // インデックスに応じて効果を適用または削除
@@ -45,18 +45,16 @@ public class GadgetSpeed extends GadgetAddOrdinal {
                     new AttributeModifier(
                         uuid,
                         this.mod.getName(),
-                        this.mod.getAmount() * (double) (itemIndex + 1),
+                        this.mod.getAmount() * Math.pow(2, itemIndex),
                         this.mod.getOperation()));
                 ((EntityLivingBase) entity).getAttributeMap()
                     .applyAttributeModifiers(map);
-                // log.info("[debug]: [GadgetSpeed] GadgetSpeed modified: {}", map);
             }
         } else if (entity instanceof EntityLivingBase) {
             Multimap map = HashMultimap.create();
             map.put(SharedMonsterAttributes.movementSpeed.getAttributeUnlocalizedName(), this.mod);
             ((EntityLivingBase) entity).getAttributeMap()
                 .removeAttributeModifiers(map);
-            System.out.println("[debug]: AttributeModifiers removed: " + map);
         }
 
     }

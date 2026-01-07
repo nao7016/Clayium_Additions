@@ -4,9 +4,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.nao7016.ClayiumAdditions.item.*;
 import com.nao7016.ClayiumAdditions.item.ItemClayBowl;
 import com.nao7016.ClayiumAdditions.item.gadget.GadgetSpeed;
@@ -21,7 +18,6 @@ import mods.clayium.item.ItemGadgetHolder;
 
 public class CAItems {
 
-    private static final Logger log = LogManager.getLogger(CAItems.class);
     public static Item clayEnergy;
     public static Item clayBowlEmpty;
     public static Item clayBowl;
@@ -47,7 +43,6 @@ public class CAItems {
         addGadget.addItemList("Speed2", 98, "gadget_speed2", 11);
         register(addGadget, "itemGadget");
         ItemGadgetHolder.addGadget(new GadgetSpeed());
-        // log.info("[debug]: [CAItems] GadgetSpeed added to ItemGadgetHolder");
         if (Config.cfgSplitEnergeticClay) {
             clayEnergy = register(new ItemClayEnergy(), "clay_energy");
         }
