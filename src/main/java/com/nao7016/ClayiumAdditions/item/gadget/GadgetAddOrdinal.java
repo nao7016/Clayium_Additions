@@ -17,10 +17,12 @@ public abstract class GadgetAddOrdinal extends GadgetOrdinal implements IItemGad
 
     public List<String> itemNames;
 
+    // アイテム名とリスト(+インデックス)を受け取るコンストラクタ
     public GadgetAddOrdinal(String... itemNames) {
         this.itemNames = Arrays.asList(itemNames);
     }
 
+    // 粘土ガジェットかどうかを判定する
     @Override
     public boolean match(ItemStack itemStack, World world, Entity entity, int slot, boolean isCurrentItem) {
         return isGadget(itemStack) && ( /*
@@ -29,6 +31,8 @@ public abstract class GadgetAddOrdinal extends GadgetOrdinal implements IItemGad
                                          */ this.itemNames.contains(CAItems.addGadget.getItemName(itemStack)));
     }
 
+    // 元のメソッドではCItems.itemGadgetを対象にupdateを呼び出し
+    // OverrideしてaddGadgetを対象にした
     @Override
     public void update(List<ItemStack> list, Entity entity, boolean isRemote) {
         int i = -1;
@@ -43,10 +47,13 @@ public abstract class GadgetAddOrdinal extends GadgetOrdinal implements IItemGad
         }
     }
 
+    // 粘土ガジェットかどうかを判定するヘルパーメソッド
     private boolean isGadget(ItemStack itemStack) {
         return itemStack != null
             && (itemStack.getItem() == CItems.itemGadget || itemStack.getItem() == CAItems.addGadget);
     }
 
+    // インデックス、Entity、isRemoteを受け取る抽象メソッド
+    @Override
     public abstract void update(int itemIndex, Entity entity, boolean isRemote);
 }

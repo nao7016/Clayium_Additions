@@ -17,7 +17,6 @@ import com.nao7016.ClayiumAdditions.item.storagebox.itemStorageBox;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import ganymedes01.etfuturum.api.RawOreRegistry;
-import mods.clayium.item.ItemGadget;
 import mods.clayium.item.ItemGadgetHolder;
 
 public class CAItems {
@@ -32,7 +31,7 @@ public class CAItems {
     public static Item storageBox;
     public static Item clayStorageBox;
     public static Item miningStorageBox;
-    public static ItemGadget addGadget;
+    public static ItemAddGadget addGadget;
 
     private static Item register(Item item, String name) {
         GameRegistry.registerItem(item, name);
