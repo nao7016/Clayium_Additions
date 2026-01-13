@@ -46,8 +46,8 @@ public class CAItems {
         addGadget = (ItemAddGadget) (new ItemAddGadget()).setCreativeTab(CATabs.ca_tabs)
             .setUnlocalizedName("itemGadget")
             .setMaxStackSize(1);
-        addGadget.addItemList("Speed0", 96, "gadget_speed0", 7);
-        addGadget.addItemList("Speed1", 97, "gadget_speed1", 9);
+        addGadget.addItemList("Speed0", 96, "gadget_speed0", 6);
+        addGadget.addItemList("Speed1", 97, "gadget_speed1", 8);
         addGadget.addItemList("Speed2", 98, "gadget_speed2", 11);
         // addGadget.addItemList("NightVision", 112, "gadget_nightvision", 7);
         register(addGadget, "itemGadget");

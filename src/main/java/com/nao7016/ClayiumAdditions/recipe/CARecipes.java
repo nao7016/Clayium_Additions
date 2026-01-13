@@ -346,6 +346,29 @@ public class CARecipes {
                 e(9),
                 1200L);
         }
+
+        // Speed Gadget
+        CRecipes.recipeAssembler.addRecipe(
+            oo(CItems.itemGadget.get("Blank"), s(CItems.itemMisc.get("AdvancedCircuit"), 4)),
+            0,
+            4,
+            ii(CAItems.addGadget.get("Speed0")),
+            e(5),
+            120L);
+        CRecipes.recipeAssembler.addRecipe(
+            oo(CAItems.addGadget.get("Speed0"), s(CItems.itemMisc.get("ClayCore"), 4)),
+            0,
+            6,
+            ii(CAItems.addGadget.get("Speed1")),
+            e(8),
+            120L);
+        CRecipes.recipeAssembler.addRecipe(
+            oo(CAItems.addGadget.get("Speed1"), s(CItems.itemMisc.get("ClaySoul"), 4)),
+            0,
+            10,
+            ii(CAItems.addGadget.get("Speed2")),
+            e(11),
+            120L);
     }
 
     private static void registerBlastFurnace() {
