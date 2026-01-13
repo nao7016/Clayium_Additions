@@ -24,6 +24,7 @@ public class CAItems {
     public static Item rawClayOre;
     public static Item clayHammer;
     public static Item clayMiningHammer;
+    public static Item clay3x3Hammer;
     public static Item storageBox;
     public static Item clayStorageBox;
     public static Item miningStorageBox;
@@ -63,6 +64,7 @@ public class CAItems {
         }
         if (Config.cfgMiningHammer) {
             clayMiningHammer = register(new ItemClayMiningHammer(), "clay_mining_hammer");
+            clay3x3Hammer = register(new Item3x3Hammer(), "clay_3x3_hammer");
         }
         if (Config.cfgStorageBox) {
             storageBox = register(new itemStorageBox(), "storage_box");
