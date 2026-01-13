@@ -4,8 +4,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-import com.nao7016.ClayiumAdditions.item.*;
+import com.nao7016.ClayiumAdditions.item.Item3x3Hammer;
+import com.nao7016.ClayiumAdditions.item.ItemAddGadget;
 import com.nao7016.ClayiumAdditions.item.ItemClayBowl;
+import com.nao7016.ClayiumAdditions.item.ItemClayBowlEmpty;
+import com.nao7016.ClayiumAdditions.item.ItemClayEnergy;
+import com.nao7016.ClayiumAdditions.item.ItemClayHammer;
+import com.nao7016.ClayiumAdditions.item.ItemClayMiningHammer;
+import com.nao7016.ClayiumAdditions.item.ItemRawClayOre;
 import com.nao7016.ClayiumAdditions.item.gadget.GadgetNightVision;
 import com.nao7016.ClayiumAdditions.item.gadget.GadgetSpeed;
 import com.nao7016.ClayiumAdditions.item.storagebox.itemClayStorageBox;
