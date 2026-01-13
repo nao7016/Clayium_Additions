@@ -29,7 +29,7 @@ public class CARecipes {
     public static void register() {
         registerCrafting();
         registerHammer();
-        registerCESplitted();
+        registerCESplit();
         registerCMachines();
         registerGrinder();
         registerTransformer();
@@ -78,6 +78,15 @@ public class CARecipes {
                 CMaterials.get(CMaterials.IND_CLAY, CMaterials.BLOCK),
                 'C',
                 CMaterials.get(CMaterials.DENSE_CLAY, CMaterials.CYLINDER),
+                'S',
+                CMaterials.get(CMaterials.DENSE_CLAY, CMaterials.STICK));
+            GameRegistry.addRecipe(
+                i(CAItems.clay3x3Hammer),
+                "CCC",
+                " S ",
+                " S ",
+                'C',
+                CMaterials.get(CMaterials.IND_CLAY, CMaterials.BLOCK),
                 'S',
                 CMaterials.get(CMaterials.DENSE_CLAY, CMaterials.STICK));
         }
@@ -143,8 +152,8 @@ public class CARecipes {
         }
     }
 
-    private static void registerCESplitted() {
-        if (Config.cfgSplittedEnergeticClay) {
+    private static void registerCESplit() {
+        if (Config.cfgSplitEnergeticClay) {
             for (int tier = 4; tier <= 12; tier++) {
                 CRecipes.recipeCuttingMachine.addRecipe(
                     i(CBlocks.blockCompressedClay, 1, tier),

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import net.minecraft.item.ItemStack;
 
-import com.nao7016.ClayiumAdditions.item.itemClayHammer;
+import com.nao7016.ClayiumAdditions.item.ItemClayHammer;
 import com.nao7016.ClayiumAdditions.recipe.CrushRecipes;
 import com.nao7016.ClayiumAdditions.util.CrushList;
 
@@ -45,7 +45,7 @@ public class NEICrushHandler extends NEITemplate {
     @Override
     public void loadUsageRecipes(ItemStack ingredient) {
         for (CrushList recipe : CrushRecipes.getAll()) {
-            if (recipe.matches(ingredient) || ingredient.getItem() instanceof itemClayHammer) {
+            if (recipe.matches(ingredient) || ingredient.getItem() instanceof ItemClayHammer) {
                 arecipes.add(new CachedCrushRecipe(recipe));
             }
         }

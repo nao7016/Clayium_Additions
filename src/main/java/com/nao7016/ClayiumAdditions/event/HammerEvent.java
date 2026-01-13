@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.world.BlockEvent;
 
-import com.nao7016.ClayiumAdditions.item.itemClayHammer;
+import com.nao7016.ClayiumAdditions.item.ItemClayHammer;
 import com.nao7016.ClayiumAdditions.recipe.CrushRecipes;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -16,7 +16,7 @@ public class HammerEvent {
         EntityPlayer player = event.harvester;
         if (player != null && player.getHeldItem() != null
             && player.getHeldItem()
-                .getItem() instanceof itemClayHammer) {
+                .getItem() instanceof ItemClayHammer) {
 
             ItemStack drop = new ItemStack(event.block);
             ItemStack result = CrushRecipes.getResult(drop);

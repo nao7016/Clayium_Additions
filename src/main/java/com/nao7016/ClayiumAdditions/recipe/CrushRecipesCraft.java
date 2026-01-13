@@ -5,8 +5,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
-import com.nao7016.ClayiumAdditions.item.itemClayHammer;
+import com.nao7016.ClayiumAdditions.item.ItemClayHammer;
 
+@Deprecated
 public class CrushRecipesCraft implements IRecipe {
 
     private final ItemStack input;
@@ -31,7 +32,7 @@ public class CrushRecipesCraft implements IRecipe {
         for (int i = 0; i < inv.getSizeInventory(); i++) {
             ItemStack stack = inv.getStackInSlot(i);
             if (stack != null) {
-                if (stack.getItem() instanceof itemClayHammer) {
+                if (stack.getItem() instanceof ItemClayHammer) {
                     hammer = true;
                 } else if (stack.isItemEqual(input)) {
                     matchedInput = true;
