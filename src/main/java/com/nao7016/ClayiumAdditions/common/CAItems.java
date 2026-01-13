@@ -6,6 +6,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.nao7016.ClayiumAdditions.item.*;
 import com.nao7016.ClayiumAdditions.item.ItemClayBowl;
+import com.nao7016.ClayiumAdditions.item.gadget.GadgetNightVision;
 import com.nao7016.ClayiumAdditions.item.gadget.GadgetSpeed;
 import com.nao7016.ClayiumAdditions.item.storagebox.itemClayStorageBox;
 import com.nao7016.ClayiumAdditions.item.storagebox.itemMiningStorageBox;
@@ -42,8 +43,10 @@ public class CAItems {
         addGadget.addItemList("Speed0", 96, "gadget_speed0", 7);
         addGadget.addItemList("Speed1", 97, "gadget_speed1", 9);
         addGadget.addItemList("Speed2", 98, "gadget_speed2", 11);
+        // addGadget.addItemList("NightVision", 112, "gadget_nightvision", 7);
         register(addGadget, "itemGadget");
         ItemGadgetHolder.addGadget(new GadgetSpeed());
+        ItemGadgetHolder.addGadget(new GadgetNightVision());
         if (Config.cfgSplitEnergeticClay) {
             clayEnergy = register(new ItemClayEnergy(), "clay_energy");
         }
