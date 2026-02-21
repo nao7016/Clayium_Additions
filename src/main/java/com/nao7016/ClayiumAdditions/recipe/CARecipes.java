@@ -335,7 +335,7 @@ public class CARecipes {
                 ii(CItems.itemMisc.get("PrecisionCircuit"), CMaterials.get(CMaterials.EXC_CLAY, CMaterials.DUST, 8)),
                 0,
                 10,
-                ii(CItems.itemMisc.get("IntegratedCircuit")),
+                ii(s(CItems.itemMisc.get("IntegratedCircuit"), 2)),
                 6000000L,
                 20L);
             CRecipes.recipeAssembler.addRecipe(
@@ -368,6 +368,36 @@ public class CARecipes {
             10,
             ii(CAItems.addGadget.get("Speed2")),
             e(11),
+            120L);
+
+        CRecipes.recipeAssembler.addRecipe(
+            oo(CItems.itemGadget.get("Blank"), i(Items.diamond_boots, 1)),
+            0,
+            6,
+            ii(CAItems.addGadget.get("StepAssist")),
+            e(7),
+            120L);
+
+        CRecipes.recipeAssembler.addRecipe(
+            oo(CItems.itemGadget.get("Blank"), i(Items.feather, 4)),
+            0,
+            4,
+            ii(CAItems.addGadget.get("Jumping1")),
+            e(6),
+            120L);
+        CRecipes.recipeAssembler.addRecipe(
+            oo(CAItems.addGadget.get("Jumping1"), i(Items.feather, 16)),
+            0,
+            6,
+            ii(CAItems.addGadget.get("Jumping2")),
+            e(8),
+            120L);
+        CRecipes.recipeAssembler.addRecipe(
+            oo(CAItems.addGadget.get("Jumping2"), i(Items.feather, 64)),
+            0,
+            6,
+            ii(CAItems.addGadget.get("Jumping3")),
+            e(9),
             120L);
     }
 
