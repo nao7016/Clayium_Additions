@@ -44,6 +44,10 @@ item.mining_storage_box.tooltip.line4=Sand, Torch, Netherrack, Soul Sand
 item.itemGadget.Speed0.name=Clay Gadget [Speed I]
 item.itemGadget.Speed1.name=Clay Gadget [Speed II]
 item.itemGadget.Speed2.name=Clay Gadget [Speed III]
+item.itemGadget.StepAssist.name=Clay Gadget [Step Assist]
+item.itemGadget.Jumping0.name=Clay Gadget [Jumping I]
+item.itemGadget.Jumping1.name=Clay Gadget [Jumping II]
+item.itemGadget.Jumping2.name=Clay Gadget [Jumping III]
 
 tile.blockAutoSimpleWaterWheel.name=Simple Auto Clay Water Wheel
 tile.blockAutoBasicWaterWheel.name=Basic Auto Clay Water Wheel

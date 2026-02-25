@@ -53,9 +53,9 @@ public class CAItems {
         addGadget.addItemList("Speed2", 98, "gadget_speed2", 11);
         // addGadget.addItemList("NightVision", 112, "gadget_nightvision", 7);
         addGadget.addItemList("StepAssist", 128, "gadget_stepassist", 7);
-        addGadget.addItemList("Jumping1", 144, "gadget_jumping1", 6);
-        addGadget.addItemList("Jumping2", 145, "gadget_jumping2", 8);
-        addGadget.addItemList("Jumping3", 146, "gadget_jumping3", 9);
+        addGadget.addItemList("Jumping0", 144, "gadget_jumping0", 6);
+        addGadget.addItemList("Jumping1", 145, "gadget_jumping1", 8);
+        addGadget.addItemList("Jumping2", 146, "gadget_jumping2", 9);
         register(addGadget, "itemGadget");
         ItemGadgetHolder.addGadget(new GadgetSpeed());
         ItemGadgetHolder.addGadget(new GadgetNightVision());

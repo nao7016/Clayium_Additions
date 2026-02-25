@@ -44,6 +44,10 @@ item.mining_storage_box.tooltip.line4=砂, 松明, ネザーラック, ソウル
 item.itemGadget.Speed0.name=粘土ガジェット [移動速度 I]
 item.itemGadget.Speed1.name=粘土ガジェット [移動速度 II]
 item.itemGadget.Speed2.name=粘土ガジェット [移動速度 III]
+item.itemGadget.StepAssist.name=粘土ガジェット [ステップアシスト]
+item.itemGadget.Jumping0.name=粘土ガジェット [跳躍 I]
+item.itemGadget.Jumping1.name=粘土ガジェット [跳躍 II]
+item.itemGadget.Jumping2.name=粘土ガジェット [跳躍 III]
 
 tile.blockAutoSimpleWaterWheel.name=簡易自動粘土水車
 tile.blockAutoBasicWaterWheel.name=基本自動粘土水車

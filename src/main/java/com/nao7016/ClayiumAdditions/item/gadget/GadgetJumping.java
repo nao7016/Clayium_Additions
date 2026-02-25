@@ -10,7 +10,7 @@ public class GadgetJumping extends GadgetAddOrdinal {
     private int previousIndex = -1;
 
     public GadgetJumping() {
-        super(new String[] { "Jumping1", "Jumping2", "Jumping3" });
+        super(new String[] { "Jumping0", "Jumping1", "Jumping2" });
     }
 
     @Override

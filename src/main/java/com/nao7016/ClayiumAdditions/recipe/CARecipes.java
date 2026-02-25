@@ -318,7 +318,7 @@ public class CARecipes {
             }
         }
 
-        // Buffer One
+        // Limit Buffer
         for (int i = 4; i <= 13; i++) {
             CRecipes.recipeAssembler.addRecipe(
                 ii(i(CBlocks.blocksBuffer[i]), CMaterials.get(getMaterial(i), CMaterials.PLATE)),
@@ -335,7 +335,7 @@ public class CARecipes {
                 ii(CItems.itemMisc.get("PrecisionCircuit"), CMaterials.get(CMaterials.EXC_CLAY, CMaterials.DUST, 8)),
                 0,
                 10,
-                ii(s(CItems.itemMisc.get("IntegratedCircuit"), 2)),
+                ii(s(CItems.itemMisc.get("IntegratedCircuit"), 3)),
                 6000000L,
                 20L);
             CRecipes.recipeAssembler.addRecipe(
@@ -382,21 +382,21 @@ public class CARecipes {
             oo(CItems.itemGadget.get("Blank"), i(Items.feather, 4)),
             0,
             4,
-            ii(CAItems.addGadget.get("Jumping1")),
+            ii(CAItems.addGadget.get("Jumping0")),
             e(6),
             120L);
         CRecipes.recipeAssembler.addRecipe(
-            oo(CAItems.addGadget.get("Jumping1"), i(Items.feather, 16)),
+            oo(CAItems.addGadget.get("Jumping0"), i(Items.feather, 16)),
             0,
             6,
-            ii(CAItems.addGadget.get("Jumping2")),
+            ii(CAItems.addGadget.get("Jumping1")),
             e(8),
             120L);
         CRecipes.recipeAssembler.addRecipe(
-            oo(CAItems.addGadget.get("Jumping2"), i(Items.feather, 64)),
+            oo(CAItems.addGadget.get("Jumping1"), i(Items.feather, 64)),
             0,
             6,
-            ii(CAItems.addGadget.get("Jumping3")),
+            ii(CAItems.addGadget.get("Jumping2")),
             e(9),
             120L);
     }
