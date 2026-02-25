@@ -30,7 +30,7 @@ public class RawClayOreBlock extends BlockDamaged {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> list) {
+    public void getSubBlocks(Item item, CreativeTabs tab, List list) {
         for (int meta : VALID_METAS) {
             list.add(new ItemStack(item, 1, meta));
         }

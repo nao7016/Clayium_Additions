@@ -15,7 +15,7 @@ public class TileAutoWaterWheel extends TileWaterWheel {
     private static final Random random = new Random();
 
     @Override
-    public void func_145845_h() {
+    public void updateEntity() {
         if (!this.worldObj.isRemote && this.progressEfficiency < 500) {
             this.progressEfficiency = 1000;
             this.setSyncFlag(); // クライアントと同期
