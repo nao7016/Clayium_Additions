@@ -12,8 +12,10 @@ import com.nao7016.ClayiumAdditions.item.ItemClayEnergy;
 import com.nao7016.ClayiumAdditions.item.ItemClayHammer;
 import com.nao7016.ClayiumAdditions.item.ItemClayMiningHammer;
 import com.nao7016.ClayiumAdditions.item.ItemRawClayOre;
+import com.nao7016.ClayiumAdditions.item.gadget.GadgetJumping;
 import com.nao7016.ClayiumAdditions.item.gadget.GadgetNightVision;
 import com.nao7016.ClayiumAdditions.item.gadget.GadgetSpeed;
+import com.nao7016.ClayiumAdditions.item.gadget.GadgetStepAssist;
 import com.nao7016.ClayiumAdditions.item.storagebox.itemClayStorageBox;
 import com.nao7016.ClayiumAdditions.item.storagebox.itemMiningStorageBox;
 import com.nao7016.ClayiumAdditions.item.storagebox.itemStorageBox;
@@ -50,9 +52,15 @@ public class CAItems {
         addGadget.addItemList("Speed1", 97, "gadget_speed1", 8);
         addGadget.addItemList("Speed2", 98, "gadget_speed2", 11);
         // addGadget.addItemList("NightVision", 112, "gadget_nightvision", 7);
+        addGadget.addItemList("StepAssist", 128, "gadget_stepassist", 7);
+        addGadget.addItemList("Jumping0", 144, "gadget_jumping0", 6);
+        addGadget.addItemList("Jumping1", 145, "gadget_jumping1", 8);
+        addGadget.addItemList("Jumping2", 146, "gadget_jumping2", 9);
         register(addGadget, "itemGadget");
         ItemGadgetHolder.addGadget(new GadgetSpeed());
         ItemGadgetHolder.addGadget(new GadgetNightVision());
+        ItemGadgetHolder.addGadget(new GadgetStepAssist());
+        ItemGadgetHolder.addGadget(new GadgetJumping());
         if (Config.cfgSplitEnergeticClay) {
             clayEnergy = register(new ItemClayEnergy(), "clay_energy");
         }
